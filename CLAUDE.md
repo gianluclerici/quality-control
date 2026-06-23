@@ -1,3 +1,11 @@
+## Eyeshot (devDept)
+
+This project uses the devDept **Eyeshot** geometry/visualization library.
+
+Rules:
+- **Whenever you need information about Eyeshot (APIs, signatures, behavior, capabilities), consult the Eyeshot MCP FIRST** (server `eyeshot`, configured in `.mcp.json` / `.vscode/mcp.json`, url `https://devdept.com/mcp`). Prefer it over web search or guessing.
+- If the `eyeshot` MCP tools are not available in the session, say so, and fall back to the bundled API docs shipped with the package (`~/.nuget/packages/devdept.eyeshot/<version>/lib/net8.0/devDept.Eyeshot.v2025.xml`) — the authoritative offline reference.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
