@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- WinForms shell over the headless Core. Run the GUI here; run headless via the Generator. -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Ficep.QualityControl.App</RootNamespace>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Eyeshot WinForms viewport control (Design). Pulls devDept.Eyeshot transitively. -->
+    <PackageReference Include="devDept.Eyeshot.Control.Win" Version="2025.3.437" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- All quality-control logic lives in Core; this project is only the viewport shell. -->
+    <ProjectReference Include="..\Ficep.QualityControl.Core\Ficep.QualityControl.Core.csproj" />
+  </ItemGroup>
+
+</Project>
