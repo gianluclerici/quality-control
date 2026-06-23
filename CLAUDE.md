@@ -1,3 +1,17 @@
+## Project documentation
+
+`docs/ARCHITECTURE.md` is the living reference for this project: architecture, decisional choices (why
+one algorithm over another), the roadmap with step status, and a class-by-class / function-by-function
+catalogue.
+
+Rule:
+
+- **Keep `docs/ARCHITECTURE.md` up to date.** After completing a roadmap step or any significant change
+  (new/removed/renamed class or function, a design or algorithm decision, a roadmap status change),
+  update the relevant sections of that document in the same change — the roadmap table (§3), the
+  decisions (§4–§5), and the class/function reference (§6). Add a short rationale for new algorithmic
+  choices. Update the "Ultimo aggiornamento" date.
+
 ## C# coding rules
 
 - **Never use `goto`** in code. Use loops, flags, early `return`/`break`/`continue`, or extracted methods instead.
