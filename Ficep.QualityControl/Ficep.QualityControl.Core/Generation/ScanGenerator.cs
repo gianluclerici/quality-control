@@ -66,7 +66,17 @@ public sealed class ScanGenerator
 
         var noise = new GaussianRangeNoise(options.SigmaMm, noiseSeed);
         IReadOnlyList<SurfaceSample> noisy = noise.Apply(clean);
-
+        
+        string? plyDir = Path.GetDirectoryName(plyPath),
+               plyname = Path.GetFileNameWithoutExtension(plyPath),
+               plyExt = Path.GetExtension(plyPath);
+        
+        if (plyDir != null && plyname != null && plyExt != null)
+        {
+            string plyCleanPath = Path.Combine(plyDir, plyname + "_clean" + plyExt);
+            _cloudWriter.Write(plyCleanPath, clean);    
+        }
+        
         _cloudWriter.Write(plyPath, noisy);
         _brepExporter.Export(stepPath, brep);
 
