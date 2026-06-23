@@ -188,6 +188,17 @@ banda `[−t, +t]` e mostrando la `Legend` del viewport. **Perché:** è l'idiom
 bin uniformi → la nostra binnatura uniforme combacia con la barra. La nuvola colorata è un
 `PointCloud` *Multicolor* (`PointRGB` per punto), mentre la nuvola monocroma resta un `FastPointCloud`.
 
+**Aggancio della legenda (control costruito in codice).** Il sample `ComputeDistance` usa
+`design1.Legends[0]`, che esiste perché il control è creato dal *designer* WinForms. Il nostro `Design` è
+costruito in codice, quindi — esattamente come per `Viewports` (vedi 5.12) — la collezione di legende parte
+**vuota** e la mappa colore non avrebbe alcuna chiave visibile. Inoltre in questa build di Eyeshot
+(2025.3.437) `Workspace.Legends` è **sola lettura**: l'array assegnabile è `Viewport.Legends`. Perciò
+`MainForm.EnsureLegend()` crea una `Legend` *on-demand* e la aggancia al viewport
+(`Viewports[0].Legends = new[]{ legend }`), nascosta finché non si misura. I default di `new Legend()` sono
+adeguati (posizione 24,24; dimensione auto dagli item; `FormatString` di default `{0:+0.###;-0.###;0}` che
+mostra già i valori **con segno**, coerente con la convenzione + esterno / − interno), quindi si impostano
+solo `Items`, range (`SetRange`), `Title`/`Subtitle` e `Visible`.
+
 ---
 
 ## 6. Riferimento **classi e funzioni**
@@ -327,7 +338,9 @@ outlier).
   - `RunMeasure()` → `DeviationMeasurement.Measure` con `alignment` e banda; colora la nuvola
     (`PointCloud` Multicolor + `Legend`), scrive verdetto + statistiche in statusbar.
   - *(interni)* `EnsureNominalSurface` (tassella i Breps, chord 0.2 mm, `FromMeshes`),
-    `BuildFastCloud`, `BuildColouredCloud` (mappa deviazione→`Legend.RedToBlue9`), `ShowCloud`
+    `BuildFastCloud`, `BuildColouredCloud` (mappa deviazione→`Legend.RedToBlue9`),
+    `EnsureLegend` (crea e aggancia la `Legend` al viewport alla prima misura, vedi 5.16) /
+    `HideLegend` (la nasconde quando si carica/allinea/svuota), `ShowCloud`
     (sostituisce l'entità nuvola), `ClearScene()`, `RunGuarded(action)` (errori con MessageBox).
 
 ---

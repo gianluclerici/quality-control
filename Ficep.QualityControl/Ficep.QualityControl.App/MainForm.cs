@@ -39,6 +39,7 @@ public sealed class MainForm : Form
     private NominalSurface? _nominal;                       // built lazily from _nominalBreps
     private RigidTransform _alignment = RigidTransform.Identity;
     private Entity? _cloudEntity;                           // the currently displayed scan cloud
+    private Legend? _legend;                                // viewport colour-bar key, attached lazily
 
     public MainForm()
     {
@@ -304,16 +305,12 @@ public sealed class MainForm : Form
     private PointCloud BuildColouredCloud(DeviationReport report, ToleranceBand band)
     {
         var items = Legend.RedToBlue9;
-        Legend? legend = EnsureLegend();
-        if (legend is not null)
-        {
-            legend.Items = items;
-            legend.Visible = true;
-            legend.Min = band.LowerMm;
-            legend.Max = band.UpperMm;
-            legend.Title = "Deviazione";
-            legend.Subtitle = "mm (+ esterno / − interno)";
-        }
+        Legend legend = EnsureLegend();
+        legend.Items = items;
+        legend.SetRange(band.LowerMm, band.UpperMm); // Min/Max + recompute the per-item Values
+        legend.Title = "Deviazione";
+        legend.Subtitle = "mm  (+ esterno / − interno)";
+        legend.Visible = true; // the default FormatString already shows signed mm (+/−)
 
         Color[] palette = new Color[items.Length];
         for (int i = 0; i < palette.Length; i++)
@@ -333,17 +330,28 @@ public sealed class MainForm : Form
         return cloud;
     }
 
-    private Legend? EnsureLegend()
+    /// <summary>
+    /// Returns the viewport's deviation colour-bar, creating and attaching it on first use. The Design
+    /// control is built in code, so (exactly like <c>Viewports</c>) the viewport's
+    /// <see cref="Viewport.Legends"/> array starts empty: unless we add a <see cref="Legend"/>
+    /// ourselves the colour map has no visible key. We attach a single legend (default position/size,
+    /// as the ComputeDistance sample relies on) to the viewport, hidden until the first measurement.
+    /// </summary>
+    private Legend EnsureLegend()
     {
-        Legend[] legends = _design.Legends;
-        return legends is { Length: > 0 } ? legends[0] : null;
+        if (_legend is not null)
+            return _legend;
+
+        _legend = new Legend { Visible = false };
+        // Workspace.Legends is read-only in this Eyeshot build; the settable array is on the Viewport.
+        _design.Viewports[0].Legends = new[] { _legend };
+        return _legend;
     }
 
     private void HideLegend()
     {
-        Legend[] legends = _design.Legends;
-        if (legends is not null && legends.Length > 0)
-            legends[0].Visible = false;
+        if (_legend is not null)
+            _legend.Visible = false;
     }
 
     /// <summary>Replaces the displayed scan cloud with <paramref name="entity"/> and regenerates it.</summary>
