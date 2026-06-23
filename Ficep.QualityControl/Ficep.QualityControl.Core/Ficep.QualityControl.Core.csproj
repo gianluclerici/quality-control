@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- CS1591: don't force XML docs on every member; we document the public API deliberately. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <RootNamespace>Ficep.QualityControl.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Eyeshot geometry kernel (Brep, Mesh, translators). Same version as the rest of the repo. -->
+    <PackageReference Include="devDept.Eyeshot" Version="2025.3.437" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Reuse RobServer geometry pipeline: raw-part builder, tolerances, profile model. -->
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.Utility3D\Ficep.RobServer.Utility3D.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.Data\Ficep.RobServer.Data.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.MacroParser\Ficep.RobServer.MacroParser.csproj" />
+    <!-- Machining macros (SCAI01, INTC01, ...). Assembly name: Ficep.MacroGra. -->
+    <ProjectReference Include="..\..\Ficep.MacroGra\Ficep.MacroGra\Ficep.MacroGra_Ficep.csproj" />
+  </ItemGroup>
+
+</Project>
