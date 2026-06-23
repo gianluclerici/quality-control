@@ -39,5 +39,20 @@ Desktop.ini
 *.ply
 *.las
 
-# graphify large generated artifacts (graph regenerable via `graphify update .`)
-graphify-out/graph.html
+# graphify knowledge-graph output — fully regenerable via `graphify update .`
+# (AST cache, graph.json, reports, wiki, html, labels, root marker — none belong in git)
+graphify-out/
+
+# Generated STEP exports (nominal references are regenerable from the generator)
+*.step
+*.stp
+*.stl
+
+# JetBrains / ReSharper caches
+_ReSharper*/
+*.DotSettings.user
+
+# dotnet / MSBuild leftovers
+project.lock.json
+*.binlog
+msbuild.log
