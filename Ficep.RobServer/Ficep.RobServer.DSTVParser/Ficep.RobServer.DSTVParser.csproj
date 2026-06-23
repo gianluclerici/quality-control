@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Configurations>Debug;Release;Release_Offuscated</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ficep.RobServer.Data\Ficep.RobServer.Data.csproj" />
+  </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties Reactor_Commands="" Reactor_Configuration="Release_Offuscated" Reactor_Deploy="0" Reactor_Enabled="1" Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" Reactor_Project="" /></VisualStudio></ProjectExtensions>
+</Project>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ficep.MacroGra</RootNamespace>
+    <AssemblyName>Ficep.MacroGra</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\ReleaseDebug\</OutputPath>
+    <Configurations>Debug;Release;Release_Offuscated</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Ficep.MacroGra.csproj.AssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ficep.AnyCut.Polaris.Library\Ficep.MacroLibrary.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.Data\Ficep.RobServer.Data.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.MacroParser\Ficep.RobServer.MacroParser.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.RobServer.Utility3D\Ficep.RobServer.Utility3D.csproj" />
+    <ProjectReference Include="..\..\Ficep.RobServer\Ficep.Utils\Ficep.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="devDept.Eyeshot" Version="2025.3.437" />
+    <PackageReference Include="devDept.Eyeshot.Control.Win" Version="2025.3.437" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MACRO\MacroTemplate.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <BaseOutputPath>bin\ReleaseDebug\</BaseOutputPath>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Reactor_Commands="" Reactor_Configuration="Release_Offuscated" Reactor_Deploy="0" Reactor_Enabled="1" Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" Reactor_Project="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

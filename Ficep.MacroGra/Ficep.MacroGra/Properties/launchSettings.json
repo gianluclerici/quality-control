@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Ficep.MacroGra": {
+      "commandName": "Project"
+    },
+    "LocalDebugMarco": {
+      "commandName": "Executable",
+      "executablePath": "$(MSBuildProjectDirectory)\\bin\\ReleaseDebug\\net7.0\\Ficep.RobServer.exe",
+      "workingDirectory": "$(MSBuildProjectDirectory)\\bin\\ReleaseDebug\\net7.0"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FicepMacroGra</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\ReleaseDebug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="devDept.Eyeshot.v2024">
+      <HintPath>..\Lib\RobServer\devDept.Eyeshot.v2024.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.RobServer.Data">
+      <HintPath>..\Lib\RobServer\Ficep.RobServer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.RobServer.MacroParser">
+      <HintPath>..\Lib\RobServer\Ficep.RobServer.MacroParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.RobServer.Utility3D">
+      <HintPath>..\Lib\RobServer\Ficep.RobServer.Utility3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.Utils">
+      <HintPath>..\Lib\RobServer\Ficep.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ficep.AnyCut.Polaris.Library\Ficep.MacroLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Ficep.MacroGra.csproj.AssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(MSBuildProjectDirectory)\..\Lib\RobServer\*" "$(MSBuildProjectDirectory)\$(OutputPath)net8.0\" /s /y
+xcopy "$(MSBuildProjectDirectory)\..\Lib\Config\Robot.json" "$(MSBuildProjectDirectory)\$(OutputPath)net8.0\" /s /y /d
+xcopy "$(MSBuildProjectDirectory)\..\Lib\Config\RobServer.ini" "$(MSBuildProjectDirectory)\$(OutputPath)net8.0\" /s /y /d</PostBuildEvent>
+  </PropertyGroup>
+</Project>

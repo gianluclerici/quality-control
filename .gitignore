@@ -1,0 +1,43 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+ReleaseDebug/
+x64/
+x86/
+build/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/*
+!.vscode/mcp.json
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+
+# Test results
+[Tt]est[Rr]esults/
+*.trx
+*.coverage
+*.coverage.json
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# OS
+Thumbs.db
+Desktop.ini
+*~
+
+# Generated point-cloud / QC output (regenerable artifacts)
+/out/
+*.ply
+*.las
+
+# graphify large generated artifacts (graph regenerable via `graphify update .`)
+graphify-out/graph.html

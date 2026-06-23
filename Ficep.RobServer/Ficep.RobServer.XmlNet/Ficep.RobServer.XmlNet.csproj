@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Configurations>Debug;Release;Release_Offuscated</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ficep.Interfaces">
+      <HintPath>..\Lib\Ficep.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.Xml">
+      <HintPath>..\Lib\Ficep.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ficep.MacroGra\Ficep.MacroGra\Ficep.MacroGra_Ficep.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.Utility3D\Ficep.RobServer.Utility3D.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.Data\Ficep.RobServer.Data.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.MacroParser\Ficep.RobServer.MacroParser.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Reactor_Commands="" Reactor_Configuration="Release_Offuscated" Reactor_Deploy="0" Reactor_Enabled="1" Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" Reactor_Project="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

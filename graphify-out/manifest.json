@@ -1,0 +1,2277 @@
+{
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\.claude\\settings.json": {
+    "mtime": 1782140564.463366,
+    "ast_hash": "7bf81dca0376bde3a32244b82bc7cbc0",
+    "semantic_hash": "7bf81dca0376bde3a32244b82bc7cbc0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\.vscode\\launch.json": {
+    "mtime": 1782140264.8660984,
+    "ast_hash": "f35380be577269b1e41694756b4645b8",
+    "semantic_hash": "f35380be577269b1e41694756b4645b8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\.vscode\\settings.json": {
+    "mtime": 1782140248.2873547,
+    "ast_hash": "e103784b53d540d62f3a4380bc83f17d",
+    "semantic_hash": "e103784b53d540d62f3a4380bc83f17d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\.vscode\\tasks.json": {
+    "mtime": 1782140264.8561304,
+    "ast_hash": "c6194f0df78de1af9057d11b79954147",
+    "semantic_hash": "c6194f0df78de1af9057d11b79954147"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Circle.cs": {
+    "mtime": 1771238375.7104483,
+    "ast_hash": "c8592ffe2b564c6255a6eab162fe3206",
+    "semantic_hash": "c8592ffe2b564c6255a6eab162fe3206"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Errors.cs": {
+    "mtime": 1771238375.7114565,
+    "ast_hash": "b7d3b3f0a35c58b12e697480b6f00c1b",
+    "semantic_hash": "b7d3b3f0a35c58b12e697480b6f00c1b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\FMath.cs": {
+    "mtime": 1771238375.7124767,
+    "ast_hash": "400da8cd766b57c42bdd75342f855aa7",
+    "semantic_hash": "400da8cd766b57c42bdd75342f855aa7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\FMathExt2.cs": {
+    "mtime": 1772113260.3682275,
+    "ast_hash": "d8c8fb31b845be5ae8a743e31b2cee38",
+    "semantic_hash": "d8c8fb31b845be5ae8a743e31b2cee38"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Ficep.AnyCut.Math.csproj": {
+    "mtime": 1771238375.7143402,
+    "ast_hash": "4cf5d8f672f58eaf4b453c8a9e3ed41b",
+    "semantic_hash": "4cf5d8f672f58eaf4b453c8a9e3ed41b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\FmathExt.cs": {
+    "mtime": 1772113260.3772304,
+    "ast_hash": "e69a3e7f2d948cbaf329636eb4379c77",
+    "semantic_hash": "e69a3e7f2d948cbaf329636eb4379c77"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Line.cs": {
+    "mtime": 1771238375.7165022,
+    "ast_hash": "b50ebfec64d4c5a97b6480179191ee4a",
+    "semantic_hash": "b50ebfec64d4c5a97b6480179191ee4a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\PRF_Info.cs": {
+    "mtime": 1771238375.717451,
+    "ast_hash": "c7459127081066d6f545277b4510aa59",
+    "semantic_hash": "c7459127081066d6f545277b4510aa59"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\PathPrg.cs": {
+    "mtime": 1771238375.7184627,
+    "ast_hash": "942f2723f5f32e9a80e7f411c7bf46b5",
+    "semantic_hash": "942f2723f5f32e9a80e7f411c7bf46b5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Piece.cs": {
+    "mtime": 1771238375.7184627,
+    "ast_hash": "2266d7c05ea18c8b96441997d10e37f5",
+    "semantic_hash": "2266d7c05ea18c8b96441997d10e37f5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\Point.cs": {
+    "mtime": 1771238375.7203352,
+    "ast_hash": "10b2aa68aea90788ab92a72424eaf0d4",
+    "semantic_hash": "10b2aa68aea90788ab92a72424eaf0d4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\RobSeq.cs": {
+    "mtime": 1771238375.7203352,
+    "ast_hash": "c33ab10836f300fa5e65fa1bae0579f4",
+    "semantic_hash": "c33ab10836f300fa5e65fa1bae0579f4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\bin\\Debug\\net8.0\\Ficep.AnyCut.Math.deps.json": {
+    "mtime": 1771408700.86802,
+    "ast_hash": "081260e3bf07299a84ddefb441554513",
+    "semantic_hash": "081260e3bf07299a84ddefb441554513"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238439.9631245,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\Debug\\net8.0\\Ficep.AnyCut.Math.AssemblyInfo.cs": {
+    "mtime": 1782140534.7978296,
+    "ast_hash": "d586059f2a0673f01e899836d3815b35",
+    "semantic_hash": "d586059f2a0673f01e899836d3815b35"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\Debug\\net8.0\\Ficep.AnyCut.Math.GlobalUsings.g.cs": {
+    "mtime": 1771238439.9391243,
+    "ast_hash": "0ca42cbc4f22da0578a209aaeb544bf8",
+    "semantic_hash": "0ca42cbc4f22da0578a209aaeb544bf8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\Ficep.AnyCut.Math.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.3094497,
+    "ast_hash": "e817b3fd3bd751df25d509c86169a41b",
+    "semantic_hash": "e817b3fd3bd751df25d509c86169a41b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\project.assets.json": {
+    "mtime": 1782140537.2984521,
+    "ast_hash": "8d5d410049616c6b2fe735e173ed27c0",
+    "semantic_hash": "8d5d410049616c6b2fe735e173ed27c0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra.sln": {
+    "mtime": 1771408392.7214699,
+    "ast_hash": "d1840ed643e4eddce49ddcef0317ada7",
+    "semantic_hash": "d1840ed643e4eddce49ddcef0317ada7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\EyeMacro.cs": {
+    "mtime": 1771408392.7298,
+    "ast_hash": "ed0fbda467097530f0de2fa0f479236f",
+    "semantic_hash": "ed0fbda467097530f0de2fa0f479236f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\Ficep.MacroGra.csproj": {
+    "mtime": 1771408392.7367995,
+    "ast_hash": "a29683f9427996d192999508fb936f02",
+    "semantic_hash": "a29683f9427996d192999508fb936f02"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\Ficep.MacroGra_Ficep.csproj": {
+    "mtime": 1771864269.4373186,
+    "ast_hash": "a26e29b11b628d67c698bbb45eb5d35b",
+    "semantic_hash": "a26e29b11b628d67c698bbb45eb5d35b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\EST94.cs": {
+    "mtime": 1771408392.7438,
+    "ast_hash": "f0d2a87da0f86e61ac298ffb1602b95f",
+    "semantic_hash": "f0d2a87da0f86e61ac298ffb1602b95f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI01.cs": {
+    "mtime": 1771408392.7448049,
+    "ast_hash": "29def07977ccb9bb67678bc3e29f2980",
+    "semantic_hash": "29def07977ccb9bb67678bc3e29f2980"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI02.cs": {
+    "mtime": 1771408392.7458053,
+    "ast_hash": "fafd9a3a0d4863b54b9b523572edf32c",
+    "semantic_hash": "fafd9a3a0d4863b54b9b523572edf32c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI08.cs": {
+    "mtime": 1771408392.7468052,
+    "ast_hash": "a12153ec34daf04e20399ab975a05670",
+    "semantic_hash": "a12153ec34daf04e20399ab975a05670"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI09.cs": {
+    "mtime": 1771408392.7468052,
+    "ast_hash": "10a03bda4f574b7ef3abf0adacd80f3f",
+    "semantic_hash": "10a03bda4f574b7ef3abf0adacd80f3f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI100.cs": {
+    "mtime": 1771408392.7478056,
+    "ast_hash": "8f275cc76440d22de7d971dbfbb4a027",
+    "semantic_hash": "8f275cc76440d22de7d971dbfbb4a027"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI101.cs": {
+    "mtime": 1771408392.7490222,
+    "ast_hash": "8aba49be17f14024f97296354b9e386a",
+    "semantic_hash": "8aba49be17f14024f97296354b9e386a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI102.cs": {
+    "mtime": 1771408392.7500274,
+    "ast_hash": "3800295fa0117c20d58e9b7a74829d26",
+    "semantic_hash": "3800295fa0117c20d58e9b7a74829d26"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI103.cs": {
+    "mtime": 1771408392.7500274,
+    "ast_hash": "d54c7f64baeef090a5a75ccabd4463d4",
+    "semantic_hash": "d54c7f64baeef090a5a75ccabd4463d4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI106.cs": {
+    "mtime": 1771408392.75203,
+    "ast_hash": "8dcb51834874ba40781c2cd22cd09581",
+    "semantic_hash": "8dcb51834874ba40781c2cd22cd09581"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI107.cs": {
+    "mtime": 1771408392.75203,
+    "ast_hash": "63061698e61bec5763015a2c5ac5da83",
+    "semantic_hash": "63061698e61bec5763015a2c5ac5da83"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI108.cs": {
+    "mtime": 1771408392.7530262,
+    "ast_hash": "5223c9aca6e1593643c44c46fd705e11",
+    "semantic_hash": "5223c9aca6e1593643c44c46fd705e11"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI109.cs": {
+    "mtime": 1771408392.754028,
+    "ast_hash": "39ff0e5a518ed4ff1d4f917bd85fa741",
+    "semantic_hash": "39ff0e5a518ed4ff1d4f917bd85fa741"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI11.cs": {
+    "mtime": 1771408392.7550282,
+    "ast_hash": "40cf251141066ad0783351045c0382e6",
+    "semantic_hash": "40cf251141066ad0783351045c0382e6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI110.cs": {
+    "mtime": 1771408392.7560282,
+    "ast_hash": "a881b930f69587263029860d40b02cc3",
+    "semantic_hash": "a881b930f69587263029860d40b02cc3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI117.cs": {
+    "mtime": 1771408392.7560282,
+    "ast_hash": "15f126010fdba16f403f5409f48afd1c",
+    "semantic_hash": "15f126010fdba16f403f5409f48afd1c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI12.cs": {
+    "mtime": 1771408392.757028,
+    "ast_hash": "28f31626f0631c219d84013d79d99666",
+    "semantic_hash": "28f31626f0631c219d84013d79d99666"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI128.cs": {
+    "mtime": 1771408392.7580867,
+    "ast_hash": "a226978f4bac38ac59dddb50e9e1a663",
+    "semantic_hash": "a226978f4bac38ac59dddb50e9e1a663"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI129.cs": {
+    "mtime": 1771408392.7590907,
+    "ast_hash": "8043f07c81e3c03fcf7082e82ca31c17",
+    "semantic_hash": "8043f07c81e3c03fcf7082e82ca31c17"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI130.cs": {
+    "mtime": 1771408392.7600968,
+    "ast_hash": "fd7a30e46cacc1ebe2b85c799a30e6fa",
+    "semantic_hash": "fd7a30e46cacc1ebe2b85c799a30e6fa"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI131.cs": {
+    "mtime": 1771408392.761097,
+    "ast_hash": "29ec38bff5265c0f58406121846c7d59",
+    "semantic_hash": "29ec38bff5265c0f58406121846c7d59"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI132.cs": {
+    "mtime": 1771408392.761097,
+    "ast_hash": "5531768fc7224287c656511414d5ce3f",
+    "semantic_hash": "5531768fc7224287c656511414d5ce3f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI137.cs": {
+    "mtime": 1771408392.762097,
+    "ast_hash": "7433cd27f1772f5d6319836f2a13cd95",
+    "semantic_hash": "7433cd27f1772f5d6319836f2a13cd95"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI14.cs": {
+    "mtime": 1771408392.7630968,
+    "ast_hash": "de6952db8c248a76ec1b4e729edff9de",
+    "semantic_hash": "de6952db8c248a76ec1b4e729edff9de"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI140.cs": {
+    "mtime": 1771408392.7640967,
+    "ast_hash": "3bf5a55e596bb4e7650b951078aa3c74",
+    "semantic_hash": "3bf5a55e596bb4e7650b951078aa3c74"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI142.cs": {
+    "mtime": 1771408392.7640967,
+    "ast_hash": "019edab6d066930f77e4e873603a451c",
+    "semantic_hash": "019edab6d066930f77e4e873603a451c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI143.cs": {
+    "mtime": 1771408392.7650971,
+    "ast_hash": "0947beb33db6cd74c08459431d4802bd",
+    "semantic_hash": "0947beb33db6cd74c08459431d4802bd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI149.cs": {
+    "mtime": 1771408392.7660968,
+    "ast_hash": "debda0904f2d2ddbab9fcebc776cf1ea",
+    "semantic_hash": "debda0904f2d2ddbab9fcebc776cf1ea"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI150.cs": {
+    "mtime": 1771408392.767132,
+    "ast_hash": "ab6efcae5c081a179b00a00fc62b416e",
+    "semantic_hash": "ab6efcae5c081a179b00a00fc62b416e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI151.cs": {
+    "mtime": 1771408392.7680976,
+    "ast_hash": "2a409e195dbe512fd24ed7a218f4bcfc",
+    "semantic_hash": "2a409e195dbe512fd24ed7a218f4bcfc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI152.cs": {
+    "mtime": 1771408392.7690969,
+    "ast_hash": "451a82c6af439d6aeeff03fc8411efa2",
+    "semantic_hash": "451a82c6af439d6aeeff03fc8411efa2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI153.cs": {
+    "mtime": 1771408392.770097,
+    "ast_hash": "ac7b374540450bfd49b7144c4c29ad10",
+    "semantic_hash": "ac7b374540450bfd49b7144c4c29ad10"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI157.cs": {
+    "mtime": 1771408392.770097,
+    "ast_hash": "ffbf5b8c343666bea8bc030997dfc391",
+    "semantic_hash": "ffbf5b8c343666bea8bc030997dfc391"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI160.cs": {
+    "mtime": 1771408392.771097,
+    "ast_hash": "bb72bae074354da69a2f0a2a71123758",
+    "semantic_hash": "bb72bae074354da69a2f0a2a71123758"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI162.cs": {
+    "mtime": 1771408392.7720969,
+    "ast_hash": "fcb595fd26bcb51d4c45b3533cea1acf",
+    "semantic_hash": "fcb595fd26bcb51d4c45b3533cea1acf"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI167.cs": {
+    "mtime": 1771408392.7720969,
+    "ast_hash": "c2499c3e5cde1173d63e67781407b7de",
+    "semantic_hash": "c2499c3e5cde1173d63e67781407b7de"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI17.cs": {
+    "mtime": 1771408392.7740965,
+    "ast_hash": "957f70cafd92ee681803b91a2107d6fa",
+    "semantic_hash": "957f70cafd92ee681803b91a2107d6fa"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI171.cs": {
+    "mtime": 1771408392.7750957,
+    "ast_hash": "9939518ada2a372322142f04ccea60ed",
+    "semantic_hash": "9939518ada2a372322142f04ccea60ed"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI173.cs": {
+    "mtime": 1771408392.7750957,
+    "ast_hash": "3ec8247d4866fca8ae4cb84eec8d419d",
+    "semantic_hash": "3ec8247d4866fca8ae4cb84eec8d419d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI175.cs": {
+    "mtime": 1771408392.7760963,
+    "ast_hash": "69308d559bda94732c1f5becf733dfc8",
+    "semantic_hash": "69308d559bda94732c1f5becf733dfc8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI177.cs": {
+    "mtime": 1771408392.7770965,
+    "ast_hash": "3a04e658576719ca013c5260dfda84d5",
+    "semantic_hash": "3a04e658576719ca013c5260dfda84d5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI178.cs": {
+    "mtime": 1771408392.7781377,
+    "ast_hash": "34cde49ac5ca1aaa79a554ae6eff444b",
+    "semantic_hash": "34cde49ac5ca1aaa79a554ae6eff444b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI179.cs": {
+    "mtime": 1771408392.779096,
+    "ast_hash": "9bde940a5b2ce37c163d37c5beafc0c6",
+    "semantic_hash": "9bde940a5b2ce37c163d37c5beafc0c6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI18.cs": {
+    "mtime": 1771408392.780097,
+    "ast_hash": "85ac739eaff466d703d0453695583393",
+    "semantic_hash": "85ac739eaff466d703d0453695583393"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI180.cs": {
+    "mtime": 1771408392.7810974,
+    "ast_hash": "8a90158d428283429161b972f82676ac",
+    "semantic_hash": "8a90158d428283429161b972f82676ac"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI19.cs": {
+    "mtime": 1771408392.7810974,
+    "ast_hash": "dadb1962d9756c72a7380aab7acca160",
+    "semantic_hash": "dadb1962d9756c72a7380aab7acca160"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI20.cs": {
+    "mtime": 1771408392.7820976,
+    "ast_hash": "724c0a4485a679650d005f81e37c8d48",
+    "semantic_hash": "724c0a4485a679650d005f81e37c8d48"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI21.cs": {
+    "mtime": 1771408392.7830973,
+    "ast_hash": "83ee0eff4745edd736adaf465c08c06e",
+    "semantic_hash": "83ee0eff4745edd736adaf465c08c06e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI23.cs": {
+    "mtime": 1771408392.7900808,
+    "ast_hash": "98e326508ce6b72865b186305971978e",
+    "semantic_hash": "98e326508ce6b72865b186305971978e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI24.cs": {
+    "mtime": 1771408392.7910945,
+    "ast_hash": "692304bfb6c675fe560759ec0ddaa1a9",
+    "semantic_hash": "692304bfb6c675fe560759ec0ddaa1a9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI26.cs": {
+    "mtime": 1771408392.7920883,
+    "ast_hash": "4c040aebe55c8b20a860d4cb41817aa8",
+    "semantic_hash": "4c040aebe55c8b20a860d4cb41817aa8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI27.cs": {
+    "mtime": 1771408392.7930872,
+    "ast_hash": "ac1aeeca3aabcc147980cada3cea93f7",
+    "semantic_hash": "ac1aeeca3aabcc147980cada3cea93f7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI28.cs": {
+    "mtime": 1771408392.7930872,
+    "ast_hash": "9395dca0418aa6ec2c22efc75cb198c5",
+    "semantic_hash": "9395dca0418aa6ec2c22efc75cb198c5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI31.cs": {
+    "mtime": 1771408392.7941122,
+    "ast_hash": "e74de6919287b2a71a04f2714500d156",
+    "semantic_hash": "e74de6919287b2a71a04f2714500d156"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI32.cs": {
+    "mtime": 1771408392.7950897,
+    "ast_hash": "e271e982bca91e7a9ea166524a3a99dc",
+    "semantic_hash": "e271e982bca91e7a9ea166524a3a99dc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI33.cs": {
+    "mtime": 1771408392.796087,
+    "ast_hash": "cad718b53b6fd5b82ddee66bce754bea",
+    "semantic_hash": "cad718b53b6fd5b82ddee66bce754bea"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI34.cs": {
+    "mtime": 1771408392.79714,
+    "ast_hash": "b5485e2764e50b2f8fe0dd43aed66030",
+    "semantic_hash": "b5485e2764e50b2f8fe0dd43aed66030"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI35.cs": {
+    "mtime": 1771408392.798105,
+    "ast_hash": "d4c2db11320a000a820dca3cdd50c8c2",
+    "semantic_hash": "d4c2db11320a000a820dca3cdd50c8c2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI37.cs": {
+    "mtime": 1771408392.7990873,
+    "ast_hash": "2537ca7c9c050442c0e3af1a0bcdba0e",
+    "semantic_hash": "2537ca7c9c050442c0e3af1a0bcdba0e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI39.cs": {
+    "mtime": 1771408392.800087,
+    "ast_hash": "bcbcb53f6913ef0b19a57296321589a8",
+    "semantic_hash": "bcbcb53f6913ef0b19a57296321589a8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI40.cs": {
+    "mtime": 1771408392.8012214,
+    "ast_hash": "7507d5c569d3eaba26ed110b0cae5352",
+    "semantic_hash": "7507d5c569d3eaba26ed110b0cae5352"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI43.cs": {
+    "mtime": 1771408392.8012214,
+    "ast_hash": "f1633703a766ed9a3f90976014bab3de",
+    "semantic_hash": "f1633703a766ed9a3f90976014bab3de"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI46.cs": {
+    "mtime": 1771408392.8022254,
+    "ast_hash": "c2ff495c27b3ad1a1dcfde23a18356c2",
+    "semantic_hash": "c2ff495c27b3ad1a1dcfde23a18356c2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI48.cs": {
+    "mtime": 1771408392.8032272,
+    "ast_hash": "5346ad455e702a7dc988684831d5a62d",
+    "semantic_hash": "5346ad455e702a7dc988684831d5a62d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI51.cs": {
+    "mtime": 1771408392.804613,
+    "ast_hash": "d378612c1f5cd808e57dab2242364311",
+    "semantic_hash": "d378612c1f5cd808e57dab2242364311"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI52.cs": {
+    "mtime": 1771408392.8056204,
+    "ast_hash": "436841c7ff487fee9a1d4b57fd35c3bd",
+    "semantic_hash": "436841c7ff487fee9a1d4b57fd35c3bd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI53.cs": {
+    "mtime": 1771408392.8056204,
+    "ast_hash": "22b0407e2e3d41b4b518a3755c0e4292",
+    "semantic_hash": "22b0407e2e3d41b4b518a3755c0e4292"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI56.cs": {
+    "mtime": 1771408392.8066194,
+    "ast_hash": "954d003c3d5aa09bb22aad88d103bb9f",
+    "semantic_hash": "954d003c3d5aa09bb22aad88d103bb9f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI57.cs": {
+    "mtime": 1771408392.8076184,
+    "ast_hash": "b070b7a579dcb14a62347257b48c9e24",
+    "semantic_hash": "b070b7a579dcb14a62347257b48c9e24"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI58.cs": {
+    "mtime": 1771408392.8086255,
+    "ast_hash": "1869ebabd467df80c5dad3db3186087c",
+    "semantic_hash": "1869ebabd467df80c5dad3db3186087c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI61.cs": {
+    "mtime": 1771408392.8096206,
+    "ast_hash": "ddd20cb8aafe56b76d4721cd3b9a2f6f",
+    "semantic_hash": "ddd20cb8aafe56b76d4721cd3b9a2f6f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI62.cs": {
+    "mtime": 1771408392.810619,
+    "ast_hash": "128144f7ab66528c9b42b15945d80cb7",
+    "semantic_hash": "128144f7ab66528c9b42b15945d80cb7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI63.cs": {
+    "mtime": 1771408392.810619,
+    "ast_hash": "b40e6ef3f2534b0a9d2fcc265f16c906",
+    "semantic_hash": "b40e6ef3f2534b0a9d2fcc265f16c906"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI67.cs": {
+    "mtime": 1771408392.8116374,
+    "ast_hash": "9246418913aedd734dbf46f692e7bb9a",
+    "semantic_hash": "9246418913aedd734dbf46f692e7bb9a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI68.cs": {
+    "mtime": 1771408392.8126185,
+    "ast_hash": "a03f8de0c22083293ff30525f1d61532",
+    "semantic_hash": "a03f8de0c22083293ff30525f1d61532"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI73.cs": {
+    "mtime": 1771408392.813619,
+    "ast_hash": "343ac602e3599ac809eda4a1b0ba47d9",
+    "semantic_hash": "343ac602e3599ac809eda4a1b0ba47d9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI74.cs": {
+    "mtime": 1771408392.8146186,
+    "ast_hash": "bddd8b5fc10bf169ee390f30e99b27f0",
+    "semantic_hash": "bddd8b5fc10bf169ee390f30e99b27f0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI75.cs": {
+    "mtime": 1771408392.8156178,
+    "ast_hash": "b143efbee9787d2fd01f378d74efae59",
+    "semantic_hash": "b143efbee9787d2fd01f378d74efae59"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI76.cs": {
+    "mtime": 1771408392.8166356,
+    "ast_hash": "d1071165e48697bac576d39cbcd2208d",
+    "semantic_hash": "d1071165e48697bac576d39cbcd2208d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI77.cs": {
+    "mtime": 1771408392.8166356,
+    "ast_hash": "223d6b0b14c42d31e586207b4ae67e1e",
+    "semantic_hash": "223d6b0b14c42d31e586207b4ae67e1e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI80.cs": {
+    "mtime": 1771408392.817637,
+    "ast_hash": "f29999d50b2a125dfb9932ea0f41c107",
+    "semantic_hash": "f29999d50b2a125dfb9932ea0f41c107"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI81.cs": {
+    "mtime": 1771408392.818635,
+    "ast_hash": "1d6db0982c4796a4a8668e3c7d34b255",
+    "semantic_hash": "1d6db0982c4796a4a8668e3c7d34b255"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI82.cs": {
+    "mtime": 1771408392.8196182,
+    "ast_hash": "31bc8114b653f2027324fc2684bbabdd",
+    "semantic_hash": "31bc8114b653f2027324fc2684bbabdd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI84.cs": {
+    "mtime": 1771408392.8196182,
+    "ast_hash": "e23850b240a6d258bb74e76a3b37efc7",
+    "semantic_hash": "e23850b240a6d258bb74e76a3b37efc7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI90.cs": {
+    "mtime": 1771408392.8216214,
+    "ast_hash": "ac43d6db00ee35d228ab004f5206113f",
+    "semantic_hash": "ac43d6db00ee35d228ab004f5206113f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI91.cs": {
+    "mtime": 1771408392.8221362,
+    "ast_hash": "d12368262e18d8d32c7128f33e488359",
+    "semantic_hash": "d12368262e18d8d32c7128f33e488359"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI92.cs": {
+    "mtime": 1771408392.8231542,
+    "ast_hash": "973bc5f21fddd357c6b2f2af403d75f5",
+    "semantic_hash": "973bc5f21fddd357c6b2f2af403d75f5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTI97.cs": {
+    "mtime": 1771408392.824154,
+    "ast_hash": "20ef25322591fda9cd0c011267fd4ec2",
+    "semantic_hash": "20ef25322591fda9cd0c011267fd4ec2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA03.cs": {
+    "mtime": 1771408392.8251548,
+    "ast_hash": "1c50c22b528667a5d5ded188dd066f06",
+    "semantic_hash": "1c50c22b528667a5d5ded188dd066f06"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA04.cs": {
+    "mtime": 1771408392.8261514,
+    "ast_hash": "2e73aa4c508f755742688178aaf5daae",
+    "semantic_hash": "2e73aa4c508f755742688178aaf5daae"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA05.cs": {
+    "mtime": 1771408392.8261514,
+    "ast_hash": "991cf41dee19a376af715279d75e49e8",
+    "semantic_hash": "991cf41dee19a376af715279d75e49e8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA06.cs": {
+    "mtime": 1771408392.8371534,
+    "ast_hash": "1681d718f5039ea243cb4339d84b47cc",
+    "semantic_hash": "1681d718f5039ea243cb4339d84b47cc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA10.cs": {
+    "mtime": 1771408392.8381495,
+    "ast_hash": "07f8d3b261502c5808085fbe0ee714f4",
+    "semantic_hash": "07f8d3b261502c5808085fbe0ee714f4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA104.cs": {
+    "mtime": 1771408392.8391497,
+    "ast_hash": "997506650c67ade5e938cb08e09dcf18",
+    "semantic_hash": "997506650c67ade5e938cb08e09dcf18"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA105.cs": {
+    "mtime": 1771408392.8401484,
+    "ast_hash": "b62dfa5325a10f2d8528501f02a5ff06",
+    "semantic_hash": "b62dfa5325a10f2d8528501f02a5ff06"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA126.cs": {
+    "mtime": 1771408392.841156,
+    "ast_hash": "39b49347ce5b84ad9389392c2abf87ea",
+    "semantic_hash": "39b49347ce5b84ad9389392c2abf87ea"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA127.cs": {
+    "mtime": 1771408392.8421547,
+    "ast_hash": "9258f095822918163324280289775119",
+    "semantic_hash": "9258f095822918163324280289775119"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA13.cs": {
+    "mtime": 1771408392.8421547,
+    "ast_hash": "17b148507b94c820e506e803e8187865",
+    "semantic_hash": "17b148507b94c820e506e803e8187865"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA135.cs": {
+    "mtime": 1771408392.843176,
+    "ast_hash": "f6aac269a3a5f0b2701ddc29cd9f213f",
+    "semantic_hash": "f6aac269a3a5f0b2701ddc29cd9f213f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA136.cs": {
+    "mtime": 1771408392.8441484,
+    "ast_hash": "7f4e3c7413a53dacf04522d422033dbb",
+    "semantic_hash": "7f4e3c7413a53dacf04522d422033dbb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA144.cs": {
+    "mtime": 1771408392.8451533,
+    "ast_hash": "9b88b0491a27330ec03af15e61d542d7",
+    "semantic_hash": "9b88b0491a27330ec03af15e61d542d7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA145.cs": {
+    "mtime": 1771408392.8461907,
+    "ast_hash": "f455c0ef47ccf9ad8234f7e8aedf5817",
+    "semantic_hash": "f455c0ef47ccf9ad8234f7e8aedf5817"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA146.cs": {
+    "mtime": 1771408392.8471773,
+    "ast_hash": "aa797ff27855275f1b69b4e37ea40a1a",
+    "semantic_hash": "aa797ff27855275f1b69b4e37ea40a1a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA147.cs": {
+    "mtime": 1771408392.8481681,
+    "ast_hash": "7a9c76439eb66b95e2156c971bfe1952",
+    "semantic_hash": "7a9c76439eb66b95e2156c971bfe1952"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA15.cs": {
+    "mtime": 1771408392.8481681,
+    "ast_hash": "8a2aa16189250ed57371902cbaf394c7",
+    "semantic_hash": "8a2aa16189250ed57371902cbaf394c7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA154.cs": {
+    "mtime": 1771408392.8491676,
+    "ast_hash": "cee4f5cfce6a72ee2443ee3cf2ba7958",
+    "semantic_hash": "cee4f5cfce6a72ee2443ee3cf2ba7958"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA156.cs": {
+    "mtime": 1771408392.8501675,
+    "ast_hash": "fdd43d5a7b2f8a67e03dd09de5e80614",
+    "semantic_hash": "fdd43d5a7b2f8a67e03dd09de5e80614"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA16.cs": {
+    "mtime": 1771408392.851168,
+    "ast_hash": "440312df914e5bbbb9ff5bca8f05e3f5",
+    "semantic_hash": "440312df914e5bbbb9ff5bca8f05e3f5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA168.cs": {
+    "mtime": 1771408392.8521562,
+    "ast_hash": "449d851549676edec8273e8d6624ec4c",
+    "semantic_hash": "449d851549676edec8273e8d6624ec4c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA174.cs": {
+    "mtime": 1771408392.8532622,
+    "ast_hash": "7706675d880888327ba19e1280a9fc2c",
+    "semantic_hash": "7706675d880888327ba19e1280a9fc2c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA176.cs": {
+    "mtime": 1771408392.8532622,
+    "ast_hash": "2be92b6b432ae2ffb077ba959a9aa4dd",
+    "semantic_hash": "2be92b6b432ae2ffb077ba959a9aa4dd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA22.cs": {
+    "mtime": 1771408392.8542638,
+    "ast_hash": "718b39cb0794c7649c19a5742219990d",
+    "semantic_hash": "718b39cb0794c7649c19a5742219990d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA25.cs": {
+    "mtime": 1771408392.855229,
+    "ast_hash": "1c6f050037f4d6e85bff125d9fecaaf3",
+    "semantic_hash": "1c6f050037f4d6e85bff125d9fecaaf3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA29.cs": {
+    "mtime": 1771408392.8562777,
+    "ast_hash": "4d59190e60a503c523a59ae7d5c1dfdd",
+    "semantic_hash": "4d59190e60a503c523a59ae7d5c1dfdd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA30.cs": {
+    "mtime": 1771408392.8562777,
+    "ast_hash": "7c80db71ab025f6c8e736209f2f5bfc6",
+    "semantic_hash": "7c80db71ab025f6c8e736209f2f5bfc6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA36.cs": {
+    "mtime": 1771408392.857199,
+    "ast_hash": "4a1da93cb7c9f6ef31b0be7fc2d60b5d",
+    "semantic_hash": "4a1da93cb7c9f6ef31b0be7fc2d60b5d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA37.cs": {
+    "mtime": 1771408392.8582828,
+    "ast_hash": "dbe674e7f16461d34a20a927105a770c",
+    "semantic_hash": "dbe674e7f16461d34a20a927105a770c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA38.cs": {
+    "mtime": 1771408392.8592625,
+    "ast_hash": "d88e009207799cc2ff9460fb7ab185f8",
+    "semantic_hash": "d88e009207799cc2ff9460fb7ab185f8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA41.cs": {
+    "mtime": 1771408392.8598726,
+    "ast_hash": "e964eb28963ad867563568ab1b93d599",
+    "semantic_hash": "e964eb28963ad867563568ab1b93d599"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA42.cs": {
+    "mtime": 1771408392.8609865,
+    "ast_hash": "82e4c13fd9973e6257146f535d3a6a60",
+    "semantic_hash": "82e4c13fd9973e6257146f535d3a6a60"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA47.cs": {
+    "mtime": 1771408392.8609865,
+    "ast_hash": "00a7f66a904bba5eb91797247b7ec267",
+    "semantic_hash": "00a7f66a904bba5eb91797247b7ec267"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA49.cs": {
+    "mtime": 1771408392.8619838,
+    "ast_hash": "3e7d416954c22b0090155e2f88af9f1e",
+    "semantic_hash": "3e7d416954c22b0090155e2f88af9f1e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA64.cs": {
+    "mtime": 1771408392.8629892,
+    "ast_hash": "c75a1900b429bed37731d704532c115c",
+    "semantic_hash": "c75a1900b429bed37731d704532c115c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA65.cs": {
+    "mtime": 1771408392.8640473,
+    "ast_hash": "eccb35e36dab756fca931b408def6a10",
+    "semantic_hash": "eccb35e36dab756fca931b408def6a10"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA66.cs": {
+    "mtime": 1771408392.8640473,
+    "ast_hash": "c4cc3b03b672fd46aea6df1233e9f379",
+    "semantic_hash": "c4cc3b03b672fd46aea6df1233e9f379"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA69.cs": {
+    "mtime": 1771408392.8650014,
+    "ast_hash": "5f7c67128dc6e021fd92b673804314ed",
+    "semantic_hash": "5f7c67128dc6e021fd92b673804314ed"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA70.cs": {
+    "mtime": 1771408392.866043,
+    "ast_hash": "2aa08f5ecec8908a8b3141e1df015057",
+    "semantic_hash": "2aa08f5ecec8908a8b3141e1df015057"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA71.cs": {
+    "mtime": 1771408392.8668861,
+    "ast_hash": "b4510f755f31fa9dd8ba0f32b90bbb78",
+    "semantic_hash": "b4510f755f31fa9dd8ba0f32b90bbb78"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA72.cs": {
+    "mtime": 1771408392.8680117,
+    "ast_hash": "424cbad7aac2693b0717e82e86d691d9",
+    "semantic_hash": "424cbad7aac2693b0717e82e86d691d9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA79.cs": {
+    "mtime": 1771408392.8688796,
+    "ast_hash": "d9ab4cd7a908e03a64f25a1a3b35d622",
+    "semantic_hash": "d9ab4cd7a908e03a64f25a1a3b35d622"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA83.cs": {
+    "mtime": 1771408392.8699894,
+    "ast_hash": "2dc158f16efa099d418ab861f0e8641d",
+    "semantic_hash": "2dc158f16efa099d418ab861f0e8641d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA85.cs": {
+    "mtime": 1771408392.8699894,
+    "ast_hash": "2c5dd7589e4bd7cdf657e8b488d708ff",
+    "semantic_hash": "2c5dd7589e4bd7cdf657e8b488d708ff"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA86.cs": {
+    "mtime": 1771408392.8790085,
+    "ast_hash": "d6057c4e8723b3316a9a5e347e2974f7",
+    "semantic_hash": "d6057c4e8723b3316a9a5e347e2974f7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA87.cs": {
+    "mtime": 1771408392.8800247,
+    "ast_hash": "c36c3fcb4566744f3fa297d83b7f0488",
+    "semantic_hash": "c36c3fcb4566744f3fa297d83b7f0488"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA88.cs": {
+    "mtime": 1771408392.881012,
+    "ast_hash": "c80f45c8463df51bc13154b72c97e6a9",
+    "semantic_hash": "c80f45c8463df51bc13154b72c97e6a9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA89.cs": {
+    "mtime": 1771408392.881986,
+    "ast_hash": "a596508d614f6e8d198202a289612eb0",
+    "semantic_hash": "a596508d614f6e8d198202a289612eb0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA93.cs": {
+    "mtime": 1771408392.881986,
+    "ast_hash": "21b55a3465dc5861e76c5418e3dcf30b",
+    "semantic_hash": "21b55a3465dc5861e76c5418e3dcf30b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA95.cs": {
+    "mtime": 1771408392.8829944,
+    "ast_hash": "a4a52c4626eb4b2fe098c5dbb55ccb4d",
+    "semantic_hash": "a4a52c4626eb4b2fe098c5dbb55ccb4d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA96.cs": {
+    "mtime": 1771408392.8848796,
+    "ast_hash": "d41f15d4fac69720eea948c08b71bd50",
+    "semantic_hash": "d41f15d4fac69720eea948c08b71bd50"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA98.cs": {
+    "mtime": 1771408392.8848796,
+    "ast_hash": "f1a8660162ea2bf995a8e3526f55c2dc",
+    "semantic_hash": "f1a8660162ea2bf995a8e3526f55c2dc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\ESTIA99.cs": {
+    "mtime": 1771408392.8860044,
+    "ast_hash": "e7b451403f5e3ebd4e3b1e831cf22fb2",
+    "semantic_hash": "e7b451403f5e3ebd4e3b1e831cf22fb2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTA06.cs": {
+    "mtime": 1771408392.8870068,
+    "ast_hash": "76fd996936acc23e70d24e8626f3cc46",
+    "semantic_hash": "76fd996936acc23e70d24e8626f3cc46"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTA20.cs": {
+    "mtime": 1771408392.8870068,
+    "ast_hash": "dad4d7f37a3519056d40b2ed84b9ac77",
+    "semantic_hash": "dad4d7f37a3519056d40b2ed84b9ac77"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTA22.cs": {
+    "mtime": 1771408392.8888793,
+    "ast_hash": "e8657f53d26d1285c2f9c59a2d0c558c",
+    "semantic_hash": "e8657f53d26d1285c2f9c59a2d0c558c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTA26.cs": {
+    "mtime": 1771408392.8898787,
+    "ast_hash": "5cf329b78d735262d6e72bb10dbf431c",
+    "semantic_hash": "5cf329b78d735262d6e72bb10dbf431c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTA30.cs": {
+    "mtime": 1771408392.8898787,
+    "ast_hash": "3a53a39582b609656eb0f36898f632ca",
+    "semantic_hash": "3a53a39582b609656eb0f36898f632ca"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTAA04.cs": {
+    "mtime": 1771408392.8910177,
+    "ast_hash": "905176149cb8612ee9fa8764c9946827",
+    "semantic_hash": "905176149cb8612ee9fa8764c9946827"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTAA34.cs": {
+    "mtime": 1771408392.8920112,
+    "ast_hash": "f13ae00e6aeef06b0a67f879ff459bc9",
+    "semantic_hash": "f13ae00e6aeef06b0a67f879ff459bc9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTAA36.cs": {
+    "mtime": 1771408392.8920112,
+    "ast_hash": "2387fb983b7baf99aed4e74cee340a93",
+    "semantic_hash": "2387fb983b7baf99aed4e74cee340a93"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTB22.cs": {
+    "mtime": 1771408392.8929896,
+    "ast_hash": "8e1ccba1dc92459d470964b412466c0d",
+    "semantic_hash": "8e1ccba1dc92459d470964b412466c0d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC01.cs": {
+    "mtime": 1771408392.8938797,
+    "ast_hash": "429dd9b2d2fa2b57fe5d7b731aa9bc46",
+    "semantic_hash": "429dd9b2d2fa2b57fe5d7b731aa9bc46"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC02.cs": {
+    "mtime": 1771408392.894991,
+    "ast_hash": "566e141b633f06f9df54813ba887eb26",
+    "semantic_hash": "566e141b633f06f9df54813ba887eb26"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC03.cs": {
+    "mtime": 1771408392.8959885,
+    "ast_hash": "10ccb58dd4f9535433cba61791f8aa72",
+    "semantic_hash": "10ccb58dd4f9535433cba61791f8aa72"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC04.cs": {
+    "mtime": 1771408392.8969886,
+    "ast_hash": "74597a99648265757484f1dec3ae8a52",
+    "semantic_hash": "74597a99648265757484f1dec3ae8a52"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC14.cs": {
+    "mtime": 1771408392.8969886,
+    "ast_hash": "b2f9519057e3054fe63b574c57c6f70e",
+    "semantic_hash": "b2f9519057e3054fe63b574c57c6f70e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC15.cs": {
+    "mtime": 1771408392.8980088,
+    "ast_hash": "d50606c8190437e71bbd8c2ed9d36e09",
+    "semantic_hash": "d50606c8190437e71bbd8c2ed9d36e09"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC16.cs": {
+    "mtime": 1771408392.8989959,
+    "ast_hash": "16a67ec48c22f7f3d91e8b8186daade7",
+    "semantic_hash": "16a67ec48c22f7f3d91e8b8186daade7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC18.cs": {
+    "mtime": 1771408392.899987,
+    "ast_hash": "af27cbe4fd90fbabf333fe53e7f1bafd",
+    "semantic_hash": "af27cbe4fd90fbabf333fe53e7f1bafd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC20.cs": {
+    "mtime": 1771408392.9008975,
+    "ast_hash": "ce563ef3c576671805ca2bd8afec1696",
+    "semantic_hash": "ce563ef3c576671805ca2bd8afec1696"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC21.cs": {
+    "mtime": 1771408392.9018798,
+    "ast_hash": "461b88b7912be8886db5cf4996137551",
+    "semantic_hash": "461b88b7912be8886db5cf4996137551"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC24.cs": {
+    "mtime": 1771408392.9028797,
+    "ast_hash": "9d5f67a58029dca17c49cdefc3d93e32",
+    "semantic_hash": "9d5f67a58029dca17c49cdefc3d93e32"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC26.cs": {
+    "mtime": 1771408392.9039824,
+    "ast_hash": "701ac75eade26bed727998a1c8825d64",
+    "semantic_hash": "701ac75eade26bed727998a1c8825d64"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC28.cs": {
+    "mtime": 1771408392.9039824,
+    "ast_hash": "7a0145aed796133e0325e765603c474c",
+    "semantic_hash": "7a0145aed796133e0325e765603c474c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC29.cs": {
+    "mtime": 1771408392.9050071,
+    "ast_hash": "63a03a61f4da116d74b9122e5a2d8e31",
+    "semantic_hash": "63a03a61f4da116d74b9122e5a2d8e31"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC31.cs": {
+    "mtime": 1771408392.9059997,
+    "ast_hash": "d2b7642fa5352cc0ba3bc8aee5043f14",
+    "semantic_hash": "d2b7642fa5352cc0ba3bc8aee5043f14"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC33.cs": {
+    "mtime": 1771408392.906887,
+    "ast_hash": "150968a73084cdbe9defa9ae16bcafcb",
+    "semantic_hash": "150968a73084cdbe9defa9ae16bcafcb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC35.cs": {
+    "mtime": 1771408392.906887,
+    "ast_hash": "7af3ee7adbee0cabd1a808b6ebcfb154",
+    "semantic_hash": "7af3ee7adbee0cabd1a808b6ebcfb154"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC37.cs": {
+    "mtime": 1771408392.9078822,
+    "ast_hash": "ecea334d37a2ce5d454c8b5535dd576d",
+    "semantic_hash": "ecea334d37a2ce5d454c8b5535dd576d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC38.cs": {
+    "mtime": 1771408392.908993,
+    "ast_hash": "70ba302522575d5c5c31d7166d16f320",
+    "semantic_hash": "70ba302522575d5c5c31d7166d16f320"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\INTC39.cs": {
+    "mtime": 1771408392.90988,
+    "ast_hash": "80d654bb932b1f632c58f3b10c5f44ea",
+    "semantic_hash": "80d654bb932b1f632c58f3b10c5f44ea"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG01.cs": {
+    "mtime": 1771408392.90988,
+    "ast_hash": "aef29b3ccd03d0709d76819b9284fa73",
+    "semantic_hash": "aef29b3ccd03d0709d76819b9284fa73"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG02.cs": {
+    "mtime": 1771408392.910879,
+    "ast_hash": "e586306323d4bda9939a6f2a4f8ede13",
+    "semantic_hash": "e586306323d4bda9939a6f2a4f8ede13"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG03.cs": {
+    "mtime": 1771408392.91188,
+    "ast_hash": "dcb8079a671d9f2ee51eaa5056226a22",
+    "semantic_hash": "dcb8079a671d9f2ee51eaa5056226a22"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG04.cs": {
+    "mtime": 1771408392.9128802,
+    "ast_hash": "7112df3c9df2b2be5913febc9a3e6a66",
+    "semantic_hash": "7112df3c9df2b2be5913febc9a3e6a66"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG06.cs": {
+    "mtime": 1771408392.9138794,
+    "ast_hash": "015a47f79abef4e1921e90b75cfaf3d9",
+    "semantic_hash": "015a47f79abef4e1921e90b75cfaf3d9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG07.cs": {
+    "mtime": 1771408392.91488,
+    "ast_hash": "44e029a6ea913c4fe4ed89b271d68623",
+    "semantic_hash": "44e029a6ea913c4fe4ed89b271d68623"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG08.cs": {
+    "mtime": 1771408392.91488,
+    "ast_hash": "ac5e67a4571bc8dbf6cd44a51fafe73f",
+    "semantic_hash": "ac5e67a4571bc8dbf6cd44a51fafe73f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG09.cs": {
+    "mtime": 1771408392.9168804,
+    "ast_hash": "d686cd01b6422dc68a5e13ab065290ba",
+    "semantic_hash": "d686cd01b6422dc68a5e13ab065290ba"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG10.cs": {
+    "mtime": 1771408392.9168804,
+    "ast_hash": "2b4bc1e9028ccd00b22509f955e5504e",
+    "semantic_hash": "2b4bc1e9028ccd00b22509f955e5504e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG11.cs": {
+    "mtime": 1771408392.9178784,
+    "ast_hash": "7cc6f2e0af2101a2ae99e64a502c0b42",
+    "semantic_hash": "7cc6f2e0af2101a2ae99e64a502c0b42"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG12.cs": {
+    "mtime": 1771408392.918878,
+    "ast_hash": "83d6b5f2b42da324d25f91e7ecbc9190",
+    "semantic_hash": "83d6b5f2b42da324d25f91e7ecbc9190"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG13.cs": {
+    "mtime": 1771408392.919901,
+    "ast_hash": "7e32154e16c8576dcc06816e5f2c2177",
+    "semantic_hash": "7e32154e16c8576dcc06816e5f2c2177"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG14.cs": {
+    "mtime": 1771408392.919901,
+    "ast_hash": "d0b3392dae9c29e82141ae257b5ebb58",
+    "semantic_hash": "d0b3392dae9c29e82141ae257b5ebb58"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG15.cs": {
+    "mtime": 1771408392.9208784,
+    "ast_hash": "4732add119b39bbed8ce522ee791b4ee",
+    "semantic_hash": "4732add119b39bbed8ce522ee791b4ee"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG16.cs": {
+    "mtime": 1771408392.921878,
+    "ast_hash": "dadfdab05918b241906ba31aaa26419c",
+    "semantic_hash": "dadfdab05918b241906ba31aaa26419c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG17.cs": {
+    "mtime": 1771408392.9228983,
+    "ast_hash": "d8f6ca92a3d69cc272665664ef9310cb",
+    "semantic_hash": "d8f6ca92a3d69cc272665664ef9310cb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG18.cs": {
+    "mtime": 1771408392.9228983,
+    "ast_hash": "aa0b91110ec885fc28c55db2d2243ec4",
+    "semantic_hash": "aa0b91110ec885fc28c55db2d2243ec4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG20.cs": {
+    "mtime": 1771408392.9238784,
+    "ast_hash": "e96d002942873dd6f4def1a6ba7ed27c",
+    "semantic_hash": "e96d002942873dd6f4def1a6ba7ed27c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG21.cs": {
+    "mtime": 1771408392.9248805,
+    "ast_hash": "c2ba2f60a062cbf744253c472555ac5a",
+    "semantic_hash": "c2ba2f60a062cbf744253c472555ac5a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG22.cs": {
+    "mtime": 1771408392.9258783,
+    "ast_hash": "73727f0de917b3b3b5488c1021d1d607",
+    "semantic_hash": "73727f0de917b3b3b5488c1021d1d607"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG24.cs": {
+    "mtime": 1771408392.9258783,
+    "ast_hash": "80541ec2cf04f5cfc71c1b911d772d1e",
+    "semantic_hash": "80541ec2cf04f5cfc71c1b911d772d1e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG25.cs": {
+    "mtime": 1771408392.926895,
+    "ast_hash": "78d87bba73cc4f51dcda19b212718665",
+    "semantic_hash": "78d87bba73cc4f51dcda19b212718665"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG26.cs": {
+    "mtime": 1771408392.9278815,
+    "ast_hash": "0d678fda94c1096f2f0d96b8daf1e914",
+    "semantic_hash": "0d678fda94c1096f2f0d96b8daf1e914"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG27.cs": {
+    "mtime": 1771408392.9288962,
+    "ast_hash": "63618a4a675f44fc5ff156f8ed9f7e67",
+    "semantic_hash": "63618a4a675f44fc5ff156f8ed9f7e67"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG28.cs": {
+    "mtime": 1771408392.9298806,
+    "ast_hash": "2b570c8283f4e21332e7eb20240649a4",
+    "semantic_hash": "2b570c8283f4e21332e7eb20240649a4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG29.cs": {
+    "mtime": 1771408392.930879,
+    "ast_hash": "868b4f04ff854fe8c6e981a2c62cd1dc",
+    "semantic_hash": "868b4f04ff854fe8c6e981a2c62cd1dc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG30.cs": {
+    "mtime": 1771408392.9319077,
+    "ast_hash": "8c6b99f0f64af0e2707072003aeb9f6e",
+    "semantic_hash": "8c6b99f0f64af0e2707072003aeb9f6e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\LUNG31.cs": {
+    "mtime": 1771408392.932881,
+    "ast_hash": "322e577b67a7010ae3164992d613abda",
+    "semantic_hash": "322e577b67a7010ae3164992d613abda"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\Robot.json": {
+    "mtime": 1771408392.9428825,
+    "ast_hash": "faa0eda93d11080864ccb758f09731dc",
+    "semantic_hash": "faa0eda93d11080864ccb758f09731dc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI01.cs": {
+    "mtime": 1771408392.943995,
+    "ast_hash": "130f6a7c347a5a55f994d579fd4d94b3",
+    "semantic_hash": "130f6a7c347a5a55f994d579fd4d94b3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI02.cs": {
+    "mtime": 1771408392.9450006,
+    "ast_hash": "d1d6d9dcb683a4fb8f59652ad5490b66",
+    "semantic_hash": "d1d6d9dcb683a4fb8f59652ad5490b66"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI03.cs": {
+    "mtime": 1771408392.9461975,
+    "ast_hash": "3c7fa40532f0722aaa239750c45b7ac3",
+    "semantic_hash": "3c7fa40532f0722aaa239750c45b7ac3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI04.cs": {
+    "mtime": 1771408392.9471471,
+    "ast_hash": "36783dc86196c8c050ed8a3fd5e3f1d9",
+    "semantic_hash": "36783dc86196c8c050ed8a3fd5e3f1d9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI05.cs": {
+    "mtime": 1771408392.9480026,
+    "ast_hash": "e3642e1bbf204f4514131e0b2398a045",
+    "semantic_hash": "e3642e1bbf204f4514131e0b2398a045"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI06.cs": {
+    "mtime": 1771408392.9490483,
+    "ast_hash": "c66715c76cfd41244e903fd4cf63da62",
+    "semantic_hash": "c66715c76cfd41244e903fd4cf63da62"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI07.cs": {
+    "mtime": 1771408392.9500005,
+    "ast_hash": "2a3900bf7ec087979901e2f518538817",
+    "semantic_hash": "2a3900bf7ec087979901e2f518538817"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI08.cs": {
+    "mtime": 1771408392.9500005,
+    "ast_hash": "e1b655193ca17a28d4c06ae22ae8a0eb",
+    "semantic_hash": "e1b655193ca17a28d4c06ae22ae8a0eb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI09.cs": {
+    "mtime": 1771408392.9510646,
+    "ast_hash": "eef57956170ce60c76422ab8eefe6a74",
+    "semantic_hash": "eef57956170ce60c76422ab8eefe6a74"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI10.cs": {
+    "mtime": 1771408392.9520018,
+    "ast_hash": "73a327999a2f6ef09d1f52d508c26145",
+    "semantic_hash": "73a327999a2f6ef09d1f52d508c26145"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI11.cs": {
+    "mtime": 1771408392.953116,
+    "ast_hash": "51119371bdae3ed8d063bc64a35b032b",
+    "semantic_hash": "51119371bdae3ed8d063bc64a35b032b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI12.cs": {
+    "mtime": 1771408392.953116,
+    "ast_hash": "6027097b5ceba6b75ffb9704596bdba6",
+    "semantic_hash": "6027097b5ceba6b75ffb9704596bdba6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI13.cs": {
+    "mtime": 1771408392.9540012,
+    "ast_hash": "5d90e102f99687ca56b7760fc707c45a",
+    "semantic_hash": "5d90e102f99687ca56b7760fc707c45a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI14.cs": {
+    "mtime": 1771408392.955065,
+    "ast_hash": "dda0914bc6249bebfe2d2b0bc9ebd1bb",
+    "semantic_hash": "dda0914bc6249bebfe2d2b0bc9ebd1bb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI15.cs": {
+    "mtime": 1771408392.95612,
+    "ast_hash": "55bafa66417077115d6b8fabb99495ff",
+    "semantic_hash": "55bafa66417077115d6b8fabb99495ff"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI16.cs": {
+    "mtime": 1771408392.95612,
+    "ast_hash": "8c94545d849f265ec64a5880798fbb92",
+    "semantic_hash": "8c94545d849f265ec64a5880798fbb92"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI18.cs": {
+    "mtime": 1771408392.9571567,
+    "ast_hash": "101d8add7a6b1544ecae4498a6b27344",
+    "semantic_hash": "101d8add7a6b1544ecae4498a6b27344"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI19.cs": {
+    "mtime": 1771408392.9580595,
+    "ast_hash": "53e0d8c8a544c165f50e94bd9285430e",
+    "semantic_hash": "53e0d8c8a544c165f50e94bd9285430e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI20.cs": {
+    "mtime": 1771408392.9588623,
+    "ast_hash": "a237fe0d401ee4e8eac939e5139768a5",
+    "semantic_hash": "a237fe0d401ee4e8eac939e5139768a5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SAAI21.cs": {
+    "mtime": 1771408392.959512,
+    "ast_hash": "c38ca0370b5b118d7e55c7caf9140468",
+    "semantic_hash": "c38ca0370b5b118d7e55c7caf9140468"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI01.cs": {
+    "mtime": 1771408392.9666622,
+    "ast_hash": "fc8dc6b190c97de45ea3632bfaf7c055",
+    "semantic_hash": "fc8dc6b190c97de45ea3632bfaf7c055"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI02.cs": {
+    "mtime": 1771408392.967588,
+    "ast_hash": "e8470c1bb8318385c061e3d62f908ce5",
+    "semantic_hash": "e8470c1bb8318385c061e3d62f908ce5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI03.cs": {
+    "mtime": 1771408392.9686577,
+    "ast_hash": "cb42743d81d251980261429bd2342cf0",
+    "semantic_hash": "cb42743d81d251980261429bd2342cf0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI04.cs": {
+    "mtime": 1771408392.9686577,
+    "ast_hash": "3949019d29ff6b8731f2fd9668515f39",
+    "semantic_hash": "3949019d29ff6b8731f2fd9668515f39"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI05.cs": {
+    "mtime": 1771408392.9698417,
+    "ast_hash": "c51353f66a21089d11adf1855b240b23",
+    "semantic_hash": "c51353f66a21089d11adf1855b240b23"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI06.cs": {
+    "mtime": 1771408392.9710033,
+    "ast_hash": "e81a32a74bcfa2d65ecebf3424bb1f28",
+    "semantic_hash": "e81a32a74bcfa2d65ecebf3424bb1f28"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI07.cs": {
+    "mtime": 1771408392.9710033,
+    "ast_hash": "0f82ddc7326324455e6a6aa2f3299199",
+    "semantic_hash": "0f82ddc7326324455e6a6aa2f3299199"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI08.cs": {
+    "mtime": 1771408392.972006,
+    "ast_hash": "2ef0d6c0400399c442381cbc436aea90",
+    "semantic_hash": "2ef0d6c0400399c442381cbc436aea90"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI09.cs": {
+    "mtime": 1771408392.972999,
+    "ast_hash": "cb2c457e56887e222248cfae56fca789",
+    "semantic_hash": "cb2c457e56887e222248cfae56fca789"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI10.cs": {
+    "mtime": 1771408392.972999,
+    "ast_hash": "933921dc754393f4440a49359d27e17a",
+    "semantic_hash": "933921dc754393f4440a49359d27e17a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI12.cs": {
+    "mtime": 1771408392.973985,
+    "ast_hash": "a2a6cee2fb04cafb3f1db6ca51d4dad4",
+    "semantic_hash": "a2a6cee2fb04cafb3f1db6ca51d4dad4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI13.cs": {
+    "mtime": 1771408392.9758604,
+    "ast_hash": "08e23bd302037ca9ed8008ebe3934d3b",
+    "semantic_hash": "08e23bd302037ca9ed8008ebe3934d3b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI14.cs": {
+    "mtime": 1771408392.9768596,
+    "ast_hash": "86a661f58ea5f8bfecf97b40c0e47727",
+    "semantic_hash": "86a661f58ea5f8bfecf97b40c0e47727"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI15.cs": {
+    "mtime": 1771408392.9778605,
+    "ast_hash": "d31c1510217c66948e28861bbf6c8fa7",
+    "semantic_hash": "d31c1510217c66948e28861bbf6c8fa7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI17.cs": {
+    "mtime": 1771408392.97886,
+    "ast_hash": "9d874f872745dd3d0419018cb44f116e",
+    "semantic_hash": "9d874f872745dd3d0419018cb44f116e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI19.cs": {
+    "mtime": 1771408392.97886,
+    "ast_hash": "667d18eb62b20fd386c68c71468edf9b",
+    "semantic_hash": "667d18eb62b20fd386c68c71468edf9b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI20.cs": {
+    "mtime": 1771408392.9799757,
+    "ast_hash": "fbb742e6cb1092965c4383a14f56873f",
+    "semantic_hash": "fbb742e6cb1092965c4383a14f56873f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI21.cs": {
+    "mtime": 1771408392.9809792,
+    "ast_hash": "d2cdc1d5ada93f319ea561d2f42c1e4c",
+    "semantic_hash": "d2cdc1d5ada93f319ea561d2f42c1e4c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI22.cs": {
+    "mtime": 1771408392.98197,
+    "ast_hash": "88d5fb5855ea1de7e2b17625210ae6ec",
+    "semantic_hash": "88d5fb5855ea1de7e2b17625210ae6ec"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI23.cs": {
+    "mtime": 1771408392.982967,
+    "ast_hash": "9e76efe713058615ab28c6704b8a70c1",
+    "semantic_hash": "9e76efe713058615ab28c6704b8a70c1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI25.cs": {
+    "mtime": 1771408392.982967,
+    "ast_hash": "80717c90ca7288d2793df6a09edb6d1f",
+    "semantic_hash": "80717c90ca7288d2793df6a09edb6d1f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI28.cs": {
+    "mtime": 1771408392.9848616,
+    "ast_hash": "2d6521cfebfdeaf62e7095d372624f4d",
+    "semantic_hash": "2d6521cfebfdeaf62e7095d372624f4d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI29.cs": {
+    "mtime": 1771408392.9848616,
+    "ast_hash": "439865294dc6a3e9b59f29707d2c2cb9",
+    "semantic_hash": "439865294dc6a3e9b59f29707d2c2cb9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI30.cs": {
+    "mtime": 1771408392.9858928,
+    "ast_hash": "1e5c497598e5b2bc2717009ecf1be230",
+    "semantic_hash": "1e5c497598e5b2bc2717009ecf1be230"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI31.cs": {
+    "mtime": 1771408392.9869785,
+    "ast_hash": "1c97fb51d11c98c45214df5412c9e60f",
+    "semantic_hash": "1c97fb51d11c98c45214df5412c9e60f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI32.cs": {
+    "mtime": 1771408392.987965,
+    "ast_hash": "921491bcd6ad391cfc3d074893d4898e",
+    "semantic_hash": "921491bcd6ad391cfc3d074893d4898e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI33.cs": {
+    "mtime": 1771408392.987965,
+    "ast_hash": "fb5b3203e647407118d5087b3ff069aa",
+    "semantic_hash": "fb5b3203e647407118d5087b3ff069aa"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI36.cs": {
+    "mtime": 1771408392.9890027,
+    "ast_hash": "250c65d8b779984f99dfa96795fdfa66",
+    "semantic_hash": "250c65d8b779984f99dfa96795fdfa66"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI37.cs": {
+    "mtime": 1771408392.9899926,
+    "ast_hash": "8fd54eef9562a81d2036e059f7343bb2",
+    "semantic_hash": "8fd54eef9562a81d2036e059f7343bb2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI38.cs": {
+    "mtime": 1771408392.9899926,
+    "ast_hash": "15d53d8c5bc6f32cd965269e7be9cbe6",
+    "semantic_hash": "15d53d8c5bc6f32cd965269e7be9cbe6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI39.cs": {
+    "mtime": 1771408392.9910007,
+    "ast_hash": "63541a34c9d9cdff523eb0b67325b0e4",
+    "semantic_hash": "63541a34c9d9cdff523eb0b67325b0e4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI42.cs": {
+    "mtime": 1771408392.9919772,
+    "ast_hash": "bf820ca78fac223e3b5abb2598ebad0f",
+    "semantic_hash": "bf820ca78fac223e3b5abb2598ebad0f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI44.cs": {
+    "mtime": 1771408392.9919772,
+    "ast_hash": "6c76ab65940c16a0164281d643377c65",
+    "semantic_hash": "6c76ab65940c16a0164281d643377c65"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI45.cs": {
+    "mtime": 1771408392.9939945,
+    "ast_hash": "29d4c7eeed722e37a584d87791f85986",
+    "semantic_hash": "29d4c7eeed722e37a584d87791f85986"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI46.cs": {
+    "mtime": 1771408392.9939945,
+    "ast_hash": "5f7b7a29a3b7ff597dddfccfb651dfa1",
+    "semantic_hash": "5f7b7a29a3b7ff597dddfccfb651dfa1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI47.cs": {
+    "mtime": 1771408392.99549,
+    "ast_hash": "b1858aba27fab512ffdae69608f4db46",
+    "semantic_hash": "b1858aba27fab512ffdae69608f4db46"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI48.cs": {
+    "mtime": 1771408392.996645,
+    "ast_hash": "3062071a261ffc27928a9d5ddb38a8d2",
+    "semantic_hash": "3062071a261ffc27928a9d5ddb38a8d2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI49.cs": {
+    "mtime": 1771408392.9975533,
+    "ast_hash": "c1170f74e10bea60a783881404f8a478",
+    "semantic_hash": "c1170f74e10bea60a783881404f8a478"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI51.cs": {
+    "mtime": 1771408392.9975533,
+    "ast_hash": "6d59ee72326e0867d19fbaba444c6a77",
+    "semantic_hash": "6d59ee72326e0867d19fbaba444c6a77"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI52.cs": {
+    "mtime": 1771408392.9986327,
+    "ast_hash": "80abe968f326f749fd25c743477ff887",
+    "semantic_hash": "80abe968f326f749fd25c743477ff887"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI53.cs": {
+    "mtime": 1771408392.999637,
+    "ast_hash": "8b3ccc98f396bf6888d0fa316907dd7a",
+    "semantic_hash": "8b3ccc98f396bf6888d0fa316907dd7a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI54.cs": {
+    "mtime": 1771408393.0006323,
+    "ast_hash": "10060e333065365e8f6d42d8fa03dbe4",
+    "semantic_hash": "10060e333065365e8f6d42d8fa03dbe4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI55.cs": {
+    "mtime": 1771408393.0006323,
+    "ast_hash": "97fad18b7633d4d84c5233e45f4810bd",
+    "semantic_hash": "97fad18b7633d4d84c5233e45f4810bd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI56.cs": {
+    "mtime": 1771408393.001646,
+    "ast_hash": "ccdef2d4dd8d48d3f4b03f6d254791c4",
+    "semantic_hash": "ccdef2d4dd8d48d3f4b03f6d254791c4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI57.cs": {
+    "mtime": 1771408393.0026171,
+    "ast_hash": "6d7fc96e108ac10237ddcc6fbbf99314",
+    "semantic_hash": "6d7fc96e108ac10237ddcc6fbbf99314"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI58.cs": {
+    "mtime": 1771408393.0026171,
+    "ast_hash": "7bfc0d5bed5e0771f155d6b92e814829",
+    "semantic_hash": "7bfc0d5bed5e0771f155d6b92e814829"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI61.cs": {
+    "mtime": 1771408393.0036142,
+    "ast_hash": "afd04cf76938801f04bff09b9bf4366c",
+    "semantic_hash": "afd04cf76938801f04bff09b9bf4366c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI62.cs": {
+    "mtime": 1771408393.0046258,
+    "ast_hash": "29dbb46651f658a2059c19f549144864",
+    "semantic_hash": "29dbb46651f658a2059c19f549144864"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI63.cs": {
+    "mtime": 1771408393.0056205,
+    "ast_hash": "d602287f2aff39ec19c207b0b969b0e2",
+    "semantic_hash": "d602287f2aff39ec19c207b0b969b0e2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI64.cs": {
+    "mtime": 1771408393.0056205,
+    "ast_hash": "adce0e97e5906606e5872342e0312bb8",
+    "semantic_hash": "adce0e97e5906606e5872342e0312bb8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI66.cs": {
+    "mtime": 1771408393.006651,
+    "ast_hash": "9edfc03e54d0f1e0ea2a6e942db604da",
+    "semantic_hash": "9edfc03e54d0f1e0ea2a6e942db604da"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI68.cs": {
+    "mtime": 1771408393.007498,
+    "ast_hash": "4c243cbda5fc6482bf6babe1ff27b9dc",
+    "semantic_hash": "4c243cbda5fc6482bf6babe1ff27b9dc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI70.cs": {
+    "mtime": 1771408393.0085032,
+    "ast_hash": "be7d4764d98db528444799b5537eb2f2",
+    "semantic_hash": "be7d4764d98db528444799b5537eb2f2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI74.cs": {
+    "mtime": 1771408393.0094974,
+    "ast_hash": "0ce5294b1d6edffc53dad86177058ba3",
+    "semantic_hash": "0ce5294b1d6edffc53dad86177058ba3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI76.cs": {
+    "mtime": 1771408393.0186403,
+    "ast_hash": "36a8cb347258e880a3ff9e422c6c3df5",
+    "semantic_hash": "36a8cb347258e880a3ff9e422c6c3df5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI78.cs": {
+    "mtime": 1771408393.0186403,
+    "ast_hash": "5cc3f9f2895135d882877523529548da",
+    "semantic_hash": "5cc3f9f2895135d882877523529548da"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI79.cs": {
+    "mtime": 1771408393.0196445,
+    "ast_hash": "b26c68a0bf665178777c741e53130ffd",
+    "semantic_hash": "b26c68a0bf665178777c741e53130ffd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\SCAI80.cs": {
+    "mtime": 1771408393.0206313,
+    "ast_hash": "befffdb29f919c26e3d6986cbf2b9259",
+    "semantic_hash": "befffdb29f919c26e3d6986cbf2b9259"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\MACRO\\TAGLIO.cs": {
+    "mtime": 1771408393.0216248,
+    "ast_hash": "249585548e2d5676a2606c9b467424a1",
+    "semantic_hash": "249585548e2d5676a2606c9b467424a1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771408393.0226042,
+    "ast_hash": "3add1ed0c1618797b4d05729b79de99e",
+    "semantic_hash": "3add1ed0c1618797b4d05729b79de99e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\Properties\\Resources.Designer.cs": {
+    "mtime": 1771408393.0236125,
+    "ast_hash": "1be5a7923a82dc1244692411c1c4e1ea",
+    "semantic_hash": "1be5a7923a82dc1244692411c1c4e1ea"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\Properties\\launchSettings.json": {
+    "mtime": 1771408393.0255008,
+    "ast_hash": "6fd647ea61293b4d1c376e9efdfa8665",
+    "semantic_hash": "6fd647ea61293b4d1c376e9efdfa8665"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\bin\\ReleaseDebug\\net8.0\\Ficep.MacroGra.deps.json": {
+    "mtime": 1771408702.5130403,
+    "ast_hash": "118bf6e2f0b59bfe483e595bd67e0379",
+    "semantic_hash": "118bf6e2f0b59bfe483e595bd67e0379"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\Debug\\net7.0\\.NETCoreApp,Version=v7.0.AssemblyAttributes.cs": {
+    "mtime": 1779972013.7144394,
+    "ast_hash": "4bdaa6075c3028b4a6fd5b12843cab2b",
+    "semantic_hash": "4bdaa6075c3028b4a6fd5b12843cab2b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771408433.473567,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\Ficep.MacroGra.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.240577,
+    "ast_hash": "94770c8d50f63875a5592e60160d834b",
+    "semantic_hash": "94770c8d50f63875a5592e60160d834b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\Ficep.MacroGra_Ficep.csproj.nuget.dgspec.json": {
+    "mtime": 1782140241.609207,
+    "ast_hash": "0ae540b3514783b8f702de0319973b26",
+    "semantic_hash": "0ae540b3514783b8f702de0319973b26"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\project.assets.json": {
+    "mtime": 1782140537.22058,
+    "ast_hash": "1dc4cdac87b60a3131a13746003e2076",
+    "semantic_hash": "1dc4cdac87b60a3131a13746003e2076"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Lib\\Config\\Robot.json": {
+    "mtime": 1771408393.0386047,
+    "ast_hash": "9ecfc916fb7a146da804b6a532eff334",
+    "semantic_hash": "9ecfc916fb7a146da804b6a532eff334"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Lib\\RobServer\\Ficep.RobServer.deps.json": {
+    "mtime": 1771408393.404729,
+    "ast_hash": "5a67fb97af7d15a088cd3be725391987",
+    "semantic_hash": "5a67fb97af7d15a088cd3be725391987"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Lib\\RobServer\\Ficep.RobServer.runtimeconfig.json": {
+    "mtime": 1771408393.418728,
+    "ast_hash": "06fe9e45ffbd13dccfebd891a4e14493",
+    "semantic_hash": "06fe9e45ffbd13dccfebd891a4e14493"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\Ficep.RobServer.Controls.csproj": {
+    "mtime": 1772113074.275401,
+    "ast_hash": "18fb106d2d477aa7c2eb0bbde59b7fc6",
+    "semantic_hash": "18fb106d2d477aa7c2eb0bbde59b7fc6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\ImportExportHelper.cs": {
+    "mtime": 1771238375.7987852,
+    "ast_hash": "5fc961c59932d15d83d0b87a4da2f575",
+    "semantic_hash": "5fc961c59932d15d83d0b87a4da2f575"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\Measure.csproj": {
+    "mtime": 1771238375.7998881,
+    "ast_hash": "9766d39b11f49bafd2d62d20671f0838",
+    "semantic_hash": "9766d39b11f49bafd2d62d20671f0838"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\MeasureForm.Designer.cs": {
+    "mtime": 1771238375.7998881,
+    "ast_hash": "cf305617950bf298ea4886098ff840ef",
+    "semantic_hash": "cf305617950bf298ea4886098ff840ef"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\MeasureForm.cs": {
+    "mtime": 1772113074.2838142,
+    "ast_hash": "4005c11e1f198f78169537cd92b3aacb",
+    "semantic_hash": "4005c11e1f198f78169537cd92b3aacb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\MeasurePanel.Designer.cs": {
+    "mtime": 1771238375.8039327,
+    "ast_hash": "1818ddef98fff4c978f13a3f3550f475",
+    "semantic_hash": "1818ddef98fff4c978f13a3f3550f475"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\MeasurePanel.cs": {
+    "mtime": 1771238375.8047848,
+    "ast_hash": "c9cb308f0df3b01fa5342ad0d69f3831",
+    "semantic_hash": "c9cb308f0df3b01fa5342ad0d69f3831"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.8069057,
+    "ast_hash": "344e28ec575a4991581d738e6f7ad51c",
+    "semantic_hash": "344e28ec575a4991581d738e6f7ad51c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\UserControl1.Designer.cs": {
+    "mtime": 1771238375.8079114,
+    "ast_hash": "05da6e0796bec247cc70d3a4ca9d4ddf",
+    "semantic_hash": "05da6e0796bec247cc70d3a4ca9d4ddf"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\UserControl1.cs": {
+    "mtime": 1771238375.808908,
+    "ast_hash": "479ac66b428f0f14c247bcbc502bcdba",
+    "semantic_hash": "479ac66b428f0f14c247bcbc502bcdba"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\bin\\Debug\\net8.0-windows7.0\\Ficep.RobServer.Controls.deps.json": {
+    "mtime": 1771408639.8196273,
+    "ast_hash": "546f79d17216dc654340f76929827a36",
+    "semantic_hash": "546f79d17216dc654340f76929827a36"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\obj\\Debug\\net8.0-windows7.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238439.5443163,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\obj\\Ficep.RobServer.Controls.csproj.nuget.dgspec.json": {
+    "mtime": 1782140241.6082115,
+    "ast_hash": "13173ed2cc0b772aa6227a88f1aba530",
+    "semantic_hash": "13173ed2cc0b772aa6227a88f1aba530"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\obj\\project.assets.json": {
+    "mtime": 1782140241.5832102,
+    "ast_hash": "de8bb7cb93e8f22c77f62e6cd9de6084",
+    "semantic_hash": "de8bb7cb93e8f22c77f62e6cd9de6084"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\DSTVParser.cs": {
+    "mtime": 1772113074.2910638,
+    "ast_hash": "570732048c1ab680ac872b5ecfc3c84c",
+    "semantic_hash": "570732048c1ab680ac872b5ecfc3c84c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\DstvData.cs": {
+    "mtime": 1771238375.8119063,
+    "ast_hash": "bfd7140bd320ba4647cf21138bc6244f",
+    "semantic_hash": "bfd7140bd320ba4647cf21138bc6244f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\Ficep.RobServer.DSTVParser.csproj": {
+    "mtime": 1771238375.8139071,
+    "ast_hash": "d5863476f58de57342fd1166ad37a30b",
+    "semantic_hash": "d5863476f58de57342fd1166ad37a30b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.8149052,
+    "ast_hash": "e16dc7c8cdd8cf983be06feaa898d1c0",
+    "semantic_hash": "e16dc7c8cdd8cf983be06feaa898d1c0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\WorkPiece.cs": {
+    "mtime": 1771238375.8159387,
+    "ast_hash": "985ede7dfd07b466ada203b2ec8d2abe",
+    "semantic_hash": "985ede7dfd07b466ada203b2ec8d2abe"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\bin\\Debug\\net8.0\\Ficep.RobServer.DSTVParser.deps.json": {
+    "mtime": 1771408640.6852536,
+    "ast_hash": "48fec1bab2e1d2a177067ec5a52dccac",
+    "semantic_hash": "48fec1bab2e1d2a177067ec5a52dccac"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.3010435,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\obj\\Ficep.RobServer.DSTVParser.csproj.nuget.dgspec.json": {
+    "mtime": 1782140241.6132286,
+    "ast_hash": "d4e9f0b925b9a8706ac8f8f77dded2a1",
+    "semantic_hash": "d4e9f0b925b9a8706ac8f8f77dded2a1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\obj\\project.assets.json": {
+    "mtime": 1782140241.58521,
+    "ast_hash": "dac9ef8d014293d781a3cc75092ca726",
+    "semantic_hash": "dac9ef8d014293d781a3cc75092ca726"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\Ficep.RobServer.Data.csproj": {
+    "mtime": 1772113074.2989032,
+    "ast_hash": "2646ddf32e4490946d5cbec756221516",
+    "semantic_hash": "2646ddf32e4490946d5cbec756221516"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\Hole.cs": {
+    "mtime": 1771238375.8188791,
+    "ast_hash": "b8a8600b27833822615352f07ee0d9ba",
+    "semantic_hash": "b8a8600b27833822615352f07ee0d9ba"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\IContour.cs": {
+    "mtime": 1771238375.8188791,
+    "ast_hash": "be7648307a454850150ed6d5377286f8",
+    "semantic_hash": "be7648307a454850150ed6d5377286f8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\IMacro.cs": {
+    "mtime": 1771238375.8199034,
+    "ast_hash": "8ba7328a5ac2e7f9d92862b1fc6cec70",
+    "semantic_hash": "8ba7328a5ac2e7f9d92862b1fc6cec70"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\IPoint.cs": {
+    "mtime": 1771238375.8218105,
+    "ast_hash": "9fa07f86b79aa7b83c53fac2f42f0ee5",
+    "semantic_hash": "9fa07f86b79aa7b83c53fac2f42f0ee5"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\ITol.cs": {
+    "mtime": 1771238375.822905,
+    "ast_hash": "b250671ac769734259eaf188aa011d38",
+    "semantic_hash": "b250671ac769734259eaf188aa011d38"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\IWorkPiece.cs": {
+    "mtime": 1771238375.822905,
+    "ast_hash": "d8f246b130dd75febb2a3dc5ed5cad8a",
+    "semantic_hash": "d8f246b130dd75febb2a3dc5ed5cad8a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\ProgramPoint.cs": {
+    "mtime": 1771238375.823913,
+    "ast_hash": "5cc34aecf6b1fdba5a0c00f790c22ff6",
+    "semantic_hash": "5cc34aecf6b1fdba5a0c00f790c22ff6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.824915,
+    "ast_hash": "d5a3d993c21a60d09dede76a795bebef",
+    "semantic_hash": "d5a3d993c21a60d09dede76a795bebef"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\bin\\Debug\\net8.0\\Ficep.RobServer.Data.deps.json": {
+    "mtime": 1771408700.9234235,
+    "ast_hash": "f748f0a5ba401355ce4b0f6128b74b93",
+    "semantic_hash": "f748f0a5ba401355ce4b0f6128b74b93"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238439.0570362,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\obj\\Ficep.RobServer.Data.csproj.nuget.dgspec.json": {
+    "mtime": 1782140241.6062179,
+    "ast_hash": "11fbfe88c637bc1b12c6051014feedcd",
+    "semantic_hash": "11fbfe88c637bc1b12c6051014feedcd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\obj\\project.assets.json": {
+    "mtime": 1782140241.584209,
+    "ast_hash": "454bc1f1201ed44d7e9b6ff5a277580b",
+    "semantic_hash": "454bc1f1201ed44d7e9b6ff5a277580b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\DstvBrepConverter.cs": {
+    "mtime": 1772113263.1830385,
+    "ast_hash": "0174f7b2a3d8f0d56e8a81ff70487ec7",
+    "semantic_hash": "0174f7b2a3d8f0d56e8a81ff70487ec7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\Ficep.RobServer.ImportExport.csproj": {
+    "mtime": 1772113074.3148057,
+    "ast_hash": "29d7a43c472c6cb8d2f8243ef08fed36",
+    "semantic_hash": "29d7a43c472c6cb8d2f8243ef08fed36"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\Importer.cs": {
+    "mtime": 1772113074.3148057,
+    "ast_hash": "d10842fd3fec32eab89377a6ab9e5f25",
+    "semantic_hash": "d10842fd3fec32eab89377a6ab9e5f25"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.8299155,
+    "ast_hash": "ded5bcccfd5e25752be2867274caeb65",
+    "semantic_hash": "ded5bcccfd5e25752be2867274caeb65"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\StepImporter.cs": {
+    "mtime": 1772113074.3266015,
+    "ast_hash": "df35ee3d4d4d86fe2c4c7016bad04096",
+    "semantic_hash": "df35ee3d4d4d86fe2c4c7016bad04096"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\StepImporter2.cs": {
+    "mtime": 1772113074.3305092,
+    "ast_hash": "fed4b0ec0378e526bdc8a5fd77bfcaab",
+    "semantic_hash": "fed4b0ec0378e526bdc8a5fd77bfcaab"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\bin\\Debug\\net8.0-windows7.0\\Ficep.RobServer.ImportExport.deps.json": {
+    "mtime": 1771408643.222643,
+    "ast_hash": "a47a28ae9e4cbc8075fae13fd6f67f9d",
+    "semantic_hash": "a47a28ae9e4cbc8075fae13fd6f67f9d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\obj\\Debug\\net8.0-windows7.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.3130436,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\obj\\Ficep.RobServer.ImportExport.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.8597255,
+    "ast_hash": "6a565db28955ead0c4436690055e3593",
+    "semantic_hash": "6a565db28955ead0c4436690055e3593"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\obj\\project.assets.json": {
+    "mtime": 1782140537.8382907,
+    "ast_hash": "b86ca82119ffd8ae4065735903f24309",
+    "semantic_hash": "b86ca82119ffd8ae4065735903f24309"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\CopeParam.cs": {
+    "mtime": 1771238375.831872,
+    "ast_hash": "3a28c1be93dcd6ea644faa659c4e406e",
+    "semantic_hash": "3a28c1be93dcd6ea644faa659c4e406e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\Data.cs": {
+    "mtime": 1771238375.8329115,
+    "ast_hash": "e0bad93f9c7b444124abdf7a88aacfbd",
+    "semantic_hash": "e0bad93f9c7b444124abdf7a88aacfbd"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\FNCParser.cs": {
+    "mtime": 1771238375.8348086,
+    "ast_hash": "f018dfe627641acf7fb6afc8b6246bdf",
+    "semantic_hash": "f018dfe627641acf7fb6afc8b6246bdf"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\Ficep.RobServer.MacroParser.csproj": {
+    "mtime": 1772113074.3382566,
+    "ast_hash": "55f32fabca509e38bd10608427a3a075",
+    "semantic_hash": "55f32fabca509e38bd10608427a3a075"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\IniReader.cs": {
+    "mtime": 1771238375.8359265,
+    "ast_hash": "7c1fc560ad0273ee3eb86a2da8bbde97",
+    "semantic_hash": "7c1fc560ad0273ee3eb86a2da8bbde97"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\Interpreter.cs": {
+    "mtime": 1771238375.8378015,
+    "ast_hash": "9a0c5e568aca83401160a4136c729c9f",
+    "semantic_hash": "9a0c5e568aca83401160a4136c729c9f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\MacroLibGroup.cs": {
+    "mtime": 1771238375.8388014,
+    "ast_hash": "1be5325c1721da9f641d613afdc5d4bc",
+    "semantic_hash": "1be5325c1721da9f641d613afdc5d4bc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.8399072,
+    "ast_hash": "f15465e9be5f4413fdc23532b056dfd4",
+    "semantic_hash": "f15465e9be5f4413fdc23532b056dfd4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\bin\\ReleaseDebug\\net8.0\\Ficep.RobServer.MacroParser.deps.json": {
+    "mtime": 1771408701.9151497,
+    "ast_hash": "b859f488b1bc0451cfff76b5d7044d6f",
+    "semantic_hash": "b859f488b1bc0451cfff76b5d7044d6f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.159379,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\obj\\Ficep.RobServer.MacroParser.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.8577254,
+    "ast_hash": "d9b3ea9c12cf6397c0d5d3bf3632bb62",
+    "semantic_hash": "d9b3ea9c12cf6397c0d5d3bf3632bb62"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\obj\\project.assets.json": {
+    "mtime": 1782140537.8362901,
+    "ast_hash": "30ace0f2754ac5e8ce6a3b786024d68c",
+    "semantic_hash": "30ace0f2754ac5e8ce6a3b786024d68c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeContourLine.cs": {
+    "mtime": 1772113074.3466318,
+    "ast_hash": "4235324036657a5c23f75eef92bb372a",
+    "semantic_hash": "4235324036657a5c23f75eef92bb372a"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeCuttingEdge.cs": {
+    "mtime": 1772113074.351389,
+    "ast_hash": "b941f7d7f488854f8262b3c5eb3acacc",
+    "semantic_hash": "b941f7d7f488854f8262b3c5eb3acacc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeFeature.cs": {
+    "mtime": 1772113074.3626473,
+    "ast_hash": "1beeb3f9574d4778990baf124be3d3ee",
+    "semantic_hash": "1beeb3f9574d4778990baf124be3d3ee"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeGeometryUtils.cs": {
+    "mtime": 1772113263.1932993,
+    "ast_hash": "1bd24e8ab2eca74b24ef6a39dd26f15c",
+    "semantic_hash": "1bd24e8ab2eca74b24ef6a39dd26f15c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeLineEdge.cs": {
+    "mtime": 1772113074.3786418,
+    "ast_hash": "970dd5481b08d0763cc8375dd1184bf3",
+    "semantic_hash": "970dd5481b08d0763cc8375dd1184bf3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeUtils.cs": {
+    "mtime": 1772113263.2052994,
+    "ast_hash": "4af086db7110d1ad502a37614104ab21",
+    "semantic_hash": "4af086db7110d1ad502a37614104ab21"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeUtils2.cs": {
+    "mtime": 1772113074.4858246,
+    "ast_hash": "c333845f0b84b6c3e3cb0b2dae4c0c78",
+    "semantic_hash": "c333845f0b84b6c3e3cb0b2dae4c0c78"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\EyeWorkPiece.cs": {
+    "mtime": 1772113074.5018413,
+    "ast_hash": "238ae79d21db342e3a32592335680678",
+    "semantic_hash": "238ae79d21db342e3a32592335680678"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\Ficep.RobServer.Utility3D.csproj": {
+    "mtime": 1772113074.5018413,
+    "ast_hash": "4b11e1c5fa24d66a07db878f209a7483",
+    "semantic_hash": "4b11e1c5fa24d66a07db878f209a7483"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\Milling.cs": {
+    "mtime": 1771238375.850962,
+    "ast_hash": "6af6db7342aba61fc112ef80c7ea84ed",
+    "semantic_hash": "6af6db7342aba61fc112ef80c7ea84ed"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.8520236,
+    "ast_hash": "e811a218bd61c54fc549d9124ecddfd8",
+    "semantic_hash": "e811a218bd61c54fc549d9124ecddfd8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\Tol.cs": {
+    "mtime": 1771238375.932616,
+    "ast_hash": "bf86f07b85fe4e1f3d618b1dd6c7d7ff",
+    "semantic_hash": "bf86f07b85fe4e1f3d618b1dd6c7d7ff"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\bin\\ReleaseDebug\\net8.0\\Ficep.RobServer.Utility3D.deps.json": {
+    "mtime": 1771408701.5185268,
+    "ast_hash": "207eb0413b7bb8df21e2e94b08ef16f3",
+    "semantic_hash": "207eb0413b7bb8df21e2e94b08ef16f3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.3317327,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\obj\\Ficep.RobServer.Utility3D.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.8587263,
+    "ast_hash": "25aacc3823eea16e51f8b362b138e468",
+    "semantic_hash": "25aacc3823eea16e51f8b362b138e468"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\obj\\project.assets.json": {
+    "mtime": 1782140537.8382907,
+    "ast_hash": "84722cfa2f93b61b602ce2a813056874",
+    "semantic_hash": "84722cfa2f93b61b602ce2a813056874"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\Ficep.RobServer.XmlNet.csproj": {
+    "mtime": 1772113074.5138316,
+    "ast_hash": "4431ac6182ff2405fbf218eff34a7e60",
+    "semantic_hash": "4431ac6182ff2405fbf218eff34a7e60"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.9364545,
+    "ast_hash": "7dd9462ea5616fb6883adac29a7a8a47",
+    "semantic_hash": "7dd9462ea5616fb6883adac29a7a8a47"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\Strategies.cs": {
+    "mtime": 1772113263.2137969,
+    "ast_hash": "5e3d2f0aff60fdd10c4200935d078a9e",
+    "semantic_hash": "5e3d2f0aff60fdd10c4200935d078a9e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\XmlInterface.cs": {
+    "mtime": 1772113263.2167635,
+    "ast_hash": "8d608759341e4335b86b440f1adf4714",
+    "semantic_hash": "8d608759341e4335b86b440f1adf4714"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\bin\\Debug\\net8.0-windows7.0\\Ficep.RobServer.XmlNet.deps.json": {
+    "mtime": 1771408642.0187962,
+    "ast_hash": "63dd881ed1395b26a22ef0e604054235",
+    "semantic_hash": "63dd881ed1395b26a22ef0e604054235"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\obj\\Debug\\net8.0-windows7.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.2244127,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\obj\\Ficep.RobServer.XmlNet.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.8611012,
+    "ast_hash": "b167bbd7ba0d77027c746c661728ffda",
+    "semantic_hash": "b167bbd7ba0d77027c746c661728ffda"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\obj\\project.assets.json": {
+    "mtime": 1782140537.8392916,
+    "ast_hash": "5322bb869dc0c0f89fcf6511438a0be2",
+    "semantic_hash": "5322bb869dc0c0f89fcf6511438a0be2"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.sln": {
+    "mtime": 1771238375.9385974,
+    "ast_hash": "913c421b84b41a2433a880133ba87812",
+    "semantic_hash": "913c421b84b41a2433a880133ba87812"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Ficep - Backup.RobServer.csproj": {
+    "mtime": 1771238375.9414704,
+    "ast_hash": "10d6633ce8cd3eb78cf87c4f9d77cb3f",
+    "semantic_hash": "10d6633ce8cd3eb78cf87c4f9d77cb3f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Ficep.RobServer.csproj": {
+    "mtime": 1772113263.5118375,
+    "ast_hash": "29f3424e3681c2f1ea0492ec5777d137",
+    "semantic_hash": "29f3424e3681c2f1ea0492ec5777d137"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Form1.Designer.cs": {
+    "mtime": 1771238375.943579,
+    "ast_hash": "0f22197e88fddac4233bc68ed8d4bbbc",
+    "semantic_hash": "0f22197e88fddac4233bc68ed8d4bbbc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Form1.cs": {
+    "mtime": 1772113074.5368457,
+    "ast_hash": "a3a006424fa3142d6ecc0a414c2d83f4",
+    "semantic_hash": "a3a006424fa3142d6ecc0a414c2d83f4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\MacroList.cs": {
+    "mtime": 1771238375.947568,
+    "ast_hash": "7d983ea7d14ab0ee33211916c06ab5fc",
+    "semantic_hash": "7d983ea7d14ab0ee33211916c06ab5fc"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\MainThreadDelegate.cs": {
+    "mtime": 1772113263.5322528,
+    "ast_hash": "649ec44adece6a548094aa6e1148d1a8",
+    "semantic_hash": "649ec44adece6a548094aa6e1148d1a8"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\MeasureForm.Designer.cs": {
+    "mtime": 1771238375.949581,
+    "ast_hash": "6a7eff08ba45120e59534308040de0d4",
+    "semantic_hash": "6a7eff08ba45120e59534308040de0d4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\MeasureForm.cs": {
+    "mtime": 1771238375.9505806,
+    "ast_hash": "f3ba6e208162d12a478d1bbb418a020e",
+    "semantic_hash": "f3ba6e208162d12a478d1bbb418a020e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Program.cs": {
+    "mtime": 1772113074.5411077,
+    "ast_hash": "1264d1535a14ec0a9eefec1c71abe74e",
+    "semantic_hash": "1264d1535a14ec0a9eefec1c71abe74e"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.9535742,
+    "ast_hash": "941d02df58fdd799d6c1d6ce96d7f4b9",
+    "semantic_hash": "941d02df58fdd799d6c1d6ce96d7f4b9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Properties\\Resources.Designer.cs": {
+    "mtime": 1771238375.954707,
+    "ast_hash": "8089cc8d48f5951965c05a5c7ddf7c4c",
+    "semantic_hash": "8089cc8d48f5951965c05a5c7ddf7c4c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Properties\\Settings.Designer.cs": {
+    "mtime": 1771238375.9566755,
+    "ast_hash": "252bcf1993fa16ca04aa7c0e8e143246",
+    "semantic_hash": "252bcf1993fa16ca04aa7c0e8e143246"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\Properties\\launchSettings.json": {
+    "mtime": 1772113263.5392506,
+    "ast_hash": "e4d7405b67ff7ed6ea68dfbd774d54b7",
+    "semantic_hash": "e4d7405b67ff7ed6ea68dfbd774d54b7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\bin\\ReleaseDebug\\net8.0-windows7.0\\Ficep.RobServer.deps.json": {
+    "mtime": 1771408644.7188926,
+    "ast_hash": "cc4db4c41cdd291515711fde65bf23f4",
+    "semantic_hash": "cc4db4c41cdd291515711fde65bf23f4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\bin\\ReleaseDebug\\net8.0-windows7.0\\Ficep.RobServer.runtimeconfig.json": {
+    "mtime": 1771408644.7402098,
+    "ast_hash": "9db099f143ead47e224653d0dde19fe9",
+    "semantic_hash": "9db099f143ead47e224653d0dde19fe9"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\bin\\ReleaseDebug\\net8.0-windows7.0\\win-x64\\Ficep.RobServer.deps.json": {
+    "mtime": 1771409099.6569216,
+    "ast_hash": "3b731c2bb8bdf2c914a3d4cb3c93652b",
+    "semantic_hash": "3b731c2bb8bdf2c914a3d4cb3c93652b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\bin\\ReleaseDebug\\net8.0-windows7.0\\win-x64\\Ficep.RobServer.runtimeconfig.json": {
+    "mtime": 1771409099.684485,
+    "ast_hash": "ba6d7c7bea8965c362a836a24b9ff212",
+    "semantic_hash": "ba6d7c7bea8965c362a836a24b9ff212"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\Debug\\net8.0-windows7.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238440.2483776,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\Debug\\net8.0-windows7.0\\win-x64\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771409012.7588534,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\Ficep.RobServer.csproj.nuget.dgspec.json": {
+    "mtime": 1782140537.8884127,
+    "ast_hash": "5f9c5f54608b9953d9f10f6bc63459bb",
+    "semantic_hash": "5f9c5f54608b9953d9f10f6bc63459bb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\project.assets.json": {
+    "mtime": 1782140537.867389,
+    "ast_hash": "89e9241f868e0f61764366dd6705d2a4",
+    "semantic_hash": "89e9241f868e0f61764366dd6705d2a4"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\Ficep.Utils.csproj": {
+    "mtime": 1771238375.9632988,
+    "ast_hash": "df4d7008dd0dfc29fa03f5694fddf40d",
+    "semantic_hash": "df4d7008dd0dfc29fa03f5694fddf40d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\Logger.cs": {
+    "mtime": 1772113074.5431137,
+    "ast_hash": "355238bb1869cc9349798aaad938637b",
+    "semantic_hash": "355238bb1869cc9349798aaad938637b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\NativeMethods.cs": {
+    "mtime": 1771238375.9644086,
+    "ast_hash": "7ee56592add8d1a450c38ca527f08347",
+    "semantic_hash": "7ee56592add8d1a450c38ca527f08347"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\Properties\\AssemblyInfo.cs": {
+    "mtime": 1771238375.9664166,
+    "ast_hash": "9d8722f4f899cdbc9b020a62da2711d3",
+    "semantic_hash": "9d8722f4f899cdbc9b020a62da2711d3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\Utils.cs": {
+    "mtime": 1771238375.9674406,
+    "ast_hash": "753e83949cd472a65d1bf4c9f0459100",
+    "semantic_hash": "753e83949cd472a65d1bf4c9f0459100"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\bin\\Debug\\net8.0\\Ficep.Utils.deps.json": {
+    "mtime": 1771408700.4178936,
+    "ast_hash": "245848258b1c67ef6c85e75b14623aab",
+    "semantic_hash": "245848258b1c67ef6c85e75b14623aab"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs": {
+    "mtime": 1771238439.878509,
+    "ast_hash": "9b225453b5a8008eefb62f6c5c66ce15",
+    "semantic_hash": "9b225453b5a8008eefb62f6c5c66ce15"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\obj\\Ficep.Utils.csproj.nuget.dgspec.json": {
+    "mtime": 1782140240.4779599,
+    "ast_hash": "7d8506f9607f2e72fa58c3dc3ccdb12b",
+    "semantic_hash": "7d8506f9607f2e72fa58c3dc3ccdb12b"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\obj\\project.assets.json": {
+    "mtime": 1782140240.4064744,
+    "ast_hash": "25a0ac61acf64dea3ae529b485bcfe39",
+    "semantic_hash": "25a0ac61acf64dea3ae529b485bcfe39"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\CLAUDE.md": {
+    "mtime": 1782140564.4613936,
+    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "semantic_hash": "8a6643a420fdad6bfb583523bc6cef16"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.AnyCut.Math\\obj\\Debug\\net8.0\\Ficep.AnyCut.Math.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408700.9219482,
+    "ast_hash": "f26edf77e3834967d4fc582887de6df1",
+    "semantic_hash": "f26edf77e3834967d4fc582887de6df1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\Ficep.MacroGra\\obj\\Debug\\net8.0\\Ficep.MacroGra_Ficep.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408702.521558,
+    "ast_hash": "00d8fb532fddb8f46d097cffbea45cd0",
+    "semantic_hash": "00d8fb532fddb8f46d097cffbea45cd0"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.MacroGra\\README.md": {
+    "mtime": 1771408393.965292,
+    "ast_hash": "50fae9b303ee37569506b20cba15b805",
+    "semantic_hash": "50fae9b303ee37569506b20cba15b805"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Controls\\obj\\Debug\\net8.0-windows7.0\\Ficep.RobServer.Controls.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408639.8342385,
+    "ast_hash": "a88dc9d59d98076574ff28fd3015ee9f",
+    "semantic_hash": "a88dc9d59d98076574ff28fd3015ee9f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.DSTVParser\\obj\\Debug\\net8.0\\Ficep.RobServer.DSTVParser.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408640.697563,
+    "ast_hash": "1400f6bbc7390438d4135267e6ba3e7c",
+    "semantic_hash": "1400f6bbc7390438d4135267e6ba3e7c"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Data\\obj\\Debug\\net8.0\\Ficep.RobServer.Data.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408700.9551966,
+    "ast_hash": "58397cbf48358ae8ff1cbb578fa8633d",
+    "semantic_hash": "58397cbf48358ae8ff1cbb578fa8633d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.ImportExport\\obj\\Debug\\net8.0-windows7.0\\Ficep.RobServer.ImportExport.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408643.2326512,
+    "ast_hash": "728229a1d738bb4a5679d672f8cb53a1",
+    "semantic_hash": "728229a1d738bb4a5679d672f8cb53a1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.MacroParser\\obj\\Debug\\net8.0\\Ficep.RobServer.MacroParser.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408701.956152,
+    "ast_hash": "457dc1d86c9b7f34ca06fc3161876139",
+    "semantic_hash": "457dc1d86c9b7f34ca06fc3161876139"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.Utility3D\\obj\\Debug\\net8.0\\Ficep.RobServer.Utility3D.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408701.5745292,
+    "ast_hash": "4eaa9adfa61a83ecd62c02428092619d",
+    "semantic_hash": "4eaa9adfa61a83ecd62c02428092619d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer.XmlNet\\obj\\Debug\\net8.0-windows7.0\\Ficep.RobServer.XmlNet.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408642.0293038,
+    "ast_hash": "a83c0af0d24578b473e58e2d56780cad",
+    "semantic_hash": "a83c0af0d24578b473e58e2d56780cad"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\Debug\\net8.0-windows7.0\\Ficep.RobServer.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408644.7532363,
+    "ast_hash": "6f145b78d851b08925b148342ba47d45",
+    "semantic_hash": "6f145b78d851b08925b148342ba47d45"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\obj\\Debug\\net8.0-windows7.0\\win-x64\\Ficep.RobServer.csproj.FileListAbsolute.txt": {
+    "mtime": 1771409099.7099686,
+    "ast_hash": "10cb246e3fcaaafffcc13ab9241f61c7",
+    "semantic_hash": "10cb246e3fcaaafffcc13ab9241f61c7"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.Utils\\obj\\Debug\\net8.0\\Ficep.Utils.csproj.FileListAbsolute.txt": {
+    "mtime": 1771408700.5395005,
+    "ast_hash": "45e5a0cd9aa8adee9a1ab8e663c79a93",
+    "semantic_hash": "45e5a0cd9aa8adee9a1ab8e663c79a93"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\graphify-out\\converted\\Ficep.MacroGra_d57529eb.md": {
+    "mtime": 1782140632.8516064,
+    "ast_hash": "2bfaa8a35b0ec2f66d66d961da60c4cb",
+    "semantic_hash": "2bfaa8a35b0ec2f66d66d961da60c4cb"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\graphify-out\\converted\\LibreriaRobot_da579d15.md": {
+    "mtime": 1782140637.433137,
+    "ast_hash": "b62c3069531c7b761e085cfdbc4005ac",
+    "semantic_hash": "b62c3069531c7b761e085cfdbc4005ac"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\SCAI\\w27\\SottrazioneCorretta.png": {
+    "mtime": 1772113073.0925152,
+    "ast_hash": "0ac81ce76a1409f2752ec47beee7c88d",
+    "semantic_hash": "0ac81ce76a1409f2752ec47beee7c88d"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\SCAI\\w27\\SottrazioneSbagliata.png": {
+    "mtime": 1772113073.1070778,
+    "ast_hash": "4b940b149f8347ab1ab2d1e56516d56f",
+    "semantic_hash": "4b940b149f8347ab1ab2d1e56516d56f"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\SCAI\\w8\\SottrazioneErrata.png": {
+    "mtime": 1772113073.2508557,
+    "ast_hash": "167dcad6147ed736f41ca27ba1eda839",
+    "semantic_hash": "167dcad6147ed736f41ca27ba1eda839"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w5\\SottrazioneCorretta1.png": {
+    "mtime": 1772113073.6107023,
+    "ast_hash": "2ed520f1bb521301a8c610b61c901999",
+    "semantic_hash": "2ed520f1bb521301a8c610b61c901999"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w5\\SottrazioneCorretta2.png": {
+    "mtime": 1772113073.6265287,
+    "ast_hash": "032ba62ade693d8c6a9bd1eac4558e22",
+    "semantic_hash": "032ba62ade693d8c6a9bd1eac4558e22"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w5\\SottrazioneErrata1.png": {
+    "mtime": 1772113073.628535,
+    "ast_hash": "97055afac19be4eaca2e6eed69679eab",
+    "semantic_hash": "97055afac19be4eaca2e6eed69679eab"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w5\\SottrazioneErrata2.png": {
+    "mtime": 1772113073.642356,
+    "ast_hash": "5a614718487ef8fda962886ab736cdb6",
+    "semantic_hash": "5a614718487ef8fda962886ab736cdb6"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w9\\SottrazioneErrata.png": {
+    "mtime": 1772113073.801776,
+    "ast_hash": "4931306fd440fdc1068d66a4c989d3d1",
+    "semantic_hash": "4931306fd440fdc1068d66a4c989d3d1"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\DSTV\\Con Errori\\H\\Semiali\\w9\\SottrazioneErrata2.png": {
+    "mtime": 1772113073.817724,
+    "ast_hash": "d154e8caa9fcc548edee136fa90999f3",
+    "semantic_hash": "d154e8caa9fcc548edee136fa90999f3"
+  },
+  "C:\\Clerici\\C#\\Progetti\\Test\\Quality control\\Ficep.RobServer\\Ficep.RobServer\\images\\logo.png": {
+    "mtime": 1771238375.9596786,
+    "ast_hash": "26ed2c07f5ca80c4dbc593624e8f5214",
+    "semantic_hash": "26ed2c07f5ca80c4dbc593624e8f5214"
+  }
+}

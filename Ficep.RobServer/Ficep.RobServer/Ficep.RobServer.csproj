@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	<SelfContained>true</SelfContained>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Ficep.RobServer</RootNamespace>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <OutputPath>bin\ReleaseDebug\</OutputPath>
+    <Configurations>Debug;Release;Release_Offuscated</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="devDept.CustomControls.Win, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>..\Lib\devDept.CustomControls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.Interfaces">
+      <HintPath>..\Lib\Ficep.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Ficep.Xml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>..\Lib\Ficep.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ficep.AnyCut.ConNet\Ficep.AnyCut.ConNet.csproj" />
+    <ProjectReference Include="..\..\Ficep.AnyCut.Polaris.Library\Ficep.MacroLibrary.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.Utility3D\Ficep.RobServer.Utility3D.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.Controls\Ficep.RobServer.Controls.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.Data\Ficep.RobServer.Data.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.ImportExport\Ficep.RobServer.ImportExport.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.MacroParser\Ficep.RobServer.MacroParser.csproj" />
+    <ProjectReference Include="..\Ficep.RobServer.XmlNet\Ficep.RobServer.XmlNet.csproj" />
+    <ProjectReference Include="..\Ficep.Utils\Ficep.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>false</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>false</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="devDept.Eyeshot" Version="2025.3.437" />
+    <PackageReference Include="devDept.Eyeshot.Control.Win" Version="2025.3.437" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MeasureForm.cs" />
+    <Compile Remove="MeasureForm.Designer.cs" />
+    <EmbeddedResource Remove="MeasureForm.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>true</DesignTimeSharedInput>
+      <AutoGen>true</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Reactor_Commands="" Reactor_Configuration="Release_Offuscated" Reactor_Deploy="0" Reactor_Enabled="1" Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" Reactor_Project="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Ficep.RobServer": {
+      "commandName": "Project"
+    },
+    "ServerMode": {
+      "commandName": "Project",
+      "commandLineArgs": "/srv 1940"
+    },
+    "Batch mode": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\MARCO\\MITROL\\Polaris\\libs\\ANYCUT\\TEMP\\MacroPlasma.fnc C:\\MARCO\\MITROL\\Polaris\\libs\\ANYCUT\\TEMP\\MacroPlasma.xml"
+    },
+    "Batch mode dstv": {
+      "commandName": "Project",
+      "commandLineArgs": "/dstv C:\\Clerici\\C#\\Progetti\\ROBOT_PROGETTI\\Ficep.AnyCut\\Ficep.RobServer\\DSTV\\Visti\\H\\__501.nc"
+    }
+  }
+}
