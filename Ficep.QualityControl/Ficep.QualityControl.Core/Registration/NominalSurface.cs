@@ -45,30 +45,52 @@ public sealed class NominalSurface
     public static NominalSurface FromMesh(Mesh mesh)
     {
         ArgumentNullException.ThrowIfNull(mesh);
-        Point3D[] vertices = mesh.Vertices;
-        IndexTriangle[] triangles = mesh.Triangles;
-        if (vertices is null || triangles is null || vertices.Length == 0 || triangles.Length == 0)
-            throw new ArgumentException("Mesh has no geometry to query.", nameof(mesh));
+        return FromMeshes(new[] { mesh });
+    }
 
-        int n = triangles.Length;
-        var a = new Vec3[n];
-        var b = new Vec3[n];
-        var c = new Vec3[n];
-        var normal = new Vec3[n];
+    /// <summary>
+    /// Builds a single queryable surface spanning several triangle meshes — e.g. a STEP assembly that
+    /// imports as more than one solid. All triangles go into one BVH so a query returns the closest
+    /// point across the whole nominal.
+    /// </summary>
+    /// <param name="meshes">The tessellated nominal solids.</param>
+    /// <exception cref="ArgumentNullException"><paramref name="meshes"/> is null.</exception>
+    /// <exception cref="ArgumentException">No mesh carries any geometry.</exception>
+    public static NominalSurface FromMeshes(IEnumerable<Mesh> meshes)
+    {
+        ArgumentNullException.ThrowIfNull(meshes);
 
-        for (int i = 0; i < n; i++)
+        var a = new List<Vec3>();
+        var b = new List<Vec3>();
+        var c = new List<Vec3>();
+        var normal = new List<Vec3>();
+
+        foreach (Mesh mesh in meshes)
         {
-            IndexTriangle t = triangles[i];
-            Vec3 va = ToVec3(vertices[t.V1]);
-            Vec3 vb = ToVec3(vertices[t.V2]);
-            Vec3 vc = ToVec3(vertices[t.V3]);
-            a[i] = va;
-            b[i] = vb;
-            c[i] = vc;
-            normal[i] = Vec3.Cross(vb - va, vc - va).Normalized();
+            if (mesh is null)
+                continue;
+            Point3D[] vertices = mesh.Vertices;
+            IndexTriangle[] triangles = mesh.Triangles;
+            if (vertices is null || triangles is null || vertices.Length == 0 || triangles.Length == 0)
+                continue;
+
+            foreach (IndexTriangle t in triangles)
+            {
+                Vec3 va = ToVec3(vertices[t.V1]);
+                Vec3 vb = ToVec3(vertices[t.V2]);
+                Vec3 vc = ToVec3(vertices[t.V3]);
+                a.Add(va);
+                b.Add(vb);
+                c.Add(vc);
+                normal.Add(Vec3.Cross(vb - va, vc - va).Normalized());
+            }
         }
 
-        return new NominalSurface(a, b, c, normal, TriangleBvh.Build(a, b, c));
+        if (a.Count == 0)
+            throw new ArgumentException("No mesh has geometry to query.", nameof(meshes));
+
+        Vec3[] aa = a.ToArray(), bb = b.ToArray(), cc = c.ToArray(), nn = normal.ToArray();
+        return new NominalSurface(aa, bb, cc, nn, TriangleBvh.Build(aa, bb, cc));
     }
 
     /// <summary>Projects <paramref name="query"/> onto the nominal surface.</summary>

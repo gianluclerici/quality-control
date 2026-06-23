@@ -57,8 +57,8 @@ testabile con xUnit senza aprire finestre. Non è una "shell" separata: è *un* 
 |------|-------------|-------|
 | **1** | Generazione scansioni sintetiche (tassella → campiona → rumore → PLY/STEP) | ✅ fatto |
 | **2** | App viewport + reader Core (carica Brep + nuvola, sovrapposti) | ✅ fatto, committato |
-| **3** | **Registrazione / ICP**: allinea scansione al nominale | ✅ fatto (Core + test); da collegare alla GUI |
-| **4** | **Misura tolleranze**: distanza nuvola↔nominale, mappa deviazione, conformità | ⬜ prossimo |
+| **3** | **Registrazione / ICP**: allinea scansione al nominale | ✅ fatto (Core + test); collegato alla GUI (bottone *Allinea*) |
+| **4** | **Misura tolleranze**: distanza nuvola↔nominale (con segno), statistiche, conformità, mappa deviazione colorata | ✅ fatto (Core + test + GUI) |
 | **F** | Report, GD&T, segmentazione per feature/macro, scanner reale | ⬜ futuro |
 
 ---
@@ -162,6 +162,32 @@ Un controllo `Design` costruito a mano ha `Viewports` **vuota**; al primo paint 
 (`ArgumentOutOfRangeException` in `AdjustNearAndFarPlanes`). **Scelto:** aggiungere un `Viewport`
 esplicito e dimensionato in `Viewports` (come serializza il designer) + guardia in `OnLoad`.
 
+### 5.13 Misura — distanza **con segno** vs scalare
+**Scelto:** per ogni punto, distanza **con segno** = `sign((p − puntoVicino) · normale) · |distanza|`.
+**Perché:** in tolleranza conta *da che lato* della superficie sta il punto: **positivo** = materiale in
+eccesso (fuori dal nominale, lungo la normale uscente), **negativo** = materiale mancante (dentro). Uno
+scalare unsigned (come `ComputeDistances`) non distingue sovrametallo da sottometallo, distinzione
+essenziale per il verdetto e per una mappa di deviazione leggibile. La nostra `NominalSurface` fornisce
+punto+normale, quindi il segno è gratis.
+
+### 5.14 Statistiche — RMS, media segnata, **P95** robusto
+**Scelto:** oltre a min/max/media/RMS/devstd, il **95° percentile** dei valori assoluti.
+**Perché:** il `MaxAbs` da solo è dominato da pochi outlier (un punto sporco di scansione). Il P95 dà un
+"caso peggiore" stabile e rappresentativo. La media **segnata** evidenzia un bias sistematico (es.
+allineamento non perfetto o sovrametallo uniforme) che l'RMS, sempre positivo, nasconde.
+
+### 5.15 Verdetto di conformità — banda di tolleranza **segnata**
+**Scelto:** `ToleranceBand(LowerMm, UpperMm)` (simmetrica `±t` o asimmetrica) con conteggio dei punti
+dentro/fuori, `ConformanceRatio` e `IsConform` (tutti i punti dentro). **Perché:** un singolo numero
+(pass/fail) non basta; il rapporto di conformità e gli istogrammi guidano l'accettazione e la diagnosi.
+
+### 5.16 Mappa colore — **`Legend` Eyeshot** riusata
+**Scelto:** colorare i punti con la palette `Legend.RedToBlue9` mappando la deviazione *segnata* sulla
+banda `[−t, +t]` e mostrando la `Legend` del viewport. **Perché:** è l'idioma del sample Eyeshot
+`ComputeDistance` (coerenza con la libreria), la barra-legenda è disegnata da Eyeshot tra `Min`/`Max` con
+bin uniformi → la nostra binnatura uniforme combacia con la barra. La nuvola colorata è un
+`PointCloud` *Multicolor* (`PointRGB` per punto), mentre la nuvola monocroma resta un `FastPointCloud`.
+
 ---
 
 ## 6. Riferimento **classi e funzioni**
@@ -236,7 +262,8 @@ esplicito e dimensionato in `Viewports` (come serializza il designer) + guardia 
 **`SurfaceProjection`** (`record struct`) — `Point`, `Normal`, `Distance` (esito di una proiezione).
 
 **`NominalSurface`** — superficie nominale interrogabile (mesh + BVH). Primitiva condivisa ICP/misura.
-- `FromMesh(mesh)` → costruisce gli array per-triangolo (vertici, normale geometrica) e il BVH.
+- `FromMesh(mesh)` / `FromMeshes(meshes)` → costruiscono gli array per-triangolo (vertici, normale
+  geometrica) e il BVH; `FromMeshes` aggrega più solidi (STEP multi-solido) in un unico BVH.
 - `ClosestPoint(Point3D)` / `ClosestPoint(Vec3)` → `SurfaceProjection` (punto, normale, distanza).
 - *(test)* `ClosestPointBruteForce(q)` → versione di riferimento che scandisce tutti i triangoli.
 
@@ -263,20 +290,49 @@ outlier).
   convergenza. Alla fine valuta l'RMS punto-superficie.
 - *(interni)* `EvaluateRms`, `Subsample` (Fisher-Yates parziale seeded).
 
-### 6.7 Frontend
+### 6.7 `Measurement/` — misura tolleranze e mappa di deviazione (Step 4)
+
+**`ToleranceBand`** (`record struct`) — banda di accettazione segnata `[LowerMm, UpperMm]`.
+- `Symmetric(halfWidthMm)` → `±t`; `Contains(signedDeviationMm)` → dentro la banda?
+
+**`PointDeviation`** (`record struct`) — `Point` (posizione allineata) + `SignedDistanceMm` (segno: + esterno).
+
+**`DeviationStatistics`** (`record struct`) — `Count`, `MinMm`, `MaxMm`, `MeanMm` (segnati), `StdDevMm`,
+`RmsMm`, `MeanAbsMm`, `MaxAbsMm`, `P95AbsMm`.
+- `Compute(signedDeviations)` → calcola tutto in una passata; il P95 su copia ordinata degli `|d|`
+  (interpolazione lineare tra ranghi). `Empty` per zero punti.
+
+**`DeviationReport`** — esito del confronto nuvola↔nominale.
+- `Deviations`, `Statistics`, `Tolerance?`, `InToleranceCount`, `OutOfToleranceCount`,
+  `ConformanceRatio` (∈[0,1]), `IsConform` (banda presente e tutti i punti dentro).
+
+**`DeviationMeasurement`** — motore di misura (usa `NominalSurface`, vedi 5.10/5.13).
+- `Measure(scan, nominal, alignment?, tolerance?)` → `DeviationReport`. Per ogni punto: applica
+  l'`alignment` (ICP), proietta sul nominale, calcola la distanza **con segno** dal lato della normale,
+  accumula le statistiche e il conteggio dentro/fuori banda.
+
+### 6.8 Frontend
 - **`Generator/Program`** — CLI `generate --out <dir> [--density N] [--sigma S] [--seed K]`; stampa i
   conteggi e scrive `grezzo.*`, `lavorato.*`, `lavorato.macros.json`.
 - **`App/Program`** — `[STAThread] Main`: `ApplicationConfiguration.Initialize()` + `Application.Run(new MainForm())`.
-- **`App/MainForm`** — viewport Eyeshot (`Design`).
-  - costruttore: init del controllo con `BeginInit`/`Viewport` esplicito/`EndInit`; toolbar e statusbar.
+- **`App/MainForm`** — viewport Eyeshot (`Design`) + pipeline QC (Allinea/Misura). Mantiene lo stato:
+  Breps nominali, campioni scan, `NominalSurface` (cache), `alignment` corrente, entità nuvola mostrata.
+  - costruttore: init del controllo con `BeginInit`/`Viewport` esplicito/`EndInit`; toolbar (con campo
+    *Toll. ±mm*) e statusbar.
   - `OnLoad` → guardia `InitializeViewports` se `Viewports` vuota.
-  - `LoadNominal()` → `BrepImporter` → Breps grigi, `Regen`/`ZoomFit`.
-  - `LoadScan()` → `PlyReader` → `FastPointCloud` blu (float[] XYZ), `Regen`/`ZoomFit`.
-  - `ClearScene()`, `RunGuarded(action)` (gestione errori con MessageBox).
+  - `LoadNominal()` → `BrepImporter` → Breps grigi (memorizzati, invalida la `NominalSurface` cache).
+  - `LoadScan()` → `PlyReader` → `FastPointCloud` blu; azzera l'`alignment`.
+  - `RunAlign()` → `IcpRegistration.Register`; memorizza la trasformazione, mostra la nuvola allineata,
+    riporta RMS/iterazioni in statusbar.
+  - `RunMeasure()` → `DeviationMeasurement.Measure` con `alignment` e banda; colora la nuvola
+    (`PointCloud` Multicolor + `Legend`), scrive verdetto + statistiche in statusbar.
+  - *(interni)* `EnsureNominalSurface` (tassella i Breps, chord 0.2 mm, `FromMeshes`),
+    `BuildFastCloud`, `BuildColouredCloud` (mappa deviazione→`Legend.RedToBlue9`), `ShowCloud`
+    (sostituisce l'entità nuvola), `ClearScene()`, `RunGuarded(action)` (errori con MessageBox).
 
 ---
 
-## 7. Test (xUnit, 37 verdi)
+## 7. Test (xUnit, 43 verdi)
 
 - **Generazione/IO:** `ScanGeneratorTests`, `PlyWriterTests`, `PlyReaderTests`, `BrepImporterTests`
   (round-trip del solido "bloccato"), `MeshSurfaceSamplerTests`, `GaussianRangeNoiseTests`,
@@ -284,15 +340,19 @@ outlier).
 - **Registrazione (`RegistrationTests`):** closest-point su punto in superficie (≈0) e con offset noto
   lungo la normale; layout matrice di `ToTransformation`; **recupero di un disallineamento rigido noto**
   (RMS ≈ 0 dopo l'ICP).
+- **Misura (`MeasurementTests`):** scan perfetto → conforme e RMS≈0; offset lungo la normale → deviazione
+  **positiva** ≈ offset; offset all'interno → deviazione **negativa**; banda stretta su offset uniforme →
+  non conforme (ratio 0); l'`alignment` ICP è applicato prima di misurare (RMS da grande a ≈0); statistiche
+  (`Compute`) confrontate con valori calcolati a mano.
 
 Eyeshot gira headless anche nei test (translator STEP, tassellazione): la licenza lo consente.
 
 ---
 
-## 8. Prossimi passi (Step 4)
+## 8. Prossimi passi (Step F)
 
-1. `DeviationField` in Core: per ogni punto scan → distanza (con segno via normale) tramite
-   `NominalSurface`; statistiche (min/max/RMS/percentili) ed esito vs tolleranza.
-2. Variante con `ComputeDistances` (Ultimate) per confronto/validazione e per il colore.
-3. Nella App: bottoni *Allinea (ICP)* e *Misura*, con `Legend` colore sul `FastPointCloud`.
-4. (Futuro) segmentazione per feature/macro, report di conformità, GD&T, scanner reale.
+1. **Report di conformità** esportabile (CSV/PDF): statistiche, istogramma delle deviazioni, verdetto.
+2. **Segmentazione per feature/macro**: misurare separatamente fori, scassi, facce → tolleranze per feature.
+3. **GD&T**: planarità, perpendicolarità, posizione vere rispetto a datum, non solo distanza punto-superficie.
+4. **Scanner reale**: sostituire la scansione sintetica con l'acquisizione da camera/scanner 3D.
+5. (Opz.) Variante `ComputeDistances` (Ultimate) come cross-check unsigned della mappa (vedi 5.10).

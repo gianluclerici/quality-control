@@ -1,11 +1,14 @@
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using devDept.Eyeshot;
 using devDept.Eyeshot.Control;
 using devDept.Eyeshot.Entities;
 using devDept.Geometry;
 using Ficep.QualityControl.Core.Io;
+using Ficep.QualityControl.Core.Measurement;
+using Ficep.QualityControl.Core.Registration;
 using Ficep.QualityControl.Core.Sampling;
 
 namespace Ficep.QualityControl.App;
@@ -13,17 +16,29 @@ namespace Ficep.QualityControl.App;
 /// <summary>
 /// The quality-control viewport shell: a thin WinForms frontend over the headless
 /// <c>Ficep.QualityControl.Core</c>. It loads a nominal <see cref="Brep"/> reference (STEP) and a
-/// scanned point cloud (PLY) and shows them overlaid in a single Eyeshot <see cref="Design"/>
-/// viewport. All file parsing lives in Core (<see cref="BrepImporter"/>, <see cref="PlyReader"/>);
-/// this form only adds the results to the scene and drives the camera.
+/// scanned point cloud (PLY), shows them overlaid in a single Eyeshot <see cref="Design"/> viewport,
+/// then drives the Core pipeline: <b>Allinea</b> registers the scan onto the nominal (ICP) and
+/// <b>Misura</b> computes the signed deviation map, colours the cloud through a <see cref="Legend"/>
+/// and reports the conformity verdict. All geometry/measurement logic lives in Core; this form only
+/// adds results to the scene and drives the camera.
 /// </summary>
 public sealed class MainForm : Form
 {
+    private const double NominalChordToleranceMm = 0.2; // tessellation chord error for the reference surface
+
     private readonly Design _design;
     private readonly ToolStripStatusLabel _status;
+    private readonly ToolStripTextBox _toleranceBox;
 
     private readonly BrepImporter _brepImporter = new();
     private readonly IPointCloudReader _plyReader = new PlyReader();
+
+    // QC state, kept between actions.
+    private readonly List<Brep> _nominalBreps = new();
+    private IReadOnlyList<SurfaceSample>? _scanSamples;
+    private NominalSurface? _nominal;                       // built lazily from _nominalBreps
+    private RigidTransform _alignment = RigidTransform.Identity;
+    private Entity? _cloudEntity;                           // the currently displayed scan cloud
 
     public MainForm()
     {
@@ -61,11 +76,20 @@ public sealed class MainForm : Form
         var toolbar = new ToolStrip();
         var loadNominal = new ToolStripButton("Carica nominale (STEP)") { DisplayStyle = ToolStripItemDisplayStyle.Text };
         var loadScan = new ToolStripButton("Carica scan (PLY)") { DisplayStyle = ToolStripItemDisplayStyle.Text };
+        var align = new ToolStripButton("Allinea (ICP)") { DisplayStyle = ToolStripItemDisplayStyle.Text };
+        var measure = new ToolStripButton("Misura") { DisplayStyle = ToolStripItemDisplayStyle.Text };
         var clear = new ToolStripButton("Pulisci") { DisplayStyle = ToolStripItemDisplayStyle.Text };
+        _toleranceBox = new ToolStripTextBox { Text = "1.0", ToolTipText = "Tolleranza ± (mm)", Width = 50 };
         loadNominal.Click += (_, _) => LoadNominal();
         loadScan.Click += (_, _) => LoadScan();
+        align.Click += (_, _) => RunAlign();
+        measure.Click += (_, _) => RunMeasure();
         clear.Click += (_, _) => ClearScene();
-        toolbar.Items.AddRange(new ToolStripItem[] { loadNominal, new ToolStripSeparator(), loadScan, new ToolStripSeparator(), clear });
+        toolbar.Items.AddRange(new ToolStripItem[]
+        {
+            loadNominal, new ToolStripSeparator(), loadScan, new ToolStripSeparator(),
+            align, measure, new ToolStripLabel("Toll. ±mm:"), _toleranceBox, new ToolStripSeparator(), clear,
+        });
 
         var statusStrip = new StatusStrip();
         _status = new ToolStripStatusLabel("Pronto. Carica un nominale STEP e/o uno scan PLY.");
@@ -117,11 +141,16 @@ public sealed class MainForm : Form
                 return;
             }
 
+            _nominalBreps.Clear();
+            _nominal = null;            // invalidate the cached query surface
+            _alignment = RigidTransform.Identity;
+
             foreach (Brep brep in breps)
             {
                 brep.ColorMethod = colorMethodType.byEntity;
                 brep.Color = Color.FromArgb(210, 210, 215); // neutral grey for the reference body
                 _design.Entities.Add(brep);
+                _nominalBreps.Add(brep);
             }
 
             _design.Entities.Regen(); // tessellate the freshly-imported Breps for display
@@ -151,33 +180,191 @@ public sealed class MainForm : Form
                 return;
             }
 
-            // FastPointCloud wants a flat float[] of XYZ triples — best for million-point clouds.
-            var coords = new float[samples.Count * 3];
-            for (int i = 0; i < samples.Count; i++)
-            {
-                Point3D p = samples[i].Position;
-                coords[i * 3] = (float)p.X;
-                coords[i * 3 + 1] = (float)p.Y;
-                coords[i * 3 + 2] = (float)p.Z;
-            }
+            _scanSamples = samples;
+            _alignment = RigidTransform.Identity; // a fresh scan starts unaligned
+            HideLegend();
+            ShowCloud(BuildFastCloud(samples, RigidTransform.Identity, Color.DodgerBlue));
 
-            var cloud = new FastPointCloud(coords)
-            {
-                ColorMethod = colorMethodType.byEntity,
-                Color = Color.DodgerBlue,
-            };
-            _design.Entities.Add(cloud);
-
-            _design.Entities.Regen();
             _design.ZoomFit();
             _design.Invalidate();
             _status.Text = $"Scan caricato: {samples.Count:N0} punti — {System.IO.Path.GetFileName(dlg.FileName)}";
         });
     }
 
+    /// <summary>Registers the scan onto the nominal (point-to-plane ICP) and shows the aligned cloud.</summary>
+    private void RunAlign()
+    {
+        RunGuarded(() =>
+        {
+            if (!TryGetScanAndNominal(out IReadOnlyList<SurfaceSample> scan, out NominalSurface nominal))
+                return;
+
+            RegistrationResult result = new IcpRegistration().Register(scan, nominal);
+            _alignment = result.Transform;
+
+            HideLegend();
+            ShowCloud(BuildFastCloud(scan, _alignment, Color.DodgerBlue));
+            _design.Invalidate();
+
+            _status.Text =
+                $"Allineamento ICP: RMS {result.RmsErrorMm:F3} mm in {result.Iterations} iter " +
+                $"(converged={result.Converged}).";
+        });
+    }
+
+    /// <summary>Computes the signed deviation map against the nominal and colours the cloud through a legend.</summary>
+    private void RunMeasure()
+    {
+        RunGuarded(() =>
+        {
+            if (!TryGetScanAndNominal(out IReadOnlyList<SurfaceSample> scan, out NominalSurface nominal))
+                return;
+
+            ToleranceBand band = ToleranceBand.Symmetric(ParseToleranceMm());
+            DeviationReport report = new DeviationMeasurement().Measure(scan, nominal, _alignment, band);
+
+            ShowCloud(BuildColouredCloud(report, band));
+            _design.Invalidate();
+
+            DeviationStatistics s = report.Statistics;
+            string verdict = report.IsConform ? "CONFORME" : "NON CONFORME";
+            _status.Text =
+                $"{verdict} — entro ±{band.UpperMm:0.###} mm: {report.ConformanceRatio:P1} " +
+                $"({report.InToleranceCount:N0}/{report.Deviations.Count:N0}). " +
+                $"RMS {s.RmsMm:F3} · media {s.MeanMm:+0.000;-0.000} · " +
+                $"min {s.MinMm:+0.000;-0.000} · max {s.MaxMm:+0.000;-0.000} · |max| {s.MaxAbsMm:F3} mm.";
+        });
+    }
+
+    /// <summary>Builds (or returns the cached) queryable nominal surface from the loaded Breps.</summary>
+    private NominalSurface EnsureNominalSurface()
+    {
+        if (_nominal is not null)
+            return _nominal;
+
+        var meshes = new List<Mesh>(_nominalBreps.Count);
+        foreach (Brep brep in _nominalBreps)
+            meshes.Add(BrepTessellator.ToMesh(brep, NominalChordToleranceMm));
+
+        _nominal = NominalSurface.FromMeshes(meshes);
+        return _nominal;
+    }
+
+    /// <summary>Validates that both a scan and a nominal are loaded; reports to the status bar if not.</summary>
+    private bool TryGetScanAndNominal(out IReadOnlyList<SurfaceSample> scan, out NominalSurface nominal)
+    {
+        scan = _scanSamples!;
+        nominal = null!;
+        if (_scanSamples is null || _scanSamples.Count == 0)
+        {
+            _status.Text = "Carica prima uno scan PLY.";
+            return false;
+        }
+        if (_nominalBreps.Count == 0)
+        {
+            _status.Text = "Carica prima un nominale STEP.";
+            return false;
+        }
+        nominal = EnsureNominalSurface();
+        return true;
+    }
+
+    private double ParseToleranceMm()
+    {
+        if (double.TryParse(_toleranceBox.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double t) && t > 0)
+            return t;
+        if (double.TryParse(_toleranceBox.Text, NumberStyles.Float, CultureInfo.CurrentCulture, out t) && t > 0)
+            return t;
+        return 1.0; // sensible default if the field is blank/garbage
+    }
+
+    /// <summary>Builds a single-colour fast cloud from the samples, transformed by <paramref name="t"/>.</summary>
+    private static FastPointCloud BuildFastCloud(IReadOnlyList<SurfaceSample> samples, RigidTransform t, Color color)
+    {
+        var coords = new float[samples.Count * 3];
+        for (int i = 0; i < samples.Count; i++)
+        {
+            Point3D p = t.Apply(samples[i].Position);
+            coords[i * 3] = (float)p.X;
+            coords[i * 3 + 1] = (float)p.Y;
+            coords[i * 3 + 2] = (float)p.Z;
+        }
+        return new FastPointCloud(coords)
+        {
+            ColorMethod = colorMethodType.byEntity,
+            Color = color,
+        };
+    }
+
+    /// <summary>
+    /// Builds a per-point coloured cloud from the deviation report, mapping each signed deviation onto a
+    /// red→blue legend centred on the tolerance band, and configures the viewport <see cref="Legend"/>
+    /// to match (same idiom as Eyeshot's ComputeDistance sample).
+    /// </summary>
+    private PointCloud BuildColouredCloud(DeviationReport report, ToleranceBand band)
+    {
+        var items = Legend.RedToBlue9;
+        Legend? legend = EnsureLegend();
+        if (legend is not null)
+        {
+            legend.Items = items;
+            legend.Visible = true;
+            legend.Min = band.LowerMm;
+            legend.Max = band.UpperMm;
+            legend.Title = "Deviazione";
+            legend.Subtitle = "mm (+ esterno / − interno)";
+        }
+
+        Color[] palette = new Color[items.Length];
+        for (int i = 0; i < palette.Length; i++)
+            palette[i] = items[i].Color;
+
+        IReadOnlyList<PointDeviation> dev = report.Deviations;
+        var cloud = new PointCloud(dev.Count, PointCloud.natureType.Multicolor, 2);
+        double min = band.LowerMm, span = band.UpperMm - band.LowerMm;
+        for (int i = 0; i < dev.Count; i++)
+        {
+            PointDeviation d = dev[i];
+            int bin = span > 0 ? (int)((d.SignedDistanceMm - min) / span * palette.Length) : 0;
+            bin = Math.Clamp(bin, 0, palette.Length - 1);
+            Color c = palette[bin];
+            cloud.Vertices[i] = new PointRGB((float)d.Point.X, (float)d.Point.Y, (float)d.Point.Z, c.R, c.G, c.B);
+        }
+        return cloud;
+    }
+
+    private Legend? EnsureLegend()
+    {
+        Legend[] legends = _design.Legends;
+        return legends is { Length: > 0 } ? legends[0] : null;
+    }
+
+    private void HideLegend()
+    {
+        Legend[] legends = _design.Legends;
+        if (legends is not null && legends.Length > 0)
+            legends[0].Visible = false;
+    }
+
+    /// <summary>Replaces the displayed scan cloud with <paramref name="entity"/> and regenerates it.</summary>
+    private void ShowCloud(Entity entity)
+    {
+        if (_cloudEntity is not null)
+            _design.Entities.Remove(_cloudEntity);
+        _cloudEntity = entity;
+        _design.Entities.Add(entity);
+        _design.Entities.Regen();
+    }
+
     private void ClearScene()
     {
         _design.Entities.Clear();
+        _nominalBreps.Clear();
+        _nominal = null;
+        _scanSamples = null;
+        _cloudEntity = null;
+        _alignment = RigidTransform.Identity;
+        HideLegend();
         _design.Invalidate();
         _status.Text = "Scena svuotata.";
     }
