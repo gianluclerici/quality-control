@@ -39,6 +39,9 @@ Desktop.ini
 *.ply
 *.las
 
+# Generated demo dataset from the Generator CLI (PLY/STEP/macros.json — fully regenerable)
+Ficep.QualityControl/Ficep.QualityControl.Generator/Assets/
+
 # graphify knowledge-graph output — fully regenerable via `graphify update .`
 # (AST cache, graph.json, reports, wiki, html, labels, root marker — none belong in git)
 graphify-out/

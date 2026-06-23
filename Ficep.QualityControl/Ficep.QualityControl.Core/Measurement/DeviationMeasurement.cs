@@ -38,11 +38,33 @@ public sealed class DeviationMeasurement
         ArgumentNullException.ThrowIfNull(nominal);
 
         RigidTransform transform = alignment ?? RigidTransform.Identity;
-        int n = scan.Count;
+        (PointDeviation[] deviations, double[] signed) = ProjectAll(scan, nominal, transform);
 
+        int inTolerance = signed.Length;
+        if (tolerance is { } band)
+        {
+            inTolerance = 0;
+            foreach (double d in signed)
+                if (band.Contains(d))
+                    inTolerance++;
+        }
+
+        DeviationStatistics stats = DeviationStatistics.Compute(signed);
+        return new DeviationReport(deviations, stats, tolerance, inTolerance);
+    }
+
+    /// <summary>
+    /// Projects every scan point onto the nominal after applying <paramref name="transform"/>, returning
+    /// the per-point deviation (aligned position + signed distance) and the raw signed distances. The
+    /// shared core behind both <see cref="Measure"/> and the per-feature measurement, so the signed
+    /// point-to-surface convention is defined in exactly one place.
+    /// </summary>
+    internal static (PointDeviation[] Deviations, double[] Signed) ProjectAll(
+        IReadOnlyList<SurfaceSample> scan, NominalSurface nominal, RigidTransform transform)
+    {
+        int n = scan.Count;
         var deviations = new PointDeviation[n];
         var signed = new double[n];
-        int inTolerance = 0;
 
         for (int i = 0; i < n; i++)
         {
@@ -59,15 +81,8 @@ public sealed class DeviationMeasurement
 
             signed[i] = d;
             deviations[i] = new PointDeviation(p, d);
-
-            if (tolerance is { } band && band.Contains(d))
-                inTolerance++;
         }
 
-        if (!tolerance.HasValue)
-            inTolerance = n; // no band → everything counts as "in tolerance" (ratio 1)
-
-        DeviationStatistics stats = DeviationStatistics.Compute(signed);
-        return new DeviationReport(deviations, stats, tolerance, inTolerance);
+        return (deviations, signed);
     }
 }

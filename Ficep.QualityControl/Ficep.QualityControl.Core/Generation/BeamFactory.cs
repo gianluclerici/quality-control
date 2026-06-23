@@ -1,6 +1,7 @@
 using System.Linq;
 using devDept.Eyeshot.Entities;
 using Ficep.MacroGra;
+using Ficep.QualityControl.Core.Features;
 using Ficep.QualityControl.Core.Model;
 using Ficep.RobServer.Utility3D;
 
@@ -17,6 +18,13 @@ public sealed record MachinedBeam
 
     /// <summary>One line per macro describing what happened (applied / skipped / feature count).</summary>
     public required IReadOnlyList<string> Trace { get; init; }
+
+    /// <summary>
+    /// The cutter solid of every feature actually subtracted from the blank, tagged with its macro
+    /// provenance. Downstream quality control re-derives these (deterministically, from the same
+    /// <see cref="PieceSpec"/>) to segment a scan cloud per feature. Empty for a raw blank.
+    /// </summary>
+    public IReadOnlyList<FeatureCutter> Features { get; init; } = Array.Empty<FeatureCutter>();
 }
 
 /// <summary>
@@ -71,9 +79,12 @@ public sealed class BeamFactory
 
         Brep finalPart = (Brep)workpiece.Solid.Clone();
         var trace = new List<string>();
+        var cutters = new List<FeatureCutter>();
+        int featureId = 0;
 
-        foreach (MacroSpec macroSpec in piece.Macros)
+        for (int macroIndex = 0; macroIndex < piece.Macros.Count; macroIndex++)
         {
+            MacroSpec macroSpec = piece.Macros[macroIndex];
             EyeMacro macro = MacroBuilder.Create(macroSpec, workpiece, _eyeParam);
 
             if (!macro.CreateMacro())
@@ -84,20 +95,34 @@ public sealed class BeamFactory
 
             int features = macro.Features.Count;
             int subtracted = 0;
+            FeatureKind kind = FeatureKinds.FromMacroClassName(macroSpec.MacroClassName);
             foreach (EyeFeature feature in macro.Features)
             {
-                Brep? diff = Brep.Difference(finalPart, feature.Solid)?.FirstOrDefault();
+                // Capture the cutter before the boolean: its boundary coincides with the feature's
+                // surface on the part, which is what segmentation keys on. Eyeshot's Difference
+                // returns a fresh result without consuming its operands, so we keep the reference
+                // (no Brep clone — cutters are referenced, not modified). See ARCHITECTURE §5.
+                Brep cutter = feature.Solid;
+                Brep? diff = Brep.Difference(finalPart, cutter)?.FirstOrDefault();
                 if (diff is not null)
                 {
                     finalPart = diff;
                     subtracted++;
+                    featureId++;
+                    cutters.Add(new FeatureCutter
+                    {
+                        Descriptor = new FeatureDescriptor(
+                            featureId, macroIndex, macroSpec.MacroClassName, kind,
+                            $"{macroSpec.MacroClassName} #{featureId}"),
+                        Cutter = cutter,
+                    });
                 }
             }
 
             trace.Add($"{macroSpec.MacroClassName}: {subtracted}/{features} feature(s) subtracted.");
         }
 
-        return new MachinedBeam { Solid = finalPart, Trace = trace };
+        return new MachinedBeam { Solid = finalPart, Trace = trace, Features = cutters };
     }
 
     private Brep BuildRawInternal(BeamSpec spec)
