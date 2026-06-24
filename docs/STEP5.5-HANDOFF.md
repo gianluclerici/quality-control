@@ -6,8 +6,9 @@
 
 ## 0. Come ripartire (checklist rapida)
 
-1. `git pull` — remote `origin` = https://github.com/gianluclerici/quality-control.git, branch `master`.
-   HEAD a questo handoff: **`aca698a`** ("feat: pannello feature in GUI ... QC Step 5.4").
+1. `git pull` — il remote si chiama **`remote`** (NON `origin`): `git pull remote master` /
+   `git push remote master`. URL = https://github.com/gianluclerici/quality-control.git, branch `master`.
+   HEAD a questo handoff: **`c4e9199`** (questo doc), sopra **`aca698a`** ("... pannello feature ... QC Step 5.4").
 2. Build + test: `dotnet test Ficep.QualityControl/Ficep.QualityControl.Core.Tests/Ficep.QualityControl.Core.Tests.csproj`
    → atteso **58 passed** (baseline prima dello Step 5.5).
 3. I dati demo (`testdata/*.ply|*.step|*.macros.json`) **non sono in git** (`.gitignore`). Rigenerali
