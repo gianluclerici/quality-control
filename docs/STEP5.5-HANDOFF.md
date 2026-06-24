@@ -2,7 +2,7 @@
 
 > Documento di **ripresa lavoro** (sync tra computer). Leggilo per intero all'inizio della prossima
 > sessione di Claude Code: contiene lo stato esatto, il piano deciso con l'utente, e i prossimi passi.
-> **Stato: pianificato, NON ancora implementato.** Ultimo aggiornamento: 2026-06-24.
+> **Stato: Fase A FATTA (stima datum dal cloud) — prossimo: Fase B.** Ultimo aggiornamento: 2026-06-24.
 
 ## 0. Come ripartire (checklist rapida)
 
@@ -10,7 +10,7 @@
    `git push remote master`. URL = https://github.com/gianluclerici/quality-control.git, branch `master`.
    HEAD a questo handoff: **`c4e9199`** (questo doc), sopra **`aca698a`** ("... pannello feature ... QC Step 5.4").
 2. Build + test: `dotnet test Ficep.QualityControl/Ficep.QualityControl.Core.Tests/Ficep.QualityControl.Core.Tests.csproj`
-   → atteso **58 passed** (baseline prima dello Step 5.5).
+   → atteso **60 passed** (58 baseline + 2 della Fase A appena fatta).
 3. I dati demo (`testdata/*.ply|*.step|*.macros.json`) **non sono in git** (`.gitignore`). Rigenerali
    (vedi §6) se servono per GUI/headless.
 4. Regole di progetto (da `CLAUDE.md`): **graphify query PRIMA** di Read/Grep per localizzare codice
@@ -27,7 +27,7 @@
 - Step 1–4: ✅ completati. Step **5.1–5.4**: ✅ completati e committati (vedi `docs/STEP5-HANDOFF.md` e
   `ARCHITECTURE.md` §5.17–§5.21, §6.8–§6.9). L'ultimo commit `aca698a` include anche il **pannello
   feature in GUI** (lista feature + parametri nominali/misurati, macro auto-caricate dallo STEP).
-- **Step 5.5 (questo handoff): in pianificazione, da implementare.**
+- **Step 5.5 (questo handoff): Fase A FATTA; Fase B/C da implementare.**
 
 ## 2. Cosa vuole l'utente (richiesta)
 
@@ -83,20 +83,34 @@ Quindi "misurare tutti i parametri" = ricavare A,B,C,D,E,R da queste facce/verti
 
 ## 5. Piano a piccoli step
 
-### Fase A — Stima datum dal cloud (SPIKE testabile → poi CHECK con l'utente)
-Nuovo `Ficep.QualityControl.Core/Features/BeamDatums.cs` (+ `BeamDatumFrame`):
-- **Prima cosa:** verificare in `Generation/BeamFactory.cs` `BuildRaw` **quale asse nominale è la
-  lunghezza** e quali larghezza(`SB`)/altezza(`SA`); fissarlo con una nota nel codice. (Gli explorer
-  hanno dato indicazioni discordanti su Y vs Z per la direzione ala-ala — va confermato leggendo
-  `BuildRaw`.)
-- `Estimate(baseBucket, beam)`: per ogni piano-datum a **normale nota** (estremità ±lunghezza, ali
-  ±larghezza) seleziona i punti del **base bucket** la cui `SurfaceSample.Normal` è ~parallela a quella
-  normale (`dot > soglia`), poi `PlaneFit.RobustOffset` → offset misurato. Lunghezza misurata =
-  differenza offset estremità; larghezza misurata = differenza offset ali; origine-angolo =
-  intersezione dei piani scelti (per Vx/lato).
-- Espone `RigidTransform` aligned→datum, `MeasuredLengthMm`, `MeasuredWidthMm`.
-- **Test spike** `Core.Tests/BeamDatumsTests.cs`: cloud demo (IPE300 L=1000, SB=150) → `MeasuredLength
-  ≈ 1000`, `MeasuredWidth ≈ 150` entro pochi decimi. **STOP: check con l'utente prima di Fase B.**
+### Fase A — Stima datum dal cloud  ✅ **FATTA**
+File nuovo `Ficep.QualityControl.Core/Features/BeamDatums.cs` (`BeamDatums` + `BeamDatumFrame`, public)
+e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
+
+- **Frame trave confermato dal sorgente** (`EyeWorkPiece.CreateSolidRawPart`, profilo in `Plane.YZ`):
+  **X = lunghezza**, **Y = altezza (`SA`)**, **Z = larghezza ala (`SB` = `prf.width`)**. (Doc anche in
+  `BeamSpec`: "extruded along X; cross-section in YZ".)
+- `BeamDatums.Estimate(baseSamples, normalCosThreshold=0.9, minPointsPerFace=10, faceBandMm=2.0)` →
+  `BeamDatumFrame(XMin,XMax,YMin,YMax,ZMin,ZMax)` con `MeasuredLengthMm/HeightMm/WidthMm`. Per ciascuna
+  delle 6 facce: seleziona i punti del **base bucket** la cui `SurfaceSample.Normal` è ~parallela alla
+  normale uscente della faccia (`dot ≥ cos`), poi prende il **cluster più ESTERNO** (banda `faceBandMm`,
+  ≥ `minPointsPerFace`) e ne fa la **mediana** (`PlaneFit.Median`).
+- **Lezione chiave (importante per Fase B):** la mediana *globale* dei punti per-normale è **sbagliata**
+  quando più facce parallele condividono la normale (lungo Z l'enorme fianco anima a z≈78.55 dominava →
+  larghezza usciva 7.1 = `TA`, non 150). Si prende perciò il **cluster outermost**, non la mediana di
+  tutti. (Lungo X/Y c'è una sola faccia per verso, ma la stessa logica vale e li rende robusti.)
+- **Risultato sul demo (cloud pulito IPE300, densità 0.5):** length **1000.000**, height **300.000**,
+  width **150.000**. Secondo test: le dimensioni sono **invarianti per traslazione** (le facce si
+  selezionano per normale, la differenza faccia-faccia non cambia) — dimostra l'invarianza
+  all'allineamento su cui poggia la misura feature-relative.
+- **Base bucket** in pratica: `cloud.Where(s => segmentation.Classify(s.Position) < 0)` (vedi test). In
+  Fase C il `PieceInspector` lo ricava applicando l'`alignment` ai sample (posizione+normale) e tenendo
+  i `Classify < 0`, così i datum si stimano nel frame allineato.
+
+> **Note per Fase B/C** (non ancora fatte): il `BeamDatumFrame` per ora espone solo i 6 offset + le
+> dimensioni. Il **corner-origin** per Vx/lato (`X∈{XMin,XMax}` per `I/F`, `Z∈{ZMin,ZMax}` per ala A/B)
+> e gli assi del frame feature-locale vanno aggiunti in Fase B (sono stati lasciati fuori di proposito
+> per non fissare una convenzione prematura).
 
 ### Fase B — Frame feature-relative + parametri (dopo l'ok)
 - **Foro** (`Features/HoleInspection.cs`): aggiungi
@@ -157,7 +171,8 @@ Produce `grezzo.*`, `lavorato.*` (PLY rumoroso + `_clean` + STEP nominale) e `la
 - `Model/BeamSpec.cs` — `SA` (altezza), `TA` (web), `SB` (larghezza ala = `prf.width`), `TB`, `Length`.
 
 ## 8. Stato git
-- Niente committato per lo Step 5.5. Questo handoff (`docs/STEP5.5-HANDOFF.md`) **è da committare e
-  pushare** per riprendere da un altro computer.
-- Quando si riprende: implementare **Fase A**, far girare i test, **fermarsi e chiedere all'utente**
-  prima di Fase B/C. Commit solo su richiesta esplicita dell'utente.
+- **Fase A committata e pushata** su `remote/master`: `Features/BeamDatums.cs` +
+  `Core.Tests/BeamDatumsTests.cs` + questo handoff aggiornato + grafo graphify.
+- Quando si riprende: partire dalla **Fase B** (vedi §5). Far girare i test (atteso 60), implementare
+  foro completo + scasso 6 parametri feature-relative + gestione param a 0, **fermarsi per il check**
+  prima di Fase C. Commit solo su richiesta esplicita dell'utente.
