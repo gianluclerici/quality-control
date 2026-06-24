@@ -36,6 +36,49 @@ public readonly record struct BeamDatumFrame(
 
     /// <summary>Measured flange width along Z (edge face to edge face), mm.</summary>
     public double MeasuredWidthMm => ZMaxMm - ZMinMm;
+
+    // --- Feature-relative corner frame (Step 5.5) ---------------------------------------------------
+    // A feature's parameters are expressed against a corner of the beam chosen by its positioning. The
+    // origin sits at the Vx end cap × the flange-side edge × the bottom flange. By convention (handoff §2,
+    // alaB = (0, prf.width, 0)) the frame axes are x = length, y = width, z = height — note that y and z
+    // are the beam's physical Z and Y respectively. Measuring a feature coordinate as a distance from these
+    // datum planes — both fitted from the same cloud — makes it invariant to residual registration error.
+    // See docs/STEP5.5-HANDOFF.md §2 and docs/research/notch-parameter-extraction.md §C.
+
+    /// <summary>
+    /// Maps an aligned world point to the Step-5.5 feature-relative frame: <b>x = length</b> (along the
+    /// beam), <b>y = width</b> (across the flanges) and <b>z = height</b> (up the web). The origin is the
+    /// corner chosen by <paramref name="vx"/> (end cap) and <paramref name="side"/> (flange edge), with the
+    /// height measured from the bottom flange.
+    /// </summary>
+    public (double X, double Y, double Z) ToFeatureFrame(
+        double xMm, double yMm, double zMm, string vx, string side) => (
+        LengthFromEnd(xMm, vx),     // x = length (beam X)
+        WidthFromFlange(zMm, side), // y = width  (beam Z)
+        HeightFromBottom(yMm));     // z = height (beam Y)
+
+    /// <summary>
+    /// The length (mm, frame x) of an X coordinate <paramref name="xMm"/> measured from the end cap a
+    /// feature anchors to: from the start cap (X-min) for <c>Vx="I"</c>, from the far cap (X-max) for
+    /// <c>Vx="F"</c>. Positive points into the beam.
+    /// </summary>
+    public double LengthFromEnd(double xMm, string vx) =>
+        IsFarEnd(vx) ? XMaxMm - xMm : xMm - XMinMm;
+
+    /// <summary>The height (mm, frame z) of a Y coordinate <paramref name="yMm"/> above the bottom flange face (Y-min).</summary>
+    public double HeightFromBottom(double yMm) => yMm - YMinMm;
+
+    /// <summary>
+    /// The width (mm, frame y) of a Z coordinate <paramref name="zMm"/> measured from the flange-edge
+    /// datum on side <paramref name="side"/>: from the flange-A edge (Z-min) for "A", from the flange-B edge
+    /// (Z-max) for "B". Positive points across the section toward the opposite edge.
+    /// </summary>
+    public double WidthFromFlange(double zMm, string side) =>
+        IsSideB(side) ? ZMaxMm - zMm : zMm - ZMinMm;
+
+    private static bool IsFarEnd(string vx) => string.Equals(vx, "F", StringComparison.OrdinalIgnoreCase);
+
+    private static bool IsSideB(string side) => string.Equals(side, "B", StringComparison.OrdinalIgnoreCase);
 }
 
 /// <summary>

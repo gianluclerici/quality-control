@@ -122,6 +122,94 @@ public class HoleInspectionTests
         Assert.True(loose.InTolerance);
     }
 
+    [Fact]
+    public void Inspect_CleanHole_MeasuresDepthAndCenter_FeatureRelative()
+    {
+        var factory = new BeamFactory();
+        PieceSpec piece = DemoPiece();
+        MachinedBeam machined = factory.BuildMachined(piece);
+
+        Mesh mesh = BrepTessellator.ToMesh(machined.Solid, factory.BrepTolerance);
+        NominalSurface nominal = NominalSurface.FromMesh(mesh);
+        IReadOnlyList<SurfaceSample> cloud = new MeshSurfaceSampler(densityPerMm2: 0.5, seed: 11).Sample(mesh);
+
+        var segmentation = FeatureSegmentation.FromCutters(machined.Features, onSurfaceToleranceMm: 0.5);
+        SegmentedDeviationReport report = new FeatureMeasurement().Measure(cloud, nominal, segmentation);
+
+        // Datums from the base bucket (Phase A) — exactly how the PieceInspector will gather them in Phase C.
+        var baseSamples = cloud.Where(s => segmentation.Classify(s.Position) < 0).ToList();
+        BeamDatumFrame datums = BeamDatums.Estimate(baseSamples);
+
+        FeatureDeviation holeDev = report.Features.First(f => f.Feature.Kind == FeatureKind.Hole);
+        FeatureCutter holeCutter = machined.Features.First(f => f.Descriptor.Kind == FeatureKind.Hole);
+        IReadOnlyList<Point3D> holePoints = holeDev.Report.Deviations.Select(d => d.Point).ToList();
+
+        MacroSpec holeMacro = piece.Macros[holeDev.Feature.MacroIndex];
+        HoleNominals nom = HoleInspection.NominalsFromMacro(holeMacro, piece.Beam);
+
+        FeatureInspectionReport inspection = new HoleInspection()
+            .Inspect(holeCutter, holePoints, nom, datums, holeMacro.Vx, holeMacro.Vy);
+
+        FeatureParameter diameter = inspection.Parameters.Single(p => p.Name == "Diameter");
+        FeatureParameter depth = inspection.Parameters.Single(p => p.Name == "Depth");
+        FeatureParameter cx = inspection.Parameters.Single(p => p.Name == "CenterX");
+        FeatureParameter cy = inspection.Parameters.Single(p => p.Name == "CenterY");
+        FeatureParameter cz = inspection.Parameters.Single(p => p.Name == "CenterZ");
+
+        _output.WriteLine($"diameter nominal={diameter.NominalMm:F3} measured={diameter.MeasuredMm:F3}");
+        _output.WriteLine($"depth    nominal={depth.NominalMm:F3} measured={depth.MeasuredMm:F3}");
+        _output.WriteLine($"center   nominal=({cx.NominalMm:F1},{cy.NominalMm:F1},{cz.NominalMm:F1}) " +
+            $"measured=({cx.MeasuredMm:F3},{cy.MeasuredMm:F3},{cz.MeasuredMm:F3})");
+
+        // Centre (x=length, y=width, z=height) recovers (A, half-width, B) = (500, 75, 150);
+        // depth recovers the web thickness it drills.
+        Assert.Equal(500.0, cx.MeasuredMm, 1);
+        Assert.Equal(75.0, cy.MeasuredMm, 1);
+        Assert.Equal(150.0, cz.MeasuredMm, 1);
+        Assert.Equal(piece.Beam.TA, depth.MeasuredMm, 1);
+        Assert.True(inspection.InTolerance);
+    }
+
+    [Fact]
+    public void Inspect_FeatureRelativeCenter_IsTranslationInvariant()
+    {
+        var factory = new BeamFactory();
+        PieceSpec piece = DemoPiece();
+        MachinedBeam machined = factory.BuildMachined(piece);
+
+        Mesh mesh = BrepTessellator.ToMesh(machined.Solid, factory.BrepTolerance);
+        NominalSurface nominal = NominalSurface.FromMesh(mesh);
+        IReadOnlyList<SurfaceSample> cloud = new MeshSurfaceSampler(densityPerMm2: 0.5, seed: 11).Sample(mesh);
+        var segmentation = FeatureSegmentation.FromCutters(machined.Features, onSurfaceToleranceMm: 0.5);
+        SegmentedDeviationReport report = new FeatureMeasurement().Measure(cloud, nominal, segmentation);
+
+        var baseSamples = cloud.Where(s => segmentation.Classify(s.Position) < 0).ToList();
+        FeatureDeviation holeDev = report.Features.First(f => f.Feature.Kind == FeatureKind.Hole);
+        FeatureCutter holeCutter = machined.Features.First(f => f.Descriptor.Kind == FeatureKind.Hole);
+        IReadOnlyList<Point3D> holePoints = holeDev.Report.Deviations.Select(d => d.Point).ToList();
+        MacroSpec holeMacro = piece.Macros[holeDev.Feature.MacroIndex];
+        HoleNominals nom = HoleInspection.NominalsFromMacro(holeMacro, piece.Beam);
+
+        // A residual mis-registration shifts the bore points AND the datum frame together: the
+        // feature→datum centre is preserved. This is the alignment-invariance Step 5.5 buys.
+        var shift = new Vec3(13.7, -8.2, 5.1);
+        var shiftedPoints = holePoints.Select(p => new Point3D(p.X + shift.X, p.Y + shift.Y, p.Z + shift.Z)).ToList();
+        var shiftedBase = baseSamples
+            .Select(s => new SurfaceSample(
+                new Point3D(s.Position.X + shift.X, s.Position.Y + shift.Y, s.Position.Z + shift.Z), s.Normal))
+            .ToList();
+
+        FeatureInspectionReport a = new HoleInspection().Inspect(
+            holeCutter, holePoints, nom, BeamDatums.Estimate(baseSamples), holeMacro.Vx, holeMacro.Vy);
+        FeatureInspectionReport b = new HoleInspection().Inspect(
+            holeCutter, shiftedPoints, nom, BeamDatums.Estimate(shiftedBase), holeMacro.Vx, holeMacro.Vy);
+
+        foreach (string name in new[] { "CenterX", "CenterY", "CenterZ", "Depth", "Diameter" })
+            Assert.Equal(
+                a.Parameters.Single(p => p.Name == name).MeasuredMm,
+                b.Parameters.Single(p => p.Name == name).MeasuredMm, 6);
+    }
+
     /// <summary>Generates points on a cylinder wall of the given radius about a cutter's axis.</summary>
     private static IReadOnlyList<Point3D> SampleCylinderWall(Brep cutter, double radius)
     {

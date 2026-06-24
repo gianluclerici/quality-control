@@ -36,6 +36,15 @@ internal sealed class ExtrudedProfile
     public required double CornerA { get; init; }
     public required double CornerB { get; init; }
 
+    /// <summary>All the cope's lateral walls (⊥ the extrusion axis), used to face-localize a wall's scan points.</summary>
+    public required IReadOnlyList<WallLine> Walls { get; init; }
+
+    /// <summary>
+    /// The upper inclined wall (contour segment P3→P4), if the cope has one — its world normal is tilted in
+    /// the beam length–height plane. Null for a plain rectangular cope or when no inclined wall is present.
+    /// </summary>
+    public WallLine? UpperSlantWall { get; init; }
+
     private const double Eps = 0.02;
 
     /// <summary>True if <paramref name="cutter"/> has at least one non-planar (fillet) face.</summary>
@@ -59,21 +68,7 @@ internal sealed class ExtrudedProfile
         ArgumentNullException.ThrowIfNull(cutter);
 
         // Collect the planar faces as (world normal, world offset) and a frame origin from any cap.
-        var planar = new List<(Vec3 N, double Off, Point3D Org)>();
-        Brep.Face[]? faces = cutter.Faces;
-        if (faces is not null)
-        {
-            foreach (Brep.Face f in faces)
-            {
-                if (f.IsPlanar() is not Plane pl)
-                    continue;
-                Vec3 n = new Vec3(pl.AxisZ.X, pl.AxisZ.Y, pl.AxisZ.Z).Normalized();
-                if (n.LengthSquared <= 0)
-                    continue;
-                double off = n.X * pl.Origin.X + n.Y * pl.Origin.Y + n.Z * pl.Origin.Z;
-                planar.Add((n, off, pl.Origin));
-            }
-        }
+        var planar = CollectPlanar(cutter);
         if (planar.Count < 3)
             throw new InvalidOperationException("The cope cutter has too few planar faces to derive its frame.");
 
@@ -107,7 +102,67 @@ internal sealed class ExtrudedProfile
             Origin = origin, U = u, V = v,
             BackWall = back, DepthWall = depth,
             CornerA = cornerA, CornerB = cornerB,
+            UpperSlantWall = PickUpperSlant(walls, back, depth),
+            Walls = walls,
         };
+    }
+
+    /// <summary>Collects the cutter's planar faces as (world unit normal, world signed offset, an origin point on the face).</summary>
+    private static List<(Vec3 N, double Off, Point3D Org)> CollectPlanar(Brep cutter)
+    {
+        var planar = new List<(Vec3 N, double Off, Point3D Org)>();
+        Brep.Face[]? faces = cutter.Faces;
+        if (faces is null)
+            return planar;
+        foreach (Brep.Face f in faces)
+        {
+            if (f.IsPlanar() is not Plane pl)
+                continue;
+            Vec3 n = new Vec3(pl.AxisZ.X, pl.AxisZ.Y, pl.AxisZ.Z).Normalized();
+            if (n.LengthSquared <= 0)
+                continue;
+            double off = n.X * pl.Origin.X + n.Y * pl.Origin.Y + n.Z * pl.Origin.Z;
+            planar.Add((n, off, pl.Origin));
+        }
+        return planar;
+    }
+
+    /// <summary>Counts the lateral (⊥ extrusion axis) planar faces — the cope's walls. Used to pick the contour cutter when there is no fillet to key on (R=0).</summary>
+    public static int LateralWallCount(Brep cutter)
+    {
+        ArgumentNullException.ThrowIfNull(cutter);
+        var planar = CollectPlanar(cutter);
+        if (planar.Count < 3)
+            return 0;
+        Vec3 axis = PickAxis(planar);
+        int count = 0;
+        foreach ((Vec3 N, double _, Point3D _) in planar)
+            if (Math.Abs(Vec3.Dot(N, axis)) <= Eps)
+                count++;
+        return count;
+    }
+
+    /// <summary>
+    /// The inclined wall (neither <paramref name="back"/> nor <paramref name="depth"/>) whose world normal is
+    /// most tilted in the beam length–height plane — i.e. the contour's upper slant P3→P4. Returns null if no
+    /// wall is meaningfully inclined (a plain rectangular cope).
+    /// </summary>
+    private static WallLine? PickUpperSlant(List<WallLine> walls, WallLine back, WallLine depth)
+    {
+        WallLine? best = null;
+        double bestTilt = 0.1; // a genuine slant has both |Nx| and |Ny| well away from 0
+        foreach (WallLine w in walls)
+        {
+            if (w.Equals(back) || w.Equals(depth))
+                continue;
+            double tilt = Math.Min(Math.Abs(w.Normal.X), Math.Abs(w.Normal.Y));
+            if (tilt > bestTilt)
+            {
+                bestTilt = tilt;
+                best = w;
+            }
+        }
+        return best;
     }
 
     private static Vec3 PickAxis(List<(Vec3 N, double Off, Point3D Org)> planar)

@@ -27,11 +27,12 @@
 - Step 1–4: ✅ completati. Step **5.1–5.4**: ✅ completati e committati (vedi `docs/STEP5-HANDOFF.md` e
   `ARCHITECTURE.md` §5.17–§5.21, §6.8–§6.9). L'ultimo commit `aca698a` include anche il **pannello
   feature in GUI** (lista feature + parametri nominali/misurati, macro auto-caricate dallo STEP).
-- **Step 5.5 (questo handoff): Fase A FATTA; Fase B/C da implementare.**
+- **Step 5.5 (questo handoff): Fase A FATTA; Fase B FATTA, C da implementare.**
 
 ## 2. Cosa vuole l'utente (richiesta)
 
 Oggi la misura per-feature è **parziale e dipendente dall'allineamento**:
+
 - **Foro**: misura solo il **diametro**. Per definirlo completamente servono **diametro + profondità +
   centro (x,y,z)**.
 - **Scasso (SCAI01)**: misura solo **Length(A)/Depth(B)/Radius(R)**. L'utente vuole **misurarli tutti**
@@ -44,10 +45,11 @@ Oggi la misura per-feature è **parziale e dipendente dall'allineamento**:
   nessun raccordo). La misura deve gestirlo senza crashare e senza fittare l'elemento assente.
 
 ### Risposte dell'utente alle domande di pianificazione
-- **Strategia:** *Spike-first sui datum* — implementare e testare prima la stima dimensioni trave dal
+
+- **Strategia:** _Spike-first sui datum_ — implementare e testare prima la stima dimensioni trave dal
   cloud, check con l'utente, poi il resto.
-- **Scope scasso:** *Tutti e 6 i parametri* (A,B,C,D,E,R), incl. bordo superiore inclinato (C,D,E).
-- **Report:** *Feature-relative come valore primario* — il "Misurato" è il valore feature-relative;
+- **Scope scasso:** _Tutti e 6 i parametri_ (A,B,C,D,E,R), incl. bordo superiore inclinato (C,D,E).
+- **Report:** _Feature-relative come valore primario_ — il "Misurato" è il valore feature-relative;
   aggiungere righe per i datum (L/larghezza trave stimate) e per il centro foro (x,y,z).
 
 ## 3. Decisione di tecnica (ragionamento già fatto — non rifarlo)
@@ -83,7 +85,8 @@ Quindi "misurare tutti i parametri" = ricavare A,B,C,D,E,R da queste facce/verti
 
 ## 5. Piano a piccoli step
 
-### Fase A — Stima datum dal cloud  ✅ **FATTA**
+### Fase A — Stima datum dal cloud ✅ **FATTA**
+
 File nuovo `Ficep.QualityControl.Core/Features/BeamDatums.cs` (`BeamDatums` + `BeamDatumFrame`, public)
 e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
 
@@ -95,7 +98,7 @@ e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
   delle 6 facce: seleziona i punti del **base bucket** la cui `SurfaceSample.Normal` è ~parallela alla
   normale uscente della faccia (`dot ≥ cos`), poi prende il **cluster più ESTERNO** (banda `faceBandMm`,
   ≥ `minPointsPerFace`) e ne fa la **mediana** (`PlaneFit.Median`).
-- **Lezione chiave (importante per Fase B):** la mediana *globale* dei punti per-normale è **sbagliata**
+- **Lezione chiave (importante per Fase B):** la mediana _globale_ dei punti per-normale è **sbagliata**
   quando più facce parallele condividono la normale (lungo Z l'enorme fianco anima a z≈78.55 dominava →
   larghezza usciva 7.1 = `TA`, non 150). Si prende perciò il **cluster outermost**, non la mediana di
   tutti. (Lungo X/Y c'è una sola faccia per verso, ma la stessa logica vale e li rende robusti.)
@@ -112,10 +115,11 @@ e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
 > e gli assi del frame feature-locale vanno aggiunti in Fase B (sono stati lasciati fuori di proposito
 > per non fissare una convenzione prematura).
 
-### Fase B — Frame feature-relative + parametri (dopo l'ok)
+### Fase B — Frame feature-relative + parametri ✅ **FATTA**
+
 - **Foro** (`Features/HoleInspection.cs`): aggiungi
   - **Profondità** = estensione assiale dei punti del bucket foro lungo l'asse noto (`CutterAxis`),
-    `max−min` proiezione; nominale dalla macro. *(Default: span forato; annotare, correggibile.)*
+    `max−min` proiezione; nominale dalla macro. _(Default: span forato; annotare, correggibile.)_
   - **Centro (x,y,z)** = centro `CircleFit` (piano ⟂ asse) + posizione assiale, espresso nel
     **BeamDatumFrame**. Nuove righe `CenterX/CenterY/CenterZ`.
 - **Scasso** (`Features/NotchInspection.cs` + `Features/ExtrudedProfile.cs`): misura **A,B,C,D,E,R**
@@ -132,7 +136,41 @@ e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
     cutter-profilo robusta anche senza fillet; **saltare** il golden-section.
   - **guardie su tutte le divisioni** del contorno (`E/A`, `(D-B)*E/A`).
 
+  #### Sommario: cosa ho provato, cosa ha funzionato, cosa no
+
+  Obiettivo
+  Slice B2: misurare tutti e 6 i parametri dello scasso SCAI (A,B,C,D,E,R) in modo feature-relative (rispetto ai datum stimati dalla point cloud), poi validarlo con un test end-to-end "prova del 9" (riferimento vs lavorato perturbato).
+
+  Cosa ho implementato (e che ha funzionato ✅)
+  ExtrudedProfile: esposta la slant superiore + l'elenco pareti + LateralWallCount. ✅
+  NotchInspection.Inspect (6 parametri): fit delle pareti → intersezioni per i vertici → proiezione sui datum (A,E dall'estremità vx; B,C,D dalla flangia vy; R intrinseco). Degeneri gestiti (nominale 0 → non fittato; R=0 → salta raccordo, sceglie il cutter per numero di pareti). ✅
+  Datum dal cloud (length/height/width) ricostruiti esattamente. ✅
+  Foro: Ø, profondità, centro (x,y,z) tutti recuperati. ✅
+  Cosa ho provato e NON ha funzionato (scoperto dal cross-check) ❌→✅
+  Il demo senza perturbazione passava, ma mascherava 3 bug, emersi solo facendo la prova del 9 (riferimento ≠ lavorato):
+
+  Fit slant a normale-fissa → C/E sbagliati (errore 0.27–0.33 mm). Causa: cambiando l'angolo della slant col parametro, proiettare sui versori di riferimento dà l'offset al baricentro, non al vertice.
+
+  1° tentativo — esclusione punti "su altre pareti": NON è bastato (l'errore restava ~0.27). ❌
+  2° tentativo — fit di retta TLS (minimi quadrati totali) + localizzazione per estensione tangente: ha risolto C/E. ✅ Ma…
+  …TLS sulle pareti assi-allineate (back/lower orizzontale) era più rumoroso del fit a normale-nota → ruppe il demo R=0. ❌
+  Fix finale: mediana a normale-nota per le pareti assi-allineate (esatta), TLS solo per le slant inclinate. ✅
+  Raccordo ancorato allo spigolo di riferimento → R sbagliato (errore −0.9 mm quando A/B deviano). Fix: aggancio del raccordo allo spigolo misurato (P2 dalle pareti fittate). ✅
+
+  Bordo inferiore inclinato (D≠B) → D e C inaffidabili (errore fino a 0.6 mm, R fino a −4 mm). Causa fondamentale, non un bug: D è un'estrapolazione (la slant inferiore non tocca l'estremità), quindi un piccolo errore di pendenza esplode.
+
+  Decisione: la forma reale della macro SCAI ha D=B (bordo inferiore orizzontale), che funziona benissimo; ho riportato lo scenario 3 a D=B (cope più grande, parametri diversi) e documentato D≠B come limite noto invece di forzarlo.
+  Risultato finale (prova del 9, errore = misurato − lavorato)
+  3 scenari (normale / R=0 / cope grande): tutti i parametri di posizione ≤ ~0.11 mm, Ø foro ≤ 0.19 mm (faceting mesh), tutti dentro ±0.5 mm. Datum esatti. Invarianza all'allineamento confermata (≤0.011 mm contro shift di 0.5 mm).
+
+  Stato
+  68/68 test verdi (62 baseline + 3 scasso + 3 cross-check end-to-end).
+  Nessun commit; ARCHITECTURE.md non toccato (docs = Fase C).
+  Limite noto documentato nei test/commenti: bordo inferiore inclinato (D≠B).
+  Mi fermo qui per il tuo check, come da accordo (Fase C: orchestratore + GUI + docs, solo dopo il tuo ok).
+
 ### Fase C — Orchestratore, GUI, test, docs
+
 - `Features/PieceInspection.cs` `PieceInspector`: stima i **datum una volta** dal
   `SegmentedDeviationReport.Base`, passa il `BeamDatumFrame` a Hole/Notch. `DescribeNominal` produce i
   nominali delle nuove righe (centro/profondità/C,D,E) con `MeasuredMm = NaN`.
@@ -151,11 +189,13 @@ e test `Core.Tests/BeamDatumsTests.cs` (2 fatti). **Tutti i 60 test verdi.**
 dotnet run --project Ficep.QualityControl/Ficep.QualityControl.Generator -- generate \
   --out testdata --seed 1234
 ```
+
 Produce `grezzo.*`, `lavorato.*` (PLY rumoroso + `_clean` + STEP nominale) e `lavorato.macros.json`.
 `PieceSpec` demo: IPE300 L=1000, `SCAI01 C/I/A` A80 B60 C40 D60 E40 R10, `INTC01 C/I/A` A500 B150 C40
 (INTC01: `radius = C/2` ⇒ foro Ø40; centro ≈ (A,B) = (500,150)).
 
 ## 7. Riuso / mattoni esistenti (così il prossimo agente non li ri-cerca)
+
 - `Features/PlaneFit.cs` — `RobustOffset(Vec3 normal, IEnumerable<Vec3> points)` (mediana): **datum +
   pareti**.
 - `Features/CircleFit.cs` — `Fit(u,v)` Kåsa: **centro+Ø foro**.
@@ -171,6 +211,7 @@ Produce `grezzo.*`, `lavorato.*` (PLY rumoroso + `_clean` + STEP nominale) e `la
 - `Model/BeamSpec.cs` — `SA` (altezza), `TA` (web), `SB` (larghezza ala = `prf.width`), `TB`, `Length`.
 
 ## 8. Stato git
+
 - **Fase A committata e pushata** su `remote/master`: `Features/BeamDatums.cs` +
   `Core.Tests/BeamDatumsTests.cs` + questo handoff aggiornato + grafo graphify.
 - Quando si riprende: partire dalla **Fase B** (vedi §5). Far girare i test (atteso 60), implementare
