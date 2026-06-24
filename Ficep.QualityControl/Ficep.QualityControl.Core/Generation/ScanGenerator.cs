@@ -56,17 +56,8 @@ public sealed class ScanGenerator
         ArgumentNullException.ThrowIfNull(stepPath);
 
         Mesh mesh = BrepTessellator.ToMesh(brep, _chordDeviation);
+        (IReadOnlyList<SurfaceSample> clean, IReadOnlyList<SurfaceSample> noisy) = SampleMesh(mesh, options, seedOffset);
 
-        // Derive deterministic per-stage seeds from the master seed (null ⇒ non-deterministic).
-        int? samplerSeed = options.Seed.HasValue ? unchecked(options.Seed.Value + seedOffset) : null;
-        int? noiseSeed = options.Seed.HasValue ? unchecked(options.Seed.Value + seedOffset + 7919) : null;
-
-        var sampler = new MeshSurfaceSampler(options.DensityPerMm2, samplerSeed);
-        IReadOnlyList<SurfaceSample> clean = sampler.Sample(mesh);
-
-        var noise = new GaussianRangeNoise(options.SigmaMm, noiseSeed);
-        IReadOnlyList<SurfaceSample> noisy = noise.Apply(clean);
-        
         string? plyDir = Path.GetDirectoryName(plyPath),
                plyname = Path.GetFileNameWithoutExtension(plyPath),
                plyExt = Path.GetExtension(plyPath);
@@ -81,5 +72,34 @@ public sealed class ScanGenerator
         _brepExporter.Export(stepPath, brep);
 
         return new ScanResult(mesh.Triangles.Length, noisy.Count);
+    }
+
+    /// <summary>
+    /// Generates a noisy scan cloud for <paramref name="brep"/> in memory (tessellate → sample → add
+    /// noise), without writing any files. Same pipeline as <see cref="Generate"/>; used by the GUI to
+    /// synthesise a scan from a Brep the user already imported, with interactively chosen
+    /// density/sigma/seed in <paramref name="options"/>.
+    /// </summary>
+    /// <param name="brep">The nominal solid to scan.</param>
+    /// <param name="options">Density / noise / seed settings.</param>
+    /// <param name="seedOffset">Added to the master seed for reproducible-but-distinct clouds.</param>
+    public IReadOnlyList<SurfaceSample> Sample(Brep brep, GenerationOptions options, int seedOffset = 0)
+    {
+        ArgumentNullException.ThrowIfNull(brep);
+        Mesh mesh = BrepTessellator.ToMesh(brep, _chordDeviation);
+        return SampleMesh(mesh, options, seedOffset).Noisy;
+    }
+
+    /// <summary>Samples <paramref name="mesh"/> and applies range noise; returns both the clean and noisy clouds.</summary>
+    private static (IReadOnlyList<SurfaceSample> Clean, IReadOnlyList<SurfaceSample> Noisy) SampleMesh(
+        Mesh mesh, GenerationOptions options, int seedOffset)
+    {
+        // Derive deterministic per-stage seeds from the master seed (null ⇒ non-deterministic).
+        int? samplerSeed = options.Seed.HasValue ? unchecked(options.Seed.Value + seedOffset) : null;
+        int? noiseSeed = options.Seed.HasValue ? unchecked(options.Seed.Value + seedOffset + 7919) : null;
+
+        IReadOnlyList<SurfaceSample> clean = new MeshSurfaceSampler(options.DensityPerMm2, samplerSeed).Sample(mesh);
+        IReadOnlyList<SurfaceSample> noisy = new GaussianRangeNoise(options.SigmaMm, noiseSeed).Apply(clean);
+        return (clean, noisy);
     }
 }

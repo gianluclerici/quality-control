@@ -9,7 +9,7 @@
 1. `git pull` (questo commit è su `master`, remote `origin`
    = https://github.com/gianluclerici/quality-control.git).
 2. Build + test: `dotnet test Ficep.QualityControl/Ficep.QualityControl.Core.Tests/Ficep.QualityControl.Core.Tests.csproj`
-   → atteso **53 passed**.
+   → atteso **55 passed**.
 3. I dati demo (`*.ply`, `*.step`, `*.macros.json`) **non sono in git** (artefatti generati,
    `.gitignore`). Rigenerali (vedi §5) se servono per GUI/headless.
 4. Regole di progetto da rispettare (da `CLAUDE.md`): **Eyeshot MCP come fonte primaria** per le API
@@ -42,9 +42,12 @@ cutter, non da una mappatura fragile di lettere macro).
 | **5.1** | Esporre i cutter dal `BeamFactory` + **segmentazione per feature** + report deviazione per-feature + test | ✅ **FATTO** (questo commit) |
 | **5.2** | **Parametro del foro in tolleranza**: Ø nominale dai parametri macro (input); asse dalla geometria del cutter; Ø misurato con fit di cerchio 2D (Kåsa lineare); banda → in/fuori tolleranza | ✅ **FATTO** |
 | **5.3** | Parametri dello **scasso** (lunghezza/profondità/raggio) da fit piani+arco | ✅ **FATTO** |
-| **5.4** | **Demo headless** (comando `inspect` nel Generator) + **riferimento classi §6 di `docs/ARCHITECTURE.md`** | ⬜ prossimo |
+| **5.4** | **Demo headless** (`inspect` nel Generator) + orchestratore `PieceInspector` (Core) + **App a doppia modalità** (GUI/`--headless`) + **generazione scan da nominale in GUI** (σ/seed/densità) + riferimento classi §6 | ✅ **FATTO** |
 
 Procediamo **uno step alla volta**, con un check con l'utente tra l'uno e l'altro.
+
+**Step 5 concluso.** Tutti i sotto-step 5.1–5.4 sono fatti; `docs/ARCHITECTURE.md` è aggiornato
+(roadmap §3, decisioni §5.17–§5.20, riferimento classi §6.8–§6.9, data, test 55). Prossimo: Step F.
 
 ## 3. Cosa è stato fatto nello Step 5.1 (e come)
 
@@ -174,6 +177,36 @@ geometrico, vincolato) in **`docs/research/notch-parameter-extraction.md`**, con
 
 Tutti i **53 test verdi** (50 + 3). `docs/ARCHITECTURE.md` aggiornato: roadmap §3, decisioni §5.17–§5.18,
 data; resta da fare il **riferimento classi §6** (rimandato allo Step 5.4 col `inspect` headless).
+
+## 3-quater. Cosa è stato fatto nello Step 5.4 (demo headless + App a doppia modalità + scan da GUI)
+
+Chiusura dello Step 5: la pipeline diventa **end-to-end** e usabile sia da CLI sia da GUI.
+
+### File nuovi — `Features/`
+- `PieceInspection.cs` — `PieceInspector` (orchestratore: nominale → ICP → segmentazione → misura →
+  verdetto, raggruppando i cutter **per macro**), + `PieceInspectionReport` e `InspectionOptions`
+  (`record`). Riusa `HoleInspection`/`NotchInspection`. Vedi `ARCHITECTURE.md` §5.19.
+- `InspectionReportFormatter.cs` — rende il report come tabella testuale (`Format`/`FormatText`).
+
+### File modificati
+- `Generator/Program.cs` — secondo comando **`inspect`**: `--demo` (autosufficiente, ricampiona una nuvola
+  pulita) oppure `--macros <f> --scan <f>`; opzioni `--no-align`/`--tol`/`--on-surface-tol`/`--density`/`--seed`.
+  Exit ≠ 0 se non conforme.
+- `App/Program.cs` — `Main(args)` a **doppia modalità**: niente argomenti → GUI; `--headless`/`inspect` →
+  console agganciata (`AttachConsole`, fallback `AllocConsole`) + `HeadlessInspection.Run`.
+- `App/HeadlessInspection.cs` (nuovo) — runner headless dell'App (stessa pipeline `PieceInspector`).
+- `App/MainForm.cs` — bottone ***Genera scan da nominale*** + campi *dens*/*σmm*/*seed* in toolbar →
+  `GenerateScanFromNominal()` usa `ScanGenerator.Sample` (nuovo overload **in-memory**). Vedi §5.20.
+- `Generation/ScanGenerator.cs` — nuovo overload `Sample(brep, options, seedOffset)` (tassella→campiona→
+  rumore, **senza scrivere file**); `Generate` rifattorizzato per riusarlo (`SampleMesh`).
+
+### Test nuovo — `Core.Tests/PieceInspectionTests.cs` (2 fatti)
+- Demo → esattamente 1 scasso (3 parametri) + 1 foro (1 parametro), tutti in banda, ICP convergente.
+- Modalità `--no-align` su nuvola già nel frame nominale → comunque in banda.
+
+### Risultato osservato (demo, `inspect --demo`)
+SCAI01 #3: Length 80.004 / Depth 60.000 / Radius 9.949 → PASS. INTC01 #5: Diameter 40.042 → PASS.
+Overall **CONFORME**. Tutti i **55 test verdi** (53 + 2).
 
 ## 4. Decisioni di design rilevanti (per non rifare i ragionamenti)
 

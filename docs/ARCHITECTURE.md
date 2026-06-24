@@ -43,8 +43,8 @@ rumore) per sviluppare e testare l'intera pipeline.
 | Progetto | Target | Responsabilità |
 |----------|--------|----------------|
 | `...Core` | `net8.0` | Tutta la logica: geometria, IO, generazione, registrazione, misura. Usa **devDept Eyeshot** come kernel. Niente UI. |
-| `...Generator` | console `net8.0` | CLI headless che genera i file di test. |
-| `...App` | WinForms `net8.0-windows` | Guscio GUI con viewport Eyeshot. Solo vista; la logica resta in Core. |
+| `...Generator` | console `net8.0` | CLI headless: `generate` (file di test) + `inspect` (verdetto QC end-to-end). |
+| `...App` | WinForms `net8.0-windows` | **Doppia modalità**: GUI con viewport Eyeshot, oppure `--headless`/`inspect` da terminale. Solo vista; la logica resta in Core. |
 
 **Perché questa separazione:** la stessa logica gira da GUI *e* headless (batch/CI) ed è interamente
 testabile con xUnit senza aprire finestre. Non è una "shell" separata: è *un* Core con due viste.
@@ -62,7 +62,7 @@ testabile con xUnit senza aprire finestre. Non è una "shell" separata: è *un* 
 | **5.1** | **Segmentazione per feature**: cutter ri-derivati dal JSON + BVH etichettato → ogni punto a una feature; report deviazione per-feature | ✅ fatto (Core + test) |
 | **5.2** | **Foro in tolleranza**: Ø misurato con fit di cerchio 2D (asse noto dal cutter), verdetto su banda | ✅ fatto (Core + test) |
 | **5.3** | **Scasso in tolleranza**: lunghezza/profondità (fit piani ad orientamento noto) + raggio del raccordo (fit ad asse/centro vincolato) | ✅ fatto (Core + test) |
-| **5.4** | Demo headless (`inspect` nel Generator) + aggiornamento riferimento classi §6 | ⬜ prossimo |
+| **5.4** | **Demo headless** (`inspect` nel Generator) — orchestratore `PieceInspector` riusato da GUI e CLI; **App a doppia modalità** (GUI / `--headless`); **generazione scan da nominale in GUI** (σ/seed/densità); **pannello feature in GUI** (lista feature + parametri nominali/misurati, macro auto-caricate dallo STEP); riferimento classi §6 | ✅ fatto (Core + test + Generator + App) |
 | **F** | Report, GD&T, scanner reale | ⬜ futuro |
 
 ---
@@ -245,6 +245,47 @@ l'orientamento è ignoto. Dettaglio della ricerca in `docs/research/notch-parame
   invariante all'allineamento (distanze *feature-relative*: parete→fine trave, parete→bordo anima) è
   documentato nella nota di ricerca.
 
+### 5.19 Pipeline end-to-end — **un orchestratore in Core, riusato da CLI e GUI** (Step 5.4)
+**Scelto:** un solo `PieceInspector` (in `Core/Features`) che incatena tutta la pipeline QC — nominale →
+tassellazione → ICP → segmentazione → misura per-feature → verdetto dimensionale — e ritorna un
+`PieceInspectionReport`. I cutter vengono **raggruppati per macro** (una macro può espandersi in più
+cutter: lo scasso demo in 4): ogni cutter-foro è misurato singolarmente (la sua sede), mentre i cutter di
+uno scasso sono ispezionati insieme (un solo contorno, il cutter-profilo porta il raccordo). Un
+`InspectionReportFormatter` rende il report come tabella testuale.
+**Perché:** la stessa logica di orchestrazione serviva sia alla **demo headless** (comando `inspect`) sia
+alla GUI; metterla in Core evita duplicazione e tiene i frontend sottili (la CLI/GUI solo parsing e
+presentazione). Riusa pari pari i mattoni di 5.1–5.3 (`FeatureSegmentation`, `FeatureMeasurement`,
+`HoleInspection`, `NotchInspection`). Verdetto demo: SCAI01 len 80.00 / dep 60.00 / R 9.95, INTC01 Ø 40.04
+— tutto in banda ±0.5.
+
+### 5.20 App a **doppia modalità** e **generazione scan da nominale** in GUI (Step 5.4)
+**Scelto:** un **unico eseguibile** `...App` che, a seconda degli argomenti, lancia la **GUI** (nessun
+argomento) oppure la **demo headless** (`--headless` / `inspect …`, stessa pipeline `PieceInspector`).
+Essendo un `WinExe`, in modalità headless si **aggancia la console** del terminale chiamante
+(`AttachConsole`, fallback `AllocConsole`) per stampare il verdetto. Inoltre la GUI può **generare lo scan
+dal Brep nominale** già importato, con **densità / σ / seed** impostabili da toolbar (bottone *Genera scan
+da nominale*), riusando `ScanGenerator.Sample` (nuovo overload **in-memory**, senza scrittura file).
+**Perché:** un solo binario per entrambe le demo (richiesta utente) riduce attrito d'uso; generare lo scan
+in-app evita il giro su file `generate`→`Carica scan` e permette di esplorare interattivamente l'effetto
+di rumore/densità sulla misura sulla stessa geometria caricata.
+
+### 5.21 **Pannello feature** in GUI: lista feature + parametri nominali/misurati (Step 5.4)
+**Scelto:** un pannello a sinistra del viewport (due `ListView` in `SplitContainer`): in alto la **lista
+delle feature** del pezzo, in basso la **tabella parametri** della feature selezionata (Nominale / Misurato
+/ Deviazione / Tolleranza / Esito). Le feature compaiono **al caricamento dello STEP**: la GUI cerca accanto
+allo STEP il file macro con **lo stesso nome base** (`<base>.macros.json`, poi `<base>.json`); se lo trova
+ne ricostruisce il `MachinedBeam` (`BeamFactory.BuildMachined`) e mostra i **nominali** via
+`PieceInspector.DescribeNominal` (nessuno scan necessario); se **non lo trova avvisa con un warning** senza
+crashare (la mappa di deviazione resta comunque disponibile). Dopo *Misura*, la GUI chiama l'**overload di
+`PieceInspector.Inspect` con la trasformata** già calcolata da *Allinea* (così misura feature e mappa colore
+condividono la stessa registrazione), e la tabella mostra **nominale a fianco del misurato** con l'esito ±toll.
+Il match nominale↔misurato avviene per `FeatureDescriptor.Id`.
+**Perché:** porta in GUI le stesse informazioni della demo headless (`inspect`) in forma navigabile;
+ricostruire le feature dalle macro è obbligato (lo STEP da solo non contiene i cutter — vedi §5.1/§5.19);
+legare il JSON al nome dello STEP rende il flusso "carica e basta"; il fallback con warning evita crash su
+STEP senza macro. `DescribeNominal` e l'overload con trasformata sono nati in Core per non duplicare il
+raggruppamento per macro né l'ICP nella UI.
+
 ---
 
 ## 6. Riferimento **classi e funzioni**
@@ -368,30 +409,114 @@ outlier).
   l'`alignment` (ICP), proietta sul nominale, calcola la distanza **con segno** dal lato della normale,
   accumula le statistiche e il conteggio dentro/fuori banda.
 
-### 6.8 Frontend
-- **`Generator/Program`** — CLI `generate --out <dir> [--density N] [--sigma S] [--seed K]`; stampa i
-  conteggi e scrive `grezzo.*`, `lavorato.*`, `lavorato.macros.json`.
-- **`App/Program`** — `[STAThread] Main`: `ApplicationConfiguration.Initialize()` + `Application.Run(new MainForm())`.
-- **`App/MainForm`** — viewport Eyeshot (`Design`) + pipeline QC (Allinea/Misura). Mantiene lo stato:
-  Breps nominali, campioni scan, `NominalSurface` (cache), `alignment` corrente, entità nuvola mostrata.
-  - costruttore: init del controllo con `BeginInit`/`Viewport` esplicito/`EndInit`; toolbar (con campo
-    *Toll. ±mm*) e statusbar.
+### 6.8 `Features/` — segmentazione e verifica dimensionale (Step 5)
+
+**Identità e cutter**
+- **`FeatureKind`** (enum `Base/Hole/Notch/Other`) + **`FeatureKinds.FromMacroClassName`** (per prefisso:
+  `INTC*`→Hole, `SCAI*`→Notch).
+- **`FeatureDescriptor`** (`record struct`) — identità feature: `Id` (1-based; 0 = `Base`), `MacroIndex`,
+  `MacroClassName`, `Kind`, `Label`; statico `Base`.
+- **`FeatureCutter`** (`record`) — `Descriptor` + `Brep Cutter` (il solido-utensile ri-derivato).
+
+**Segmentazione (5.1)**
+- **`FeatureSegmentation`** — `FromCutters(cutters, onSurfaceTol=1.0, chordTol=0.2)`: tassella ogni cutter,
+  costruisce **un** `TriangleBvh` etichettato per triangolo; `Classify(Point3D)→int` = indice in `Features`,
+  oppure −1 = base (distanza al cutter più vicino > `onSurfaceTol`). Vedi 5.17.
+- **`FeatureDeviation`** (`record struct`) — `(FeatureDescriptor Feature, DeviationReport Report)`.
+- **`SegmentedDeviationReport`** — `Overall` (tutta la nuvola) + `Base` (corpo) + `Features` (un report per
+  feature); i bucket **partizionano** la nuvola. `Features` è **parallelo per indice** a `MachinedBeam.Features`.
+- **`FeatureMeasurement`** — `Measure(scan, nominal, segmentation, alignment?, tolerance?)` →
+  `SegmentedDeviationReport`. Riusa il core di proiezione di `DeviationMeasurement`, poi instrada ogni
+  deviazione nel bucket della sua feature.
+
+**Verdetto dimensionale — comune (5.2/5.3)**
+- **`FeatureParameter`** (`record struct`) — un parametro: `Name`, `NominalMm`, `MeasuredMm`, `ToleranceMm`,
+  `InTolerance`; `DeviationMm`; factory `Judge(name, nominal, measured, tol)` (banda simmetrica).
+- **`FeatureInspectionReport`** (`record`) — `Feature` + `Parameters` + `PointCount` + `InTolerance`
+  (tutti i parametri in banda).
+
+**Foro (5.2)**
+- **`CircleFit`** (`internal`) — fit di cerchio **Kåsa** (`u²+v²+Du+Ev+F=0`), risolve la 3×3 SPD riusando
+  `Registration/Cholesky`; ritorna `CircleFitResult(CenterU, CenterV, Radius)`.
+- **`CutterAxis`** (`internal`) — `CylinderAxis(Point, Direction)` + `FromCutter(Brep)` (asse dalla
+  faccia-tappo piana).
+- **`HoleInspection`** — `Inspect(hole, scanPoints, nominalDiameterMm, tol=0.5)`: proietta i punti sul piano
+  ⟂ all'asse noto, fit Kåsa, Ø=2·r; + static `NominalDiameterFromMacro` (INTC `C`, fallback `F`).
+
+**Scasso (5.3)**
+- **`PlaneFit`** (`internal`) — `Median` + `RobustOffset(normal, points)` = mediana di `n̂·p` (fit di offset
+  a normale nota).
+- **`ExtrudedProfile`** (`internal`) — deriva dal cutter-profilo l'asse di estrusione, la base profilo
+  (`Origin/U/V`), le pareti `WallLine` (normale/offset mondo + retta in coord. profilo), le pareti
+  *back*/*depth* e lo spigolo; `HasFillet(Brep)` (qualche faccia non-piana), `FromCutter(Brep, NotchNominals)`.
+- **`NotchInspection`** — `Inspect(notchCutters, scanPoints, NotchNominals, NotchTolerance?, wallBandMm)`:
+  seleziona il cutter-profilo (`HasFillet`), misura *Length*/*Depth* (offset robusto) e *Radius* (fit
+  tangente a 1 incognita, golden-section); + static `NominalsFromMacro` (A/B/R). `NotchNominals` /
+  `NotchTolerance` `record struct`.
+
+**Orchestrazione end-to-end (5.4)**
+- **`InspectionOptions`** (`record`) — `Align`, `OnSurfaceToleranceMm`, `HoleToleranceMm`, `NotchTolerance`.
+- **`PieceInspectionReport`** (`record`) — `Aligned`, `Alignment` (`RegistrationResult`), `Deviation`
+  (`SegmentedDeviationReport`), `Features` (un `FeatureInspectionReport` per feature), `InTolerance`.
+- **`PieceInspector`** — orchestratore. Tre API pubbliche (raggruppamento per macro condiviso, `GroupByMacro`):
+  - `Inspect(machined, macros, scan, brepTol, options?)`: tassella il nominale → `NominalSurface`,
+    ICP (se `Align`), `FeatureSegmentation`+`FeatureMeasurement`, poi `HoleInspection`/`NotchInspection`. Vedi 5.19.
+  - `Inspect(…, RigidTransform alignment, options?)`: **overload** che usa una trasformata già calcolata dal
+    chiamante (salta l'ICP), così la GUI condivide la registrazione di *Allinea* tra mappa colore e misura feature. Vedi 5.21.
+  - `DescribeNominal(machined, macros, options?)`: **solo nominali, senza scan** — un `FeatureInspectionReport`
+    per feature con `MeasuredMm = NaN` e lo **stesso `FeatureDescriptor.Id`** che produrrebbe `Inspect`
+    (così GUI può fare il match nominale↔misurato). Vedi 5.21.
+- **`InspectionReportFormatter`** — `Format(report)`/`FormatText(report)`: rende il verdetto come tabella
+  testuale (allineamento, riga per parametro nominale/misurato/dev/tol/PASS-FAIL, esito complessivo).
+
+### 6.9 Frontend
+- **`Generator/Program`** — CLI a due comandi:
+  - `generate --out <dir> [--density N] [--sigma S] [--seed K]` — scrive `grezzo.*`, `lavorato.*`,
+    `lavorato.macros.json`.
+  - `inspect --demo [--density N] [--seed K] [--no-align] [--tol M]` **oppure** `inspect --macros <f>
+    --scan <f> […]` — esegue `PieceInspector` e stampa il verdetto (`InspectionReportFormatter`); exit ≠ 0
+    se il pezzo non è conforme. `--demo` è autosufficiente (ricampiona una nuvola pulita del pezzo demo).
+- **`App/Program`** — `[STAThread] Main(args)` a **doppia modalità**: senza argomenti avvia la GUI
+  (`Application.Run(new MainForm())`); con `--headless`/`inspect` aggancia la console (`AttachConsole`,
+  fallback `AllocConsole`) e delega a `HeadlessInspection.Run` (stessa pipeline `PieceInspector`). Vedi 5.20.
+- **`App/HeadlessInspection`** — runner headless dell'App: parsing argomenti (`--demo` / `--macros`+`--scan`,
+  `--no-align`, `--tol`, `--density`, `--seed`), costruzione del pezzo, `PieceInspector`, stampa col
+  formatter.
+- **`App/MainForm`** — viewport Eyeshot (`Design`) + **pannello feature** a sinistra (`SplitContainer`:
+  lista feature `_featureList` sopra, tabella parametri `_paramGrid` sotto) + pipeline QC
+  (Genera/Allinea/Misura). Mantiene lo stato: Breps nominali, campioni scan, `NominalSurface` (cache),
+  `alignment` corrente, entità nuvola mostrata, e — quando lo STEP ha un file macro — `MachinedBeam`,
+  lista macro, feature nominali (`DescribeNominal`) e dizionario delle feature misurate per `FeatureDescriptor.Id`.
+  - costruttore: init del controllo con `BeginInit`/`Viewport` esplicito/`EndInit`; il viewport vive in
+    `Panel2` di un `SplitContainer` (verticale), il pannello feature in `Panel1`; toolbar (campi *dens*,
+    *σmm*, *seed*, *Toll. ±mm*) e statusbar.
   - `OnLoad` → guardia `InitializeViewports` se `Viewports` vuota.
-  - `LoadNominal()` → `BrepImporter` → Breps grigi (memorizzati, invalida la `NominalSurface` cache).
-  - `LoadScan()` → `PlyReader` → `FastPointCloud` blu; azzera l'`alignment`.
+  - `LoadNominal()` → `BrepImporter` → Breps grigi (memorizzati, invalida la `NominalSurface` cache); poi
+    `TryLoadFeatures(stepPath)`.
+  - `TryLoadFeatures` / `FindMacrosFile` → cerca `<base>.macros.json` poi `<base>.json` accanto allo STEP;
+    se trovato ricostruisce il `MachinedBeam` e popola la lista feature coi nominali (`DescribeNominal`);
+    se assente/illeggibile **mostra un warning** (`MessageBox`) senza crashare. Vedi 5.21.
+  - `LoadScan()` → `PlyReader` → `FastPointCloud` blu; azzera l'`alignment`; `ClearMeasuredFeatures`.
+  - `GenerateScanFromNominal()` → **genera lo scan dal Brep nominale** con `ScanGenerator.Sample`
+    (densità/σ/seed da toolbar, `ParseGenerationOptions`); lo imposta come scan corrente; `ClearMeasuredFeatures`. Vedi 5.20.
   - `RunAlign()` → `IcpRegistration.Register`; memorizza la trasformazione, mostra la nuvola allineata,
     riporta RMS/iterazioni in statusbar.
   - `RunMeasure()` → `DeviationMeasurement.Measure` con `alignment` e banda; colora la nuvola
-    (`PointCloud` Multicolor + `Legend`), scrive verdetto + statistiche in statusbar.
+    (`PointCloud` Multicolor + `Legend`), scrive verdetto + statistiche in statusbar; poi
+    `MeasureFeatures(scan)` → `PieceInspector.Inspect(…, alignment, …)` riempie i parametri misurati nella
+    tabella (fallimento non fatale → nota in statusbar). Vedi 5.21.
+  - *(pannello feature)* `BuildInspectionOptions`, `ResetFeatureInspection`, `ClearMeasuredFeatures`,
+    `PopulateFeatureList`, `RefreshFeatureList`, `RenderSelectedFeature` (match nominale↔misurato per nome
+    parametro), helper `Fmt`/`FmtSigned`.
   - *(interni)* `EnsureNominalSurface` (tassella i Breps, chord 0.2 mm, `FromMeshes`),
     `BuildFastCloud`, `BuildColouredCloud` (mappa deviazione→`Legend.RedToBlue9`),
     `EnsureLegend` (crea e aggancia la `Legend` al viewport alla prima misura, vedi 5.16) /
-    `HideLegend` (la nasconde quando si carica/allinea/svuota), `ShowCloud`
+    `HideLegend` (la nasconde quando si carica/genera/allinea/svuota), `ShowCloud`
     (sostituisce l'entità nuvola), `ClearScene()`, `RunGuarded(action)` (errori con MessageBox).
 
 ---
 
-## 7. Test (xUnit, 43 verdi)
+## 7. Test (xUnit, 58 verdi)
 
 - **Generazione/IO:** `ScanGeneratorTests`, `PlyWriterTests`, `PlyReaderTests`, `BrepImporterTests`
   (round-trip del solido "bloccato"), `MeshSurfaceSamplerTests`, `GaussianRangeNoiseTests`,
@@ -403,6 +528,13 @@ outlier).
   **positiva** ≈ offset; offset all'interno → deviazione **negativa**; banda stretta su offset uniforme →
   non conforme (ratio 0); l'`alignment` ICP è applicato prima di misurare (RMS da grande a ≈0); statistiche
   (`Compute`) confrontate con valori calcolati a mano.
+- **Feature (Step 5):** `FeatureSegmentationTests` (cutter esposti/taggati, instradamento foro/scasso,
+  partizione esatta, grezzo→tutto base); `HoleInspectionTests` (Ø nominale da macro, recupero cerchio noto,
+  foro pulito Ø≈40.04, maggiorato +0.5 → rifiutato); `NotchInspectionTests` (nominali A/B/R, scasso pulito
+  len 80.00/dep 60.00/R 9.95, banda raggio stretta rifiuta); `PieceInspectionTests` (orchestratore:
+  demo → 1 scasso + 1 foro in banda, modalità `--no-align`; **`DescribeNominal`** elenca scasso+foro coi
+  nominali e `MeasuredMm = NaN`, con gli stessi `FeatureDescriptor.Id` di `Inspect`; **overload con
+  trasformata** identità misura come `--no-align`).
 
 Eyeshot gira headless anche nei test (translator STEP, tassellazione): la licenza lo consente.
 
