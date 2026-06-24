@@ -7,7 +7,7 @@ scostamenti rispetto alle tolleranze.
 Contiene: architettura, **decisioni e motivazioni** (perché un algoritmo piuttosto che un altro), e un
 **riferimento classe-per-classe e funzione-per-funzione**.
 
-Ultimo aggiornamento: 2026-06-23.
+Ultimo aggiornamento: 2026-06-24.
 
 ---
 
@@ -59,7 +59,11 @@ testabile con xUnit senza aprire finestre. Non è una "shell" separata: è *un* 
 | **2** | App viewport + reader Core (carica Brep + nuvola, sovrapposti) | ✅ fatto, committato |
 | **3** | **Registrazione / ICP**: allinea scansione al nominale | ✅ fatto (Core + test); collegato alla GUI (bottone *Allinea*) |
 | **4** | **Misura tolleranze**: distanza nuvola↔nominale (con segno), statistiche, conformità, mappa deviazione colorata | ✅ fatto (Core + test + GUI) |
-| **F** | Report, GD&T, segmentazione per feature/macro, scanner reale | ⬜ futuro |
+| **5.1** | **Segmentazione per feature**: cutter ri-derivati dal JSON + BVH etichettato → ogni punto a una feature; report deviazione per-feature | ✅ fatto (Core + test) |
+| **5.2** | **Foro in tolleranza**: Ø misurato con fit di cerchio 2D (asse noto dal cutter), verdetto su banda | ✅ fatto (Core + test) |
+| **5.3** | **Scasso in tolleranza**: lunghezza/profondità (fit piani ad orientamento noto) + raggio del raccordo (fit ad asse/centro vincolato) | ✅ fatto (Core + test) |
+| **5.4** | Demo headless (`inspect` nel Generator) + aggiornamento riferimento classi §6 | ⬜ prossimo |
+| **F** | Report, GD&T, scanner reale | ⬜ futuro |
 
 ---
 
@@ -198,6 +202,48 @@ costruito in codice, quindi — esattamente come per `Viewports` (vedi 5.12) —
 adeguati (posizione 24,24; dimensione auto dagli item; `FormatString` di default `{0:+0.###;-0.###;0}` che
 mostra già i valori **con segno**, coerente con la convenzione + esterno / − interno), quindi si impostano
 solo `Items`, range (`SetRange`), `Title`/`Subtitle` e `Visible`.
+
+### 5.17 Segmentazione per feature — **cutter ri-derivati vs riconoscimento topologico (AFR)**
+**Scelto (Step 5.1):** segmentare la nuvola ri-derivando in modo deterministico i **solidi-utensile**
+(cutter) di ogni feature dal `PieceSpec` (stesso codice della generazione, `BeamFactory.BuildMachined`),
+tassellarli e costruire **un** `TriangleBvh` etichettato per triangolo; un punto entro `onSurfaceTol` dal
+cutter più vicino appartiene a quella feature, gli altri sono *base*. **Perché:** il bordo del cutter
+**coincide** con la superficie lavorata della feature, quindi è un primitivo di segmentazione esatto e
+generale (foro e scasso allo stesso modo) e riusa il BVH già impiegato da ICP e misura. Il
+riconoscimento feature "alla cieca" (AFR topologico) è stato **scartato** dall'utente per questo step: gli
+input (macro + parametri nominali + Brep nominale + nuvola) sono noti, non serve indovinare.
+
+### 5.18 Verifica dimensionale — **fit al minimo numero di incognite sfruttando la geometria nota**
+Principio comune a 5.2 e 5.3: poiché orientamento/asse di ogni primitivo si ricavano **esatti** dal
+cutter ri-derivato (e la nuvola è già allineata da ICP), ogni fit si riduce alla sua **incognita minima**,
+più robusto ed economico delle macchine generali (RANSAC/PCA/cilindro non lineare) che servono quando
+l'orientamento è ignoto. Dettaglio della ricerca in `docs/research/notch-parameter-extraction.md`.
+
+- **Foro (5.2):** l'asse del cilindro è la normale di una faccia-tappo piana del cutter ⇒ noto. I punti
+  del bucket foro si proiettano sul piano ⟂ all'asse e si fa un **fit di cerchio 2D algebrico (Kåsa)**,
+  lineare (riusa `Cholesky`), Ø = 2·r. Ø nominale dai **parametri macro** (INTC `C`, fallback `F`). Niente
+  fit di cilindro non lineare. Osservato: foro pulito Ø 40.04 (nom. 40), maggiorato +0.5 ⇒ Ø 41.00 esatto.
+
+- **Scasso (5.3):** lo scasso è un **contorno 2D estruso** ⇒ pareti piane + un raccordo cilindrico
+  ("fit piani + arco"). Tre scelte:
+  - *Pareti (lunghezza/profondità)* — **fit di offset a normale nota** (A3): la normale viene dalla
+    faccia del cutter, quindi resta una sola incognita, l'offset, stimato come **mediana** robusta di
+    `n̂·p` (no eigen-solver, no RANSAC, robusto agli outlier per costruzione). Lunghezza = parete *back*
+    (≈`A`), profondità = parete *depth* (≈`B`); le due pareti si identificano confrontando l'offset
+    nominale del cutter con i valori macro.
+  - *Raccordo (raggio)* — un fit di cerchio **libero** è mal condizionato sul quarto d'arco del raccordo
+    (Kåsa dà R≈9.66, una raffinazione geometrica diverge a R≈11.05). Si sfrutta invece la **tangenza**:
+    il raccordo è tangente alle due pareti già misurate, quindi il centro è vincolato a
+    `corner + R·(û_back+û_depth)` e resta **una sola incognita** R, trovata per *golden-section* su
+    `Σ(‖p−centro(R)‖−R)²`. Osservato: R≈9.95 (dev −0.05 mm), un ordine di grandezza meglio del fit libero.
+    (Generalizzazione per spigoli non a 90°: centro sulla **bisettrice** a distanza `R/sin(θ/2)`.)
+  - *Routing dei punti* — ogni punto va alla **faccia nominale più vicina**: entro una banda dal piano
+    di una parete → quella parete; residuo vicino allo spigolo e fuori da entrambe le pareti → raccordo.
+
+- **Limite noto:** lunghezza/profondità sono misurate come **posizioni nel frame allineato**, quindi
+  ereditano l'accuratezza della registrazione (il raggio è intrinseco). Coerente con 5.2; l'upgrade
+  invariante all'allineamento (distanze *feature-relative*: parete→fine trave, parete→bordo anima) è
+  documentato nella nota di ricerca.
 
 ---
 

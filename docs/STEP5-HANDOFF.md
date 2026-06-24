@@ -9,7 +9,7 @@
 1. `git pull` (questo commit è su `master`, remote `origin`
    = https://github.com/gianluclerici/quality-control.git).
 2. Build + test: `dotnet test Ficep.QualityControl/Ficep.QualityControl.Core.Tests/Ficep.QualityControl.Core.Tests.csproj`
-   → atteso **46 passed**.
+   → atteso **53 passed**.
 3. I dati demo (`*.ply`, `*.step`, `*.macros.json`) **non sono in git** (artefatti generati,
    `.gitignore`). Rigenerali (vedi §5) se servono per GUI/headless.
 4. Regole di progetto da rispettare (da `CLAUDE.md`): **Eyeshot MCP come fonte primaria** per le API
@@ -41,8 +41,8 @@ cutter, non da una mappatura fragile di lettere macro).
 |------|-------------|-------|
 | **5.1** | Esporre i cutter dal `BeamFactory` + **segmentazione per feature** + report deviazione per-feature + test | ✅ **FATTO** (questo commit) |
 | **5.2** | **Parametro del foro in tolleranza**: Ø nominale dai parametri macro (input); asse dalla geometria del cutter; Ø misurato con fit di cerchio 2D (Kåsa lineare); banda → in/fuori tolleranza | ✅ **FATTO** |
-| **5.3** | Parametri dello **scasso** (lunghezza/profondità/raggio) da fit piani+arco | ⬜ prossimo |
-| **5.4** | **Demo headless** (comando `inspect` nel Generator) + **aggiornamento `docs/ARCHITECTURE.md`** (roadmap, decisioni, riferimento classi) | ⬜ |
+| **5.3** | Parametri dello **scasso** (lunghezza/profondità/raggio) da fit piani+arco | ✅ **FATTO** |
+| **5.4** | **Demo headless** (comando `inspect` nel Generator) + **riferimento classi §6 di `docs/ARCHITECTURE.md`** | ⬜ prossimo |
 
 Procediamo **uno step alla volta**, con un check con l'utente tra l'uno e l'altro.
 
@@ -133,7 +133,47 @@ dimensionale**: per la feature `Hole` si misura il Ø della nuvola e lo si giudi
 - Foro maggiorato sintetico (raggio nominale+0.5 attorno all'asse reale) → Ø misurato **41.000** esatto
   (= nominale + 2δ): banda ±0.2 lo **rifiuta**, banda ±2.0 lo accetta.
 
-Tutti i **50 test verdi** (46 + 4). `docs/ARCHITECTURE.md` ancora **non** aggiornato (per piano: a fine Step 5).
+Tutti i **50 test verdi** (46 + 4).
+
+## 3-ter. Cosa è stato fatto nello Step 5.3 (scasso in tolleranza)
+
+Primo verdetto su una feature **non-cilindrica**. Lo scasso (SCAI01) è un **contorno 2D estruso** ⇒
+pareti piane + un raccordo: si misurano **lunghezza / profondità / raggio** ("fit piani + arco").
+
+### Ricerca
+Tecniche valutate (plane fit: PCA/TLS, RANSAC, offset-only; arc/cyl: cilindro non lineare, Kåsa,
+geometrico, vincolato) in **`docs/research/notch-parameter-extraction.md`**, con la scelta motivata.
+
+### Idea (scelte, dettaglio in `ARCHITECTURE.md` §5.18)
+- Lo scasso demo (SCAI01) si espande in **4 cutter**: 2 blocchi flangia (tutti piani) + 2 estrusioni del
+  contorno anima che portano il profilo. Il cutter-profilo è quello con una **faccia non-piana** (il
+  raccordo, `TabulatedSurf`); da lì: asse di estrusione = normale delle facce-tappo, normali/offset delle
+  pareti, e la faccia raccordo.
+- **Pareti** (lunghezza `A`, profondità `B`): normale **nota** dal cutter ⇒ fit del solo **offset** =
+  mediana robusta di `n̂·p` (in coord. mondo, così l'offset ≈ valore macro). Le due pareti (back/depth) si
+  identificano confrontando l'offset con i nominali `A`/`B`.
+- **Raggio** raccordo: fit di cerchio libero mal condizionato sul quarto d'arco (Kåsa 9.66; geometrico
+  diverge a 11.05). Si usa la **tangenza** alle due pareti misurate ⇒ centro vincolato, **1 sola
+  incognita** R, golden-section ⇒ R≈9.95.
+- **Routing**: ogni punto alla faccia nominale più vicina (banda dal piano parete; residuo allo spigolo
+  fuori dalle pareti = raccordo).
+
+### File nuovi — `Features/`
+- `PlaneFit.cs` — `internal`: fit di **offset a normale nota** (mediana robusta) + `Median`.
+- `ExtrudedProfile.cs` — `internal`: deriva dal cutter asse+base profilo, pareti `WallLine`
+  (normale/offset mondo + retta in coord. profilo), pareti **back/depth**, e lo **spigolo**.
+- `NotchInspection.cs` — `public`: `Inspect(notchCutters, scanPoints, NotchNominals, NotchTolerance?,
+  wallBandMm) → FeatureInspectionReport` (parametri Length/Depth/Radius) + static `NominalsFromMacro`
+  (A/B/R) + il fit del raggio vincolato (tangente). `NotchNominals`/`NotchTolerance` `record struct`.
+- `CircleFit.cs` **invariato** (resta Kåsa, usato dal foro; il fit libero è inadatto al raccordo).
+
+### Test nuovo — `Core.Tests/NotchInspectionTests.cs` (3 fatti)
+- `NominalsFromMacro` SCAI01 → (80,60,10).
+- Scasso pulito (demo) → length **80.004**, depth **60.000**, radius **9.949**, tutto in banda 0.5.
+- Banda raggio stretta (0.02) **rifiuta**, larga (1.0) accetta.
+
+Tutti i **53 test verdi** (50 + 3). `docs/ARCHITECTURE.md` aggiornato: roadmap §3, decisioni §5.17–§5.18,
+data; resta da fare il **riferimento classi §6** (rimandato allo Step 5.4 col `inspect` headless).
 
 ## 4. Decisioni di design rilevanti (per non rifare i ragionamenti)
 
