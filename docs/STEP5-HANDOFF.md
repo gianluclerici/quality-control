@@ -2,7 +2,7 @@
 
 > Documento di **ripresa lavoro** (sync tra computer). Leggilo per intero all'inizio della prossima
 > sessione di Claude Code: contiene lo stato esatto, cosa è già fatto e come, e i prossimi passi.
-> Ultimo aggiornamento: 2026-06-23.
+> Ultimo aggiornamento: 2026-06-24.
 
 ## 0. Come ripartire (checklist rapida)
 
@@ -40,8 +40,8 @@ cutter, non da una mappatura fragile di lettere macro).
 | Step | Descrizione | Stato |
 |------|-------------|-------|
 | **5.1** | Esporre i cutter dal `BeamFactory` + **segmentazione per feature** + report deviazione per-feature + test | ✅ **FATTO** (questo commit) |
-| **5.2** | **Parametro del foro in tolleranza**: Ø nominale dalla geometria del cutter; Ø misurato con fit di cerchio 2D (asse noto → fit lineare Kåsa); banda → in/fuori tolleranza | ⬜ prossimo |
-| **5.3** | Parametri dello **scasso** (lunghezza/profondità/raggio) da fit piani+arco | ⬜ |
+| **5.2** | **Parametro del foro in tolleranza**: Ø nominale dai parametri macro (input); asse dalla geometria del cutter; Ø misurato con fit di cerchio 2D (Kåsa lineare); banda → in/fuori tolleranza | ✅ **FATTO** |
+| **5.3** | Parametri dello **scasso** (lunghezza/profondità/raggio) da fit piani+arco | ⬜ prossimo |
 | **5.4** | **Demo headless** (comando `inspect` nel Generator) + **aggiornamento `docs/ARCHITECTURE.md`** (roadmap, decisioni, riferimento classi) | ⬜ |
 
 Procediamo **uno step alla volta**, con un check con l'utente tra l'uno e l'altro.
@@ -95,6 +95,45 @@ usa lo **stesso BVH esatto** (`TriangleBvh`) già usato da ICP e dalla misura.
 Il pezzo demo produce **5 cutter**: **SCAI01 → 4 (Notch)**, **INTC01 → 1 (Hole)** — utile da ricordare,
 una macro può espandersi in più cutter. Su nuvola pulita densità 0.3 pt/mm² (~341k punti):
 `base=339629, hole=298, notch=872`. Tutti i **46 test verdi**.
+
+## 3-bis. Cosa è stato fatto nello Step 5.2 (foro in tolleranza)
+
+Tutto in `Ficep.QualityControl.Core/Features` (headless, testabile), nessuna GUI. Primo **verdetto
+dimensionale**: per la feature `Hole` si misura il Ø della nuvola e lo si giudica contro il nominale.
+
+### Idea
+- **Asse del cilindro = noto, dalla geometria del cutter** (non da lettere macro): il cutter del foro è un
+  cerchio estruso → ha due **facce-tappo piane** (`PlanarSurf`). Si legge l'asse dalla prima faccia piana:
+  `Brep.Face.IsPlanar()` → `Plane.AxisZ` = direzione asse, `Plane.Origin` = centro tappo = punto sull'asse.
+  (Spike confermato: il cutter demo ha 3 facce — 1 `TabulatedSurf` laterale + 2 `PlanarSurf` tappi con
+  normali (0,0,±1); la laterale **non** è una `CylindricalSurface`, quindi il raggio non è esposto lì.)
+- **Ø nominale = dai parametri macro** (sono input disponibili — scelta confermata dall'utente): INTC01
+  costruisce il foro come cilindro di raggio `C/2` (o `F/2` sui profili tondi) ⇒ Ø = parametro `C` (fallback
+  `F`). Vedi `HoleInspection.NominalDiameterFromMacro`.
+- **Ø misurato**: i punti scan del bucket foro (da `FeatureMeasurement`, già allineati) si proiettano sul
+  piano ⟂ all'asse noto e si fa un **fit di cerchio 2D algebrico (Kåsa)** → centro+raggio; Ø = 2·r. Con
+  l'asse noto NON serve un fit di cilindro non lineare.
+
+### File nuovi — `Features/`
+- `CircleFit.cs` — `internal`: fit di cerchio Kåsa (`u²+v²+Du+Ev+F=0`), risolve le normali 3×3 **riusando
+  `Registration/Cholesky`** (la matrice è la Gram SPD di `[u,v,1]`). Ritorna `CircleFitResult(CenterU,CenterV,Radius)`.
+- `CutterAxis.cs` — `internal`: `CylinderAxis(Vec3 Point, Vec3 Direction)` + `FromCutter(Brep)` (asse dalla
+  faccia-tappo piana).
+- `FeatureParameter.cs` — `public record struct (Name, NominalMm, MeasuredMm, ToleranceMm, InTolerance)` +
+  `DeviationMm` + factory `Judge(name, nominal, measured, tol)` (banda simmetrica).
+- `FeatureInspectionReport.cs` — `public record`: `Feature` + `Parameters` + `PointCount` + `InTolerance`
+  (tutti i parametri in banda).
+- `HoleInspection.cs` — `public`: `Inspect(hole, scanPoints, nominalDiameterMm, diameterToleranceMm=0.5) →
+  FeatureInspectionReport` + static `NominalDiameterFromMacro(MacroSpec)`.
+
+### Test nuovo — `Core.Tests/HoleInspectionTests.cs` (4 fatti)
+- `NominalDiameterFromMacro` su INTC01 → 40.
+- `CircleFit` recupera un cerchio noto (centro+raggio) a 6 cifre.
+- Foro pulito (demo) → Ø≈nominale, in banda. Osservato: **473 punti, Ø misurato 40.042 (dev +0.04 mm)**.
+- Foro maggiorato sintetico (raggio nominale+0.5 attorno all'asse reale) → Ø misurato **41.000** esatto
+  (= nominale + 2δ): banda ±0.2 lo **rifiuta**, banda ±2.0 lo accetta.
+
+Tutti i **50 test verdi** (46 + 4). `docs/ARCHITECTURE.md` ancora **non** aggiornato (per piano: a fine Step 5).
 
 ## 4. Decisioni di design rilevanti (per non rifare i ragionamenti)
 
